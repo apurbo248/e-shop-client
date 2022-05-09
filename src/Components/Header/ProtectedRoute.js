@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React   from "react";
 import { useSelector } from "react-redux";
-import { useLocation, Navigate, Outlet, Route } from "react-router-dom";
+import { useLocation, Navigate, Outlet } from "react-router-dom";
 
 const useAuth = () => {
   const { isAuthenticated } = useSelector((state) => state.userInfo);

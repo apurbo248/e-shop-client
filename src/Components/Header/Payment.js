@@ -1,9 +1,8 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
+
 import CheckoutForm from "./CheckoutForm";
 import Navbar from "./Navbar";
 

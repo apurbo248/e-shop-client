@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router";
+import {  useParams } from "react-router";
 import Pagination from "react-js-pagination";
 import Slider from "@mui/material/Slider";
 import { getProducts } from "../Redux/Action/Product";
-import Loader from "./Loader";
+
 import Navbar from "./Navbar";
 import Product from "./Product";
 

@@ -14,11 +14,7 @@ const Login = () => {
   const { handleSubmit } = useForm();
   const location = useLocation();
   const [newUser, setNewUser] = useState({});
-  const { error, isAuthenticated, user } = useSelector(
-    (state) => state.userInfo
-  );
-
-  console.log(user);
+  const { error, isAuthenticated ,loading} = useSelector((state) => state.userInfo);
 
   const handleValue = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -44,8 +40,8 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <section class="text-gray-600 body-font">
-        <div class="container px-5 py-18 mx-auto flex flex-wrap items-center">
+      <section class="text-gray-600 body-font ">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
           <div class=" md:w-2/6 bg-gray-100 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-10">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h2 class="text-gray-900 text-lg font-medium title-font mb-2">
@@ -77,7 +73,9 @@ const Login = () => {
                 />
               </div>
               <button class="text-white bg-mainBaseColor border-0 py-2 px-8 focus:outline-none  rounded text-md">
-                Login
+                Login {loading ? (<div class="fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center">
+                  <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-900"></div>
+                </div>):("")}
               </button>
               <p class="text-xs text-gray-500 mt-3">
                 Don't have an account?

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Country, State } from "country-state-city";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { saveShippingInfo } from "../Redux/Action/Cart";
 import { useNavigate } from "react-router";
 import Navbar from "./Navbar";

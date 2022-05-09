@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors } from "../Redux/Action/Order";
 import { myOrders } from "../Redux/Action/Order";
 import { Link } from "react-router-dom";
-import Sidebar from "../Admin/Sidebar";
+
 import Loader from "./Loader";
 import Navbar from "./Navbar";
 
 const MyOrder = () => {
-  const { user } = useSelector((state) => state.userInfo);
+ 
   const { orders, error, loading } = useSelector((state) => state.MyOrder);
   const dispatch = useDispatch();
   console.log(orders);

@@ -6,7 +6,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   const searchHandler = (e) => {
-       // e.preventDefault();
+     
     console.log(keyword);
     if (keyword.trim()) {
       navigate(`/v1/products/${keyword}`);

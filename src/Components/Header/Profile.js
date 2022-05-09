@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React  from "react";
+
 import { Link } from "react-router-dom";
 import img from "../img.jpg";
-import { loadUser } from "../Redux/Action/User";
+
 import Navbar from "./Navbar";
 
-const Profile = ({user}) => {
+const Profile = () => {
 
 
   return (
@@ -33,19 +33,19 @@ const Profile = ({user}) => {
                 Name
               </h2>
               <h2 class="text-sm title-font text-gray-500  font-medium">
-                {user.name}
+                Name
               </h2>
               <h2 class="mt-14 text-lg title-font text-gray-900  font-medium">
                 Email
               </h2>
               <h2 class="text-sm title-font text-gray-500  font-medium">
-                {user.email}
+                Name
               </h2>
               <h2 class="mt-14 text-lg title-font text-gray-900  font-medium">
                 Joined on
               </h2>
               <h2 class="text-sm title-font text-gray-500  font-medium">
-                {String(user.createdAt).substr(0, 10)}
+                Name
               </h2>
 
               <div class="flex md:mt-20 ">

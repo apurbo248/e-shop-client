@@ -69,7 +69,7 @@ const App = () => {
         <Route path="/v1/cart" element={<Cart />} />
 
         <Route path="/*" element={<ProtectedRoute />}>
-          <Route path="me" element={<Profile user={user} />} />
+          <Route path="me" element={<Profile  />} />
           <Route path="my_orders" element={<MyOrder />} />
           <Route path="v1/order/:id" element={<OrderInfo />} />
 

@@ -1,7 +1,6 @@
 import {
   CardElement,
-  CardNumberElement,
-  PaymentElement,
+
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";

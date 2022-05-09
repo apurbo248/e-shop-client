@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
 
 const EditProfile = ({userData}) => {
- // console.log(userData)
+
   let [isOpen, setIsOpen] = useState(true);
 
   function closeModal() {

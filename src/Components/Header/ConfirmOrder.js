@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { myOrders } from "../Redux/Action/Order";
+
 import Navbar from "./Navbar";
 
 const ConfirmOrder = () => {
-  const dispatch = useDispatch();
+
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.userInfo);
   const { orders } = useSelector((state) => state.MyOrder);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../Redux/Action/User";
@@ -17,41 +17,34 @@ const Registration = () => {
     password: "",
   });
 
+  const { error, isAuthenticated } = useSelector((state) => state.userInfo);
 
-  const { error, isAuthenticated } = useSelector(
-    (state) => state.userInfo
-  );
- 
-
-
+  console.log(error)
   const handleValue = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
-
 
   const onSubmit = async (e) => {
     const { name, email, password } = newUser;
     dispatch(register(name, email, password));
   };
 
-
   useEffect(() => {
     if (error) {
-      toast.error(error);
+      // toast.error(error);
+      alert("dfd");
       dispatch(clearErrors());
     } else if (isAuthenticated) {
       toast.success("Registration successfully");
-      navigate("/v1/user/login")
+      navigate("/v1/user/login");
     }
-  }, [error, dispatch, isAuthenticated]);
-
-
+  }, [error, dispatch, isAuthenticated,]);
 
   return (
     <>
       <Navbar />
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-18 mx-auto flex flex-wrap items-center">
+        <div class="container px-5 py-20 mx-auto flex flex-wrap items-center">
           <div class=" md:w-2/6 bg-gray-100 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-10">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h2 class="text-gray-900 text-lg font-medium title-font mb-2">
