@@ -17,6 +17,8 @@ const Navbar = () => {
   const { error, isAuthenticated, user } = useSelector(
     (state) => state.userInfo
   );
+   
+    console.log(isAuthenticated, user);
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
@@ -25,7 +27,11 @@ const Navbar = () => {
     toast.success("Logout successfully");
   };
 
-  useEffect(() => {}, [dispatch]);
+  useEffect(() => {
+
+
+    
+  }, [dispatch]);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -53,13 +59,13 @@ const Navbar = () => {
                 </div>
                 <div className="hidden sm:block sm:ml-6 mx-auto">
                   <div className="flex space-x-4">
-                    {isAuthenticated && user && user.role === "admin" && (
+
                       <Link to="/admin_dashboard">
                         <a className=" text-white px-3 py-2 rounded-md text-sm font-medium">
                           Dashboard
                         </a>
                       </Link>
-                    )}
+                  
                     <Link to="/v1/products">
                       <a className=" text-white px-3 py-2 rounded-md text-sm font-medium">
                         Products
@@ -74,19 +80,19 @@ const Navbar = () => {
                     type="button"
                     className=" p-1 rounded-full text-gray-400 "
                   >
-                    <a class="  text-xs text-gray-900  rounded-lg sm:mt-0  ">
-                      <span class="badge -mb-4 bg-mainBaseColor rounded-full  text-center  text-white text-sm mr-2 mt-2 ">
+                   
+                      <span class="badge  bg-mainBaseColor rounded-full  text-center  text-white text-xs mr-2  -mb- mt-2 ">
                         {cartItems.length}
                       </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8 -ml-4 "
+                        class="h-6 w-6 -ml-4 -mt-6"
                         viewBox="0 0 20 20"
                         fill="#fff"
                       >
                         <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                       </svg>
-                    </a>
+                    
                   </button>
                 </Link>
                 {isAuthenticated ? (

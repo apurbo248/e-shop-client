@@ -5,9 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
 import Navbar from "./Navbar";
 import img from "../img.jpg";
+import b1 from "../Images/b1.jpg";
+import b2 from "../Images/b2.jpg";
+import b3 from "../Images/b3.jpg";
+import b4 from "../Images/b4.jpg";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import "swiper/swiper.min.css";
-import { Autoplay,Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import Footer from "./Footer";
 
 const Home = () => {
@@ -29,7 +33,92 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <section className="h-screen mt-16 z-30">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 pt-24 mx-auto">
+          <Swiper
+            navigation={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Navigation]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <>
+                <div class="flex  -m-4">
+                  <div class="w-full py-4">
+                    <div class="bg-gray-100  rounded-lg">
+                      <img
+                        class="h-100 rounded w-full object-cover object-center mb-6"
+                        src={b1}
+                        alt="content"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            </SwiperSlide>
+            {/* <SwiperSlide>
+              <>
+                <div class="flex flex-wrap -m-4">
+                  <div class="w-full py-4">
+                    <div class="bg-gray-100  rounded-lg">
+                      <img
+                        class="h-full rounded w-full object-cover object-center mb-6"
+                        src={b2}
+                        alt="content"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            </SwiperSlide>
+            <SwiperSlide>
+              <>
+                <div class="flex flex-wrap -m-4">
+                  <div class="w-full py-4">
+                    <div class="bg-gray-100  rounded-lg">
+                      <img
+                        class="h-full rounded w-full object-cover object-center mb-6"
+                        src={b3}
+                        alt="content"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            </SwiperSlide>
+            <SwiperSlide>
+              <>
+                <div class="flex flex-wrap -m-4">
+                  <div class="w-full py-4">
+                    <div class="bg-gray-100  rounded-lg">
+                      <img
+                        class="h-full rounded w-full object-cover object-center mb-6"
+                        src={b4}
+                        alt="content"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            </SwiperSlide> */}
+          </Swiper>
+
+          {/* <div class="flex flex-wrap -m-4">
+      <div class="w-full py-4">
+        <div class="bg-gray-100  rounded-lg">
+          <img class="h-80 rounded w-full object-cover object-center mb-6" src={img} alt="content"/>
+         
+        </div>
+      </div>
+      
+      
+    </div> */}
+        </div>
+      </section>
+      {/* <section className="container mt-20 z-30">
         <Swiper
           navigation={true}
           autoplay={{
@@ -42,29 +131,29 @@ const Home = () => {
           <SwiperSlide>
             <>
               {" "}
-              <img src={img} className="" />
+              <img src={img} className="lg:w-96 w-64 lg:h-full h-64  object-center rounded" />
             </>
           </SwiperSlide>
           <SwiperSlide>
             <>
               {" "}
-              <img src={img} className="" />
+              <img src={img} className="lg:w-96 w-64 lg:max-h-64 h-64  object-center rounded" />
             </>
           </SwiperSlide>
           <SwiperSlide>
             <>
               {" "}
-              <img src={img} className="" />
+              <img src={img} className="lg:w-96 w-64 lg:h-full h-64  object-center rounded" />
             </>
           </SwiperSlide>
           <SwiperSlide>
             <>
               {" "}
-              <img src={img} className="" />
+              <img src={img} className="lg:w-96 w-64 lg:h-full h-64  object-center rounded" />
             </>
           </SwiperSlide>
         </Swiper>
-      </section>
+      </section> */}
 
       <section className="pt-4 pb-2 bg-gray-100">
         {loading ? (

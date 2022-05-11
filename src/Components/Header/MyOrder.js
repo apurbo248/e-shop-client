@@ -6,14 +6,16 @@ import { Link } from "react-router-dom";
 
 import Loader from "./Loader";
 import Navbar from "./Navbar";
+import toast, { Toaster } from "react-hot-toast";
 
 const MyOrder = () => {
  
   const { orders, error, loading } = useSelector((state) => state.MyOrder);
   const dispatch = useDispatch();
-  console.log(orders);
+  console.log(error);
   useEffect(() => {
     if (error) {
+       toast.error(error);
       dispatch(clearErrors());
     }
     dispatch(myOrders());
@@ -41,7 +43,7 @@ const MyOrder = () => {
                     <th scope="col" className="px-6 py-3">
                       Amount
                     </th>
-                   
+
                     <th scope="col" className=" py-3">
                       <span className=""></span>
                     </th>
@@ -110,6 +112,7 @@ const MyOrder = () => {
             </div>
           </div>
         )}
+        <Toaster />
       </div>
     </>
   );

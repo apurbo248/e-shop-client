@@ -45,7 +45,7 @@ import Footer from "./Components/Header/Footer";
 
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
-  console.log(user);
+console.log(user)
   useEffect(() => {
     Store.dispatch(loadUser());
   }, []);
@@ -69,7 +69,7 @@ const App = () => {
         <Route path="/v1/cart" element={<Cart />} />
 
         <Route path="/*" element={<ProtectedRoute />}>
-          <Route path="me" element={<Profile  />} />
+          <Route path="me" element={<Profile user={user} />} />
           <Route path="my_orders" element={<MyOrder />} />
           <Route path="v1/order/:id" element={<OrderInfo />} />
 

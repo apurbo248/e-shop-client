@@ -19,7 +19,7 @@ const Registration = () => {
 
   const { error, isAuthenticated } = useSelector((state) => state.userInfo);
 
-  console.log(error)
+
   const handleValue = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
@@ -31,8 +31,8 @@ const Registration = () => {
 
   useEffect(() => {
     if (error) {
-      // toast.error(error);
-      alert("dfd");
+     toast.error(error);
+    
       dispatch(clearErrors());
     } else if (isAuthenticated) {
       toast.success("Registration successfully");

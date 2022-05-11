@@ -5,7 +5,7 @@ import img from "../img.jpg";
 
 import Navbar from "./Navbar";
 
-const Profile = () => {
+const Profile = ({user}) => {
 
 
   return (
@@ -33,7 +33,7 @@ const Profile = () => {
                 Name
               </h2>
               <h2 class="text-sm title-font text-gray-500  font-medium">
-                Name
+                {user&&user.name}
               </h2>
               <h2 class="mt-14 text-lg title-font text-gray-900  font-medium">
                 Email

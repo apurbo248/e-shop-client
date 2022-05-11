@@ -14,6 +14,7 @@ const Login = () => {
   const { handleSubmit } = useForm();
   const location = useLocation();
   const [newUser, setNewUser] = useState({});
+ 
   const { error, isAuthenticated ,loading} = useSelector((state) => state.userInfo);
 
   const handleValue = (e) => {

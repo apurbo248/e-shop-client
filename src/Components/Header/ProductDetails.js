@@ -52,7 +52,7 @@ const ProductDetails = ({ isAuthenticated }) => {
     };
     dispatch(newReview(reviewData));
     toast.success("review added");
-    // window.location.reload();
+
   };
   useEffect(() => {
     dispatch(getProductDetails(id));
