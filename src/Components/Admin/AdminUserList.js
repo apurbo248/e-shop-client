@@ -5,11 +5,10 @@ import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 
-import Loader from "../Header/Loader";
 import Sidebar from "./Sidebar";
-import { deleteProduct, getProducts } from "../Redux/Action/Product";
-import { allUser, clearErrors } from "../Redux/Action/User";
-import { Navigate } from "react-router";
+
+import { allUser, clearErrors, deleteUser } from "../Redux/Action/User";
+
 import { Link } from "react-router-dom";
 
 const AdminUserList = () => {
@@ -31,7 +30,8 @@ const AdminUserList = () => {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        dispatch(deleteProduct(id));
+        dispatch(deleteUser(id));
+        window.location.reload();
       }
     });
   };
@@ -46,23 +46,22 @@ const AdminUserList = () => {
       dispatch(clearErrors());
     }
     if (isDeleted) {
-      toast.success("Product delete successfully");
-      dispatch({ type: "DELETE_PRODUCT_RESET" });
-      //Navigate("/admin_dashboard")
+      toast.success("User delete successfully");
+      dispatch({ type: "DELETE_USER_RESET" });
     }
 
     dispatch(allUser());
   }, [dispatch, deleteError, isDeleted, error]);
 
   return (
-    <main className="bg-gray-100 dark:bg-gray-800  h-screen overflow-hidden ">
+   <main className="bg-gray-100 dark:bg-gray-800  h-screen overflow-hidden ">
       <div className="md:flex users-start justify-between">
-        <div className=" md:w-2/12 md:pr-   ">
+        <div className=" md:w-2/12    ">
           <Sidebar />
         </div>
-        <div className="  w-full ml-0 md:ml-4 mt-mmt1  md:mt-24 md:px-6 h-28 md:space-y-4 ">
-          <div className="overflow-auto h-screen ">
-            <div className=" overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
+          <div className="overflow-auto h-screen  mt-20 pt-16  pb-4 md:mt-0 md:pt-0 md:pb-4 px-1">
+            <div className=" overflow-x-auto  shadow-md sm:rounded-lg">
               <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
@@ -72,7 +71,7 @@ const AdminUserList = () => {
                     <th scope="col" className="px-6 py-3">
                       Name
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                     <th scope="col" className="px-6 py-3">
                       Email
                     </th>
                     <th scope="col" className="px-6 py-3 text-center">

@@ -6,7 +6,7 @@ import img from "../img.jpg";
 import Navbar from "./Navbar";
 
 const Profile = ({user}) => {
-
+console.log(user)
 
   return (
     <>
@@ -33,19 +33,19 @@ const Profile = ({user}) => {
                 Name
               </h2>
               <h2 class="text-sm title-font text-gray-500  font-medium">
-                {user&&user.name}
+                {user && user.name}
               </h2>
               <h2 class="mt-14 text-lg title-font text-gray-900  font-medium">
                 Email
               </h2>
               <h2 class="text-sm title-font text-gray-500  font-medium">
-                Name
+                {user && user.email}
               </h2>
               <h2 class="mt-14 text-lg title-font text-gray-900  font-medium">
                 Joined on
               </h2>
               <h2 class="text-sm title-font text-gray-500  font-medium">
-                Name
+                {String(user&&user.createdAt).substr(0, 10)}
               </h2>
 
               <div class="flex md:mt-20 ">

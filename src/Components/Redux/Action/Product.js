@@ -6,9 +6,10 @@ export const createProduct = (productData) => async (dispatch) => {
 
     const config = {
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
     };
     const { data } = await axios.post(
-      "https://tranquil-bayou-10024.herokuapp.com/v1/product/create",
+      "http://localhost:1234/v1/product/create",
       productData,
       config
     );
@@ -31,9 +32,10 @@ export const updateProduct = (id, productData) => async (dispatch) => {
 
     const config = {
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
     };
     const { data } = await axios.put(
-      `https://tranquil-bayou-10024.herokuapp.com/v1/product/${id}`,
+      `http://localhost:1234/v1/product/${id}`,
       productData,
       config
     );
@@ -56,9 +58,9 @@ export const getProducts =
       dispatch({ type: "ALL_PRODUCT_REQUEST" });
 
       const { data } = await axios.get(
-        `https://tranquil-bayou-10024.herokuapp.com/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
+        `http://localhost:1234/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
       );
-      console.log(data);
+    
       dispatch({
         type: "ALL_PRODUCT_SUCCESS",
         payload: data,
@@ -75,7 +77,8 @@ export const getAdminProducts = () => async (dispatch) => {
     dispatch({ type: "ADMIN_ALL_PRODUCT_REQUEST" });
 
     const { data } = await axios.get(
-      "https://tranquil-bayou-10024.herokuapp.com/v1/admin/all_products"
+      "http://localhost:1234/v1/admin/all_products",
+      
     );
     console.log(data);
     dispatch({
@@ -93,9 +96,7 @@ export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: "PRODUCT_DETAILS_REQUEST" });
 
-    const { data } = await axios.get(
-      `https://tranquil-bayou-10024.herokuapp.com/v1/product/${id}`
-    );
+    const { data } = await axios.get(`http://localhost:1234/v1/product/${id}`);
 
     dispatch({
       type: "PRODUCT_DETAILS_SUCCESS",
@@ -113,9 +114,10 @@ export const newReview = (reviewData) => async (dispatch) => {
     dispatch({ type: "NEW_REVIEW_REQUEST" });
     const config = {
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
     };
     const { data } = await axios.put(
-      "https://tranquil-bayou-10024.herokuapp.com/v1/create/review",
+      "http://localhost:1234/v1/create/review",
       reviewData,
       config
     );
@@ -137,7 +139,8 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch({ type: "DELETE_PRODUCT_REQUEST" });
 
     const { data } = await axios.delete(
-      `https://tranquil-bayou-10024.herokuapp.com/v1/product/${id}`
+      `http://localhost:1234/v1/product/${id}`,
+      { withCredentials: true }
     );
     console.log(data);
     dispatch({
@@ -156,7 +159,8 @@ export const allReview = (id) => async (dispatch) => {
     dispatch({ type: "ALL_REVIEW_REQUEST" });
 
     const { data } = await axios.get(
-      `https://tranquil-bayou-10024.herokuapp.com/v1/reviews?id=${id}`
+      `http://localhost:1234/v1/reviews?id=${id}`,
+      { withCredentials: true }
     );
 
     dispatch({
@@ -176,7 +180,8 @@ export const deleteReview = (id, productId) => async (dispatch) => {
     dispatch({ type: "DELETE_REVIEW_REQUEST" });
 
     const { data } = await axios.delete(
-      `https://tranquil-bayou-10024.herokuapp.com/v1/delete_review?id=${id}&productId=${productId}`
+      `http://localhost:1234/v1/delete_review?id=${id}&productId=${productId}`,
+      { withCredentials: true }
     );
 
     dispatch({

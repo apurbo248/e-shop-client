@@ -19,7 +19,6 @@ const Registration = () => {
 
   const { error, isAuthenticated } = useSelector((state) => state.userInfo);
 
-
   const handleValue = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
@@ -31,14 +30,14 @@ const Registration = () => {
 
   useEffect(() => {
     if (error) {
-     toast.error(error);
-    
+      toast.error(error);
       dispatch(clearErrors());
-    } else if (isAuthenticated) {
+    } 
+    if (isAuthenticated) {
       toast.success("Registration successfully");
-      navigate("/v1/user/login");
+     window.location.href= "/v1/user/login";
     }
-  }, [error, dispatch, isAuthenticated,]);
+  }, [error, dispatch, isAuthenticated, navigate]);
 
   return (
     <>

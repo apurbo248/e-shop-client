@@ -1,9 +1,7 @@
 import axios from "axios";
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(
-    `https://tranquil-bayou-10024.herokuapp.com/v1/product/${id}`
-  );
+  const { data } = await axios.get(`http://localhost:1234/v1/product/${id}`);
 
   dispatch({
     type: "ADD_TO_CART",
@@ -30,7 +28,7 @@ export const removeToCart = (id) => async (dispatch, getState) => {
 
 export const saveShippingInfo = (data) => async (dispatch) => {
   console.log(data);
- 
+
   dispatch({
     type: "SAVE_SHIPPING_INFO",
     payload: data,

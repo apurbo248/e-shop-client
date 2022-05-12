@@ -10,9 +10,9 @@ import Sidebar from "./Sidebar";
 import {
   deleteProduct,
   getAdminProducts,
-  getProducts,
+  clearErrors,
 } from "../Redux/Action/Product";
-import { clearErrors } from "../Redux/Action/User";
+
 import { Navigate } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -52,9 +52,9 @@ const ProductList = () => {
       dispatch(clearErrors());
     }
     if (isDeleted) {
-      //toast.success("Product delete successfully");
+      toast.success("Product delete successfully");
       dispatch({ type: "DELETE_PRODUCT_RESET" });
-      //Navigate("/admin_dashboard")
+      window.location.reload();
     }
 
     dispatch(getAdminProducts());
@@ -62,22 +62,22 @@ const ProductList = () => {
 
   return (
     <main className="bg-gray-100 dark:bg-gray-800  h-screen overflow-hidden ">
-      <div className="md:flex items-start justify-between">
-        <div className=" md:w-2/12 md:pr-12   ">
+      <div className="md:flex products-start justify-between">
+        <div className=" md:w-2/12    ">
           <Sidebar />
         </div>
+        <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
+          <Link to="/admin/add_product">
+            <button>add</button>
+          </Link>
 
-        <div className="  w-full mt-mmt1  md:mt-24 md:ml-10 h-28 md:space-y-4 ">
-          <div className="overflow-auto h-screen ">
-            <div className=" overflow-x-auto shadow-md sm:rounded-lg">
-              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <div className="overflow-auto h-screen  mt-20 py-10 md:mt-0 md:pt-0 md:pb-4 px-1 mb-40">
+            <div className=" overflow-x-auto  shadow-md sm:rounded-lg">
+              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  md:mb-28">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="px-6 py-3">
-                      Product id
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Name
+                      Product
                     </th>
                     <th scope="col" className="px-6 py-3">
                       Stock
@@ -85,8 +85,11 @@ const ProductList = () => {
                     <th scope="col" className="px-6 py-3">
                       Price
                     </th>
-                    <th scope="col" className=" py-3">
-                      <span className=""></span>
+                    <th scope="col" className="px-6 py-3 text-center">
+                      Review
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-center">
+                      Action
                     </th>
                   </tr>
                 </thead>
@@ -102,7 +105,7 @@ const ProductList = () => {
                   ) : (
                     <>
                       {products &&
-                        products.map((item, key) => (
+                        products.map((product, key) => (
                           <tr
                             key={key}
                             className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
@@ -111,15 +114,26 @@ const ProductList = () => {
                               scope="row"
                               className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
                             >
-                              {item && item._id}
+                              <div>
+                                <div>{product && product._id}</div>
+                                <div>{product && product.name}</div>
+                              </div>
                             </th>
-                            <td className="px-6 py-4"> {item && item.name}</td>
-                            <td className="px-6 py-4"> {item && item.stock}</td>
                             <td className="px-6 py-4">
-                              $ {item && item.price}
+                              {" "}
+                              {product && product.stock}
                             </td>
+                            <td className="px-6 py-4">
+                              {" "}
+                              {product && product.price}
+                            </td>
+                            <td className="px-6 py-4">
+                              {" "}
+                              {product && product.numberOfReview}
+                            </td>
+
                             <td className="px- py-4 text-left">
-                              <Link to={`/admin/product_update/${item._id}`}>
+                              <Link to={`/admin/product_update/${product._id}`}>
                                 <button className=" pr-4 font-sm text-gray-600  hover:underline">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +153,7 @@ const ProductList = () => {
                               </Link>
                               <button
                                 onClick={() =>
-                                  deleteProductHandler(item && item._id)
+                                  deleteProductHandler(product && product._id)
                                 }
                                 className="font-sm text-gray-600  hover:underline"
                               >

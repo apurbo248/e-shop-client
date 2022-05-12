@@ -83,10 +83,10 @@ const ProductList = () => {
             <Sidebar />
           </div>
 
-          <div className="  w-full ml-0 md:ml-8 mt-mmt1  md:mt-24 md:px-2 h-28 md:space-y-4 pb-8">
-            <div className="overflow-auto h-screen ">
-              <div className=" overflow-auto shadow-md sm:rounded-lg">
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
+            <div className="overflow-auto h-screen  mt-20 pt-16  pb-4 md:mt-0 md:pt-0 md:pb-4 px-1">
+              <div className=" overflow-x-auto  shadow-md sm:rounded-lg">
+                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  ">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                       <th scope="col" className="px-6 py-3">

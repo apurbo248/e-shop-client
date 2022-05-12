@@ -50,7 +50,10 @@ const MyOrder = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {orders &&
+
+            {
+                  orders&&orders.length > 0 ? 
+                    (orders &&
                     orders.map((item) => (
                       <tr className="h-16 border-b border-gray-100 rounded">
                         <td className>
@@ -106,8 +109,21 @@ const MyOrder = () => {
                           </Link>
                         </td>
                       </tr>
-                    ))}
+                    ))
+                  )
+:(
+<div class="ml-24">
+                  <div class="m-4 h-10 p-4    bg-white flex justify-center content-center flex-wrap">
+                    <p class="font-sans text-gray-900 text-2xl ">
+                       Order Not Found
+                    </p>
+                  </div>
+                </div>
+ )
+ }
                 </tbody>
+
+                
               </table>
             </div>
           </div>

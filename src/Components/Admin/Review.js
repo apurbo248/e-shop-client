@@ -77,7 +77,6 @@ const Review = () => {
         <div className="  w-full ml-0 md:ml-6 mt-mmt1  md:mt-20 md:px-6 h-28 md:space-y-4 ">
           <div className="overflow-auto h-screen ">
             <div className=" overflow-x-auto shadow-md sm:rounded-lg">
-           
               <form
                 onSubmit={productReviewSubmit}
                 class="lg:mr-auto flex justify-end pb-2"
@@ -85,7 +84,7 @@ const Review = () => {
                 <label for="topbar-search" class="sr-only">
                   Search
                 </label>
-                <div class="mt-1 relative lg:w-64">
+                <div class="mt-2 relative lg:w-64">
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg
                       class="w-5 h-5 text-gray-500"
@@ -108,7 +107,6 @@ const Review = () => {
                     id="topbar-search"
                     class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5"
                   />
-                   
                 </div>
               </form>
 
@@ -123,7 +121,7 @@ const Review = () => {
                           <th scope="col" className="px-6 py-3">
                             Review id
                           </th>
-                          <th scope="col" className="px-6 py-3 text-center">
+                          <th scope="col" className="px-6 py-3 ">
                             User
                           </th>
                           <th scope="col" className="px-6 py-3">
@@ -133,8 +131,8 @@ const Review = () => {
                             Ratting
                           </th>
 
-                          <th scope="col" className=" py-3">
-                            <span className="sr-"></span>
+                          <th scope="col" className="px-6 py-3">
+                            Action
                           </th>
                         </tr>
                       </thead>
@@ -147,7 +145,7 @@ const Review = () => {
                             >
                               <th
                                 scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-start"
                               >
                                 {item && item._id}
                               </th>
@@ -161,15 +159,15 @@ const Review = () => {
                               </td>
                               <td
                                 className={
-                                  item && item.rating < 3
+                                  item && item.rating <=2
                                     ? "px-6 py-4 text-red-500"
-                                    : "px-6 py-4 text-gray-900"
+                                    : "px-6 py-4 text-green-500"
                                 }
                               >
                                 {item && item.rating}
                               </td>
-                              <td className="px-6 py-4"></td>
-                              <td className="px- py-4 text-left">
+                             
+                              <td className="px-6 py-4 text-left">
                                 <button
                                   onClick={() =>
                                     deleteUserHandler(item && item._id)

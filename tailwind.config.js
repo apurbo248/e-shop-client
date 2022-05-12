@@ -14,6 +14,7 @@ module.exports = {
         mt: "40rem",
         mmt: "-85rem",
         mmt1: "-37rem",
+        mmt2: "-44rem",
       },
       boxShadow: {},
       padding: {},

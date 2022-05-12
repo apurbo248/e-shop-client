@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { saveShippingInfo } from "../Redux/Action/Cart";
 import { useNavigate } from "react-router";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const ShippingInfo = () => {
   const dispatch = useDispatch();
@@ -129,6 +130,7 @@ const ShippingInfo = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

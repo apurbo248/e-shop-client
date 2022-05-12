@@ -25,7 +25,9 @@ const Login = () => {
     const { email, password } = newUser;
     dispatch(login(email, password));
   };
-  let { from } = location.state || { from: { pathname: "/" } };
+
+  const { from } = location.state || { from: { pathname: "/" } };
+
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -33,10 +35,9 @@ const Login = () => {
     }
     if (isAuthenticated) {
       toast.success("log in successfully");
-
       navigate(from);
     }
-  }, [error, dispatch, isAuthenticated]);
+  }, [error, dispatch, isAuthenticated, navigate,from,]);
 
   return (
     <>

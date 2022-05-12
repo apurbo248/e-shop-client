@@ -22,30 +22,24 @@ import Profile from "./Components/Header/Profile";
 import Cart from "./Components/Header/Cart";
 import ShippingInfo from "./Components/Header/ShippingInfo";
 import ConfirmOrder from "./Components/Header/ConfirmOrder";
-import axios from "axios";
 import Payment from "./Components/Header/Payment";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 import ProtectedRoute from "./Components/Header/ProtectedRoute";
 import Success from "./Components/Header/Success";
 import MyOrder from "./Components/Header/MyOrder";
-import { Fragment } from "react";
-import { Switch } from "@headlessui/react";
 import OrderInfo from "./Components/Header/OrderInfo";
 import Dashboard from "./Components/Admin/Dashboard";
 import OrderList from "./Components/Admin/OrderList";
 import AddProducts from "./Components/Admin/AddProducts";
-
 import UpdateProduct from "./Components/Admin/UpdateProducts";
 import UpdateStatus from "./Components/Admin/UpdateStatus";
 import UpdateUser from "./Components/Admin/UpdateUser";
 import AdminUserList from "./Components/Admin/AdminUserList";
 import Review from "./Components/Admin/Review";
-import Footer from "./Components/Header/Footer";
+
 
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
-console.log(user)
+ 
   useEffect(() => {
     Store.dispatch(loadUser());
   }, []);
