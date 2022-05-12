@@ -9,7 +9,7 @@ export const login = (email, password) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.post(
-      "http://localhost:1234/v1/user/login",
+      "https://tranquil-bayou-10024.herokuapp.com/v1/user/login",
 
       { email, password },
       config
@@ -38,7 +38,7 @@ export const register = (name, email, password) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.post(
-      `http://localhost:1234/v1/user/register`,
+      `https://tranquil-bayou-10024.herokuapp.com/v1/user/register`,
       { name, email, password },
       config
     );
@@ -58,9 +58,12 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: "LOAD_USER_REQUEST" });
 
-    const { data } = await axios.get("http://localhost:1234/v1/me", {
-      withCredentials: true,
-    });
+    const { data } = await axios.get(
+      "https://tranquil-bayou-10024.herokuapp.com/v1/me",
+      {
+        withCredentials: true,
+      }
+    );
 
     dispatch({
       type: "LOAD_USER_SUCCESS",
@@ -77,9 +80,12 @@ export const allUser = () => async (dispatch) => {
   try {
     dispatch({ type: "ALL_USER_REQUEST" });
 
-    const { data } = await axios.get("http://localhost:1234/v1/users", {
-      withCredentials: true,
-    });
+    const { data } = await axios.get(
+      "https://tranquil-bayou-10024.herokuapp.com/v1/users",
+      {
+        withCredentials: true,
+      }
+    );
 
     dispatch({
       type: "ALL_USER_SUCCESS",
@@ -96,9 +102,12 @@ export const singleUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: "USER_DETAIL_REQUEST" });
 
-    const { data } = await axios.get(`http://localhost:1234/v1/user/${id}`, {
-      withCredentials: true,
-    });
+    const { data } = await axios.get(
+      `https://tranquil-bayou-10024.herokuapp.com/v1/user/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
 
     dispatch({
       type: "USER_DETAIL_SUCCESS",
@@ -119,7 +128,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.put(
-      `http://localhost:1234/v1/update_user/${id}`,
+      `https://tranquil-bayou-10024.herokuapp.com/v1/update_user/${id}`,
       userData,
       config
     );
@@ -141,7 +150,7 @@ export const deleteUser = (id) => async (dispatch) => {
     dispatch({ type: "DELETE_USER_REQUEST" });
 
     const { data } = await axios.delete(
-      `http://localhost:1234/v1/delete_user/${id}`,
+      `https://tranquil-bayou-10024.herokuapp.com/v1/delete_user/${id}`,
       {
         withCredentials: true,
       }
@@ -160,7 +169,7 @@ export const deleteUser = (id) => async (dispatch) => {
 };
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get("http://localhost:1234/v1/logout", {
+    await axios.get("https://tranquil-bayou-10024.herokuapp.com/v1/logout", {
       withCredentials: true,
     });
 

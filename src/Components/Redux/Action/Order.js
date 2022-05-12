@@ -9,7 +9,7 @@ export const newOrder = (order) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.post(
-      "http://localhost:1234/v1/order/new",
+      "https://tranquil-bayou-10024.herokuapp.com/v1/order/new",
       order,
       config
     );
@@ -35,7 +35,7 @@ export const updateOrder = (id, status) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.put(
-      `http://localhost:1234/v1/orderstatus/${id}`,
+      `https://tranquil-bayou-10024.herokuapp.com/v1/orderstatus/${id}`,
       status,
       config
     );
@@ -55,9 +55,12 @@ export const allOrder = () => async (dispatch) => {
   try {
     dispatch({ type: "ALL_ORDER_REQUEST" });
 
-    const { data } = await axios.get("http://localhost:1234/v1/orders", {
-      withCredentials: true,
-    });
+    const { data } = await axios.get(
+      "https://tranquil-bayou-10024.herokuapp.com/v1/orders",
+      {
+        withCredentials: true,
+      }
+    );
 
     dispatch({
       type: "ALL_ORDER_SUCCESS",
@@ -77,7 +80,7 @@ export const deleteOrder = (id) => async (dispatch) => {
     dispatch({ type: "DELETE_ORDER_REQUEST" });
 
     const { data } = await axios.delete(
-      `http://localhost:1234/v1/order/${id}`,
+      `https://tranquil-bayou-10024.herokuapp.com/v1/order/${id}`,
       { withCredentials: true }
     );
 
@@ -96,9 +99,12 @@ export const myOrders = () => async (dispatch) => {
   try {
     dispatch({ type: "MY_ORDER_REQUEST" });
 
-    const { data } = await axios.get("http://localhost:1234/v1/orders/my", {
-      withCredentials: true,
-    });
+    const { data } = await axios.get(
+      "https://tranquil-bayou-10024.herokuapp.com/v1/orders/my",
+      {
+        withCredentials: true,
+      }
+    );
 
     dispatch({
       type: "MY_ORDER_SUCCESS",
@@ -118,9 +124,12 @@ export const orderDetail = (id) => async (dispatch) => {
   try {
     dispatch({ type: "ORDER_DETAIL_REQUEST" });
 
-    const { data } = await axios.get(`http://localhost:1234/v1/order/${id}`, {
-      withCredentials: true,
-    });
+    const { data } = await axios.get(
+      `https://tranquil-bayou-10024.herokuapp.com/v1/order/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
     console.log(data);
     dispatch({
       type: "ORDER_DETAIL_SUCCESS",
