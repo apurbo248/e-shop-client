@@ -43,7 +43,7 @@ const CheckoutForm = () => {
         },
       };
       const { data } = await axios.post(
-        "/v1/payment",
+        "https://shrouded-falls-78834.herokuapp.com/v1/payment",
 
         paymentData,
         config

@@ -12,7 +12,7 @@ export const createProduct = (productData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/v1/product/create",
+      "https://shrouded-falls-78834.herokuapp.com/v1/product/create",
       productData,
       config
     );
@@ -39,7 +39,11 @@ export const updateProduct = (id, productData) => async (dispatch) => {
         authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
     };
-    const { data } = await axios.put(`/v1/product/${id}`, productData, config);
+    const { data } = await axios.put(
+      `https://shrouded-falls-78834.herokuapp.com/v1/product/${id}`,
+      productData,
+      config
+    );
     console.log(data);
     dispatch({
       type: "UPDATE_PRODUCT_SUCCESS",
@@ -59,7 +63,7 @@ export const getProducts =
       dispatch({ type: "ALL_PRODUCT_REQUEST" });
 
       const { data } = await axios.get(
-        `/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
+        `https://shrouded-falls-78834.herokuapp.com/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
       );
 
       dispatch({
@@ -77,9 +81,12 @@ export const getAdminProducts = () => async (dispatch) => {
   try {
     dispatch({ type: "ADMIN_ALL_PRODUCT_REQUEST" });
 
-    const { data } = await axios.get("/v1/admin/all_products", {
-      authorization: `Bearer ${localStorage.getItem("userToken")}`,
-    });
+    const { data } = await axios.get(
+      "https://shrouded-falls-78834.herokuapp.com/v1/admin/all_products",
+      {
+        authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      }
+    );
 
     dispatch({
       type: "ADMIN_ALL_PRODUCT_SUCCESS",
@@ -96,7 +103,9 @@ export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: "PRODUCT_DETAILS_REQUEST" });
 
-    const { data } = await axios.get(`/v1/product/${id}`);
+    const { data } = await axios.get(
+      `https://shrouded-falls-78834.herokuapp.com/v1/product/${id}`
+    );
 
     dispatch({
       type: "PRODUCT_DETAILS_SUCCESS",
@@ -118,7 +127,11 @@ export const newReview = (reviewData) => async (dispatch) => {
         authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
     };
-    const { data } = await axios.put("/v1/create/review", reviewData, config);
+    const { data } = await axios.put(
+      "https://shrouded-falls-78834.herokuapp.com/v1/create/review",
+      reviewData,
+      config
+    );
 
     dispatch({
       type: "NEW_REVIEW_SUCCESS",
@@ -136,9 +149,10 @@ export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: "DELETE_PRODUCT_REQUEST" });
 
-    const { data } = await axios.delete(`/v1/product/${id}`, {
-      authorization: `Bearer ${localStorage.getItem("userToken")}`,
-    });
+    const { data } = await axios.delete(
+      `https://shrouded-falls-78834.herokuapp.com/v1/product/${id}`,
+      { authorization: `Bearer ${localStorage.getItem("userToken")}` }
+    );
 
     dispatch({
       type: "DELETE_PRODUCT_SUCCESS",
@@ -155,7 +169,9 @@ export const allReview = (id) => async (dispatch) => {
   try {
     dispatch({ type: "ALL_REVIEW_REQUEST" });
 
-    const { data } = await axios.get(`/v1/reviews?id=${id}`);
+    const { data } = await axios.get(
+      `https://shrouded-falls-78834.herokuapp.com/v1/reviews?id=${id}`
+    );
 
     dispatch({
       type: "ALL_REVIEW_SUCCESS",
@@ -174,7 +190,7 @@ export const deleteReview = (id, productId) => async (dispatch) => {
     dispatch({ type: "DELETE_REVIEW_REQUEST" });
 
     const { data } = await axios.delete(
-      `/v1/delete_review?id=${id}&productId=${productId}`,
+      `https://shrouded-falls-78834.herokuapp.com/v1/delete_review?id=${id}&productId=${productId}`,
       { authorization: `Bearer ${localStorage.getItem("userToken")}` }
     );
 
