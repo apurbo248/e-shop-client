@@ -167,7 +167,7 @@ const Home = () => {
 
               <div className="bg- mt-4 grid grid-cols-2 gap-y-10 gap-x- sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-2">
                 {products &&
-                  products.map((product) => <Product product={product} />)}
+                  products.map((product,key) => <Product product={product} key={key} />)}
               </div>
             </div>
           </div>

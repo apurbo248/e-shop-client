@@ -16,7 +16,7 @@
         x = s(4),
         u = s(16),
         b = s.n(u),
-        m = function (e, t) {
+        p = function (e, t) {
           return (function () {
             var s = Object(o.a)(
               i.a.mark(function s(r) {
@@ -35,7 +35,7 @@
                             }),
                             (s.next = 5),
                             b.a.post(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/user/login",
+                              "http://localhost:1234/v1/user/login",
                               { email: e, password: t },
                               c
                             )
@@ -71,7 +71,7 @@
             };
           })();
         },
-        p = function (e, t, s) {
+        m = function (e, t, s) {
           return (function () {
             var r = Object(o.a)(
               i.a.mark(function r(c) {
@@ -90,7 +90,7 @@
                             }),
                             (r.next = 5),
                             b.a.post(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/user/register",
+                              "http://localhost:1234/v1/user/register",
                               { name: e, email: t, password: s },
                               a
                             )
@@ -138,10 +138,9 @@
                             (e.prev = 0),
                             t({ type: "ALL_USER_REQUEST" }),
                             (e.next = 4),
-                            b.a.get(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/users",
-                              { withCredentials: !0 }
-                            )
+                            b.a.get("http://localhost:1234/v1/users", {
+                              withCredentials: !0,
+                            })
                           );
                         case 4:
                           (s = e.sent),
@@ -191,9 +190,7 @@
                             }),
                             (s.next = 5),
                             b.a.put(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/update_user/".concat(
-                                e
-                              ),
+                              "http://localhost:1234/v1/update_user/".concat(e),
                               t,
                               c
                             )
@@ -242,10 +239,9 @@
                           return (
                             (e.prev = 0),
                             (e.next = 3),
-                            b.a.get(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/logout",
-                              { withCredentials: !0 }
-                            )
+                            b.a.get("http://localhost:1234/v1/logout", {
+                              withCredentials: !0,
+                            })
                           );
                         case 3:
                           t({ type: "LOGOUT_SUCCESS" }), (e.next = 9);
@@ -738,7 +734,7 @@
                             }),
                             (t.next = 5),
                             b.a.post(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/product/create",
+                              "http://localhost:1234/v1/product/create",
                               e,
                               r
                             )
@@ -792,9 +788,7 @@
                             }),
                             (s.next = 6),
                             b.a.put(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/product/".concat(
-                                e
-                              ),
+                              "http://localhost:1234/v1/product/".concat(e),
                               t,
                               c
                             )
@@ -859,7 +853,7 @@
                             c({ type: "ALL_PRODUCT_REQUEST" }),
                             (r.next = 4),
                             b.a.get(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/products?keyword="
+                              "http://localhost:1234/v1/products?keyword="
                                 .concat(e, "&page=")
                                 .concat(t, "&price[gte]=")
                                 .concat(s[0], "&price[lte]=")
@@ -910,9 +904,7 @@
                             s({ type: "PRODUCT_DETAILS_REQUEST" }),
                             (t.next = 4),
                             b.a.get(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/product/".concat(
-                                e
-                              )
+                              "http://localhost:1234/v1/product/".concat(e)
                             )
                           );
                         case 4:
@@ -959,9 +951,7 @@
                             s({ type: "ALL_REVIEW_REQUEST" }),
                             (t.next = 4),
                             b.a.get(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/reviews?id=".concat(
-                                e
-                              ),
+                              "http://localhost:1234/v1/reviews?id=".concat(e),
                               { withCredentials: !0 }
                             )
                           );
@@ -995,7 +985,7 @@
             };
           })();
         },
-        M = function () {
+        q = function () {
           return (function () {
             var e = Object(o.a)(
               i.a.mark(function e(t) {
@@ -1016,15 +1006,15 @@
             };
           })();
         },
-        V = function () {
+        M = function () {
           return Object(w.jsx)("div", {
             className: "loading",
             children: Object(w.jsx)("div", {}),
           });
         },
-        B = s.p + "static/media/img.887d4f33.jpg",
-        F = (s.p, s(65)),
-        q = (s(120), s(34)),
+        V = s.p + "static/media/img.887d4f33.jpg",
+        B = (s.p, s(65)),
+        F = (s(120), s(34)),
         z = function () {
           return Object(w.jsx)("div", {
             children: Object(w.jsxs)("footer", {
@@ -1190,12 +1180,12 @@
                 class: "text-gray-600 body-font",
                 children: Object(w.jsx)("div", {
                   class: "container px-5 pt-24 mx-auto",
-                  children: Object(w.jsx)(F.a, {
+                  children: Object(w.jsx)(B.a, {
                     navigation: !0,
                     autoplay: { delay: 2e3, disableOnInteraction: !1 },
-                    modules: [q.a],
+                    modules: [F.a],
                     className: "mySwiper",
-                    children: Object(w.jsx)(F.b, {
+                    children: Object(w.jsx)(B.b, {
                       children: Object(w.jsx)(w.Fragment, {
                         children: Object(w.jsx)("div", {
                           class: "flex  -m-4",
@@ -1220,7 +1210,7 @@
               Object(w.jsx)("section", {
                 className: "pt-4 pb-2 bg-gray-100",
                 children: s
-                  ? Object(w.jsx)(V, {})
+                  ? Object(w.jsx)(M, {})
                   : Object(w.jsx)("div", {
                       className: " container",
                       children: Object(w.jsxs)("div", {
@@ -1264,7 +1254,7 @@
             b = Object(x.c)(function (e) {
               return e.userInfo;
             }),
-            p = b.error,
+            m = b.error,
             h = b.isAuthenticated,
             f = b.loading,
             O = function (e) {
@@ -1284,7 +1274,7 @@
                     for (;;)
                       switch ((t.prev = t.next)) {
                         case 0:
-                          (r = l.email), (c = l.password), e(m(r, c));
+                          (r = l.email), (c = l.password), e(p(r, c));
                         case 2:
                         case "end":
                           return t.stop();
@@ -1300,10 +1290,10 @@
           return (
             Object(r.useEffect)(
               function () {
-                p && (v.b.error(p), e(g())),
+                m && (v.b.error(m), e(g())),
                   h && (v.b.success("log in successfully"), t(C));
               },
-              [p, e, h, t, C]
+              [m, e, h, t, C]
             ),
             Object(w.jsxs)(w.Fragment, {
               children: [
@@ -1412,7 +1402,7 @@
               return e.userInfo;
             }),
             b = u.error,
-            m = u.isAuthenticated,
+            p = u.isAuthenticated,
             h = function (e) {
               l(
                 Object(H.a)(
@@ -1433,7 +1423,7 @@
                           (r = n.name),
                             (c = n.email),
                             (a = n.password),
-                            e(p(r, c, a));
+                            e(m(r, c, a));
                         case 2:
                         case "end":
                           return t.stop();
@@ -1448,12 +1438,12 @@
           return (
             Object(r.useEffect)(
               function () {
-                b && (v.b.error(b), e(M())),
-                  m &&
+                b && (v.b.error(b), e(q())),
+                  p &&
                     (v.b.success("Registration successfully"),
                     (window.location.href = "/v1/user/login"));
               },
-              [b, e, m, t]
+              [b, e, p, t]
             ),
             Object(w.jsxs)(w.Fragment, {
               children: [
@@ -1597,11 +1587,7 @@
                       case 0:
                         return (
                           (s.next = 2),
-                          b.a.get(
-                            "https://tranquil-bayou-10024.herokuapp.com/v1/product/".concat(
-                              e
-                            )
-                          )
+                          b.a.get("http://localhost:1234/v1/product/".concat(e))
                         );
                       case 2:
                         (a = s.sent),
@@ -1645,8 +1631,8 @@
           console.log(l);
           var j = Object(r.useState)(1),
             u = Object(y.a)(j, 2),
-            m = u[0],
-            p = u[1],
+            p = u[0],
+            m = u[1],
             h = Object(r.useState)(0),
             f = Object(y.a)(h, 2),
             O = f[0],
@@ -1679,7 +1665,7 @@
                                       }),
                                       (t.next = 5),
                                       b.a.put(
-                                        "https://tranquil-bayou-10024.herokuapp.com/v1/create/review",
+                                        "http://localhost:1234/v1/create/review",
                                         e,
                                         r
                                       )
@@ -1734,7 +1720,7 @@
                   className: "text-gray-600 body-font overflow-hidden",
                   children: [
                     n
-                      ? Object(w.jsx)(V, {})
+                      ? Object(w.jsx)(M, {})
                       : Object(w.jsx)("div", {
                           className:
                             "container px-5 pt-8 mx-auto border-b border-white pb-8 mt-20 ",
@@ -2054,7 +2040,7 @@
                                               children: [
                                                 Object(w.jsx)("button", {
                                                   onClick: function () {
-                                                    1 >= m || p(m - 1);
+                                                    1 >= p || m(p - 1);
                                                   },
                                                   className:
                                                     "bg-mainBaseColor px-2 font-bold text-lg text-white",
@@ -2062,7 +2048,7 @@
                                                 }),
                                                 Object(w.jsx)("input", {
                                                   className: "w-10 ps-2  ",
-                                                  value: m,
+                                                  value: p,
                                                   readOnly: !0,
                                                   type: "number",
                                                 }),
@@ -2070,8 +2056,8 @@
                                                   onClick: function () {
                                                     (null === l || void 0 === l
                                                       ? void 0
-                                                      : l.stock) <= m ||
-                                                      p(m + 1);
+                                                      : l.stock) <= p ||
+                                                      m(p + 1);
                                                   },
                                                   className:
                                                     "bg-mainBaseColor px-2 font-bold text-lg text-white",
@@ -2097,7 +2083,7 @@
                                               "flex ml-auto text-white bg-mainBaseColor border-0 py-2 px-6 focus:outline-none rounded",
                                             onClick: function () {
                                               return (
-                                                c(Z(s, m)),
+                                                c(Z(s, p)),
                                                 void v.b.success(
                                                   "Item added to cart"
                                                 )
@@ -2259,8 +2245,8 @@
               return e.ProductsData;
             }),
             b = u.productPerPage,
-            m = u.productCount,
-            p = u.loading,
+            p = u.productCount,
+            m = u.loading,
             h = u.products;
           return (
             Object(r.useEffect)(
@@ -2310,7 +2296,7 @@
                                   "text-2xl font-md tracking-tight text-gray-900",
                                 children: "All Products",
                               }),
-                              p
+                              m
                                 ? Object(w.jsx)("div", {
                                     class:
                                       "fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center",
@@ -2332,7 +2318,7 @@
                           }),
                           Object(w.jsx)("div", {
                             children:
-                              b < m &&
+                              b < p &&
                               Object(w.jsx)("div", {
                                 className: "flex mt-4 justify-center",
                                 children: Object(w.jsx)(te.a, {
@@ -2340,7 +2326,7 @@
                                   itemClass: "page-item",
                                   linkClass: "page-link",
                                   itemsCountPerPage: b,
-                                  totalItemsCount: m,
+                                  totalItemsCount: p,
                                   pageRangeDisplayed: 2,
                                   onChange: function (e) {
                                     a(e);
@@ -2774,7 +2760,7 @@
                                             class: "block ",
                                             children: Object(w.jsx)("img", {
                                               alt: "profil",
-                                              src: B,
+                                              src: V,
                                               class:
                                                 "mx-auto object-cover rounded h-14 w-14 ",
                                             }),
@@ -2906,7 +2892,7 @@
                                           s({ type: "DELETE_PRODUCT_REQUEST" }),
                                           (t.next = 4),
                                           b.a.delete(
-                                            "https://tranquil-bayou-10024.herokuapp.com/v1/product/".concat(
+                                            "http://localhost:1234/v1/product/".concat(
                                               e
                                             ),
                                             { withCredentials: !0 }
@@ -2951,8 +2937,8 @@
           return (
             Object(r.useEffect)(
               function () {
-                c && (ce.a.error(c), e(M())),
-                  l && (ce.a.error(l), e(M())),
+                c && (ce.a.error(c), e(q())),
+                  l && (ce.a.error(l), e(q())),
                   d &&
                     (ce.a.success("Product delete successfully"),
                     e({ type: "DELETE_PRODUCT_RESET" }),
@@ -2972,7 +2958,7 @@
                                       t({ type: "ADMIN_ALL_PRODUCT_REQUEST" }),
                                       (e.next = 4),
                                       b.a.get(
-                                        "https://tranquil-bayou-10024.herokuapp.com/v1/admin/all_products"
+                                        "http://localhost:1234/v1/admin/all_products"
                                       )
                                     );
                                   case 4:
@@ -3735,11 +3721,11 @@
               : {},
           },
         },
-        me = [de.a],
-        pe = Object(oe.createStore)(
+        pe = [de.a],
+        me = Object(oe.createStore)(
           ue,
           be,
-          Object(je.composeWithDevTools)(oe.applyMiddleware.apply(void 0, me))
+          Object(je.composeWithDevTools)(oe.applyMiddleware.apply(void 0, pe))
         ),
         he = function (e) {
           var t = e.user;
@@ -3763,7 +3749,7 @@
                               alt: "ecommerce",
                               class:
                                 "lg:w-54 w-54 lg:h-54 h-54 object-cover object-center rounded-full",
-                              src: B,
+                              src: V,
                             }),
                             Object(w.jsx)("div", {
                               class: "flex md:mt-1 ",
@@ -4204,8 +4190,8 @@
             j = n[1],
             u = Object(r.useState)(c.address),
             b = Object(y.a)(u, 2),
-            m = b[0],
-            p = b[1],
+            p = b[0],
+            m = b[1],
             h = Object(r.useState)(c.state),
             f = Object(y.a)(h, 2),
             O = f[0],
@@ -4218,7 +4204,7 @@
             k = Object(y.a)(R, 2),
             U = k[0],
             T = k[1];
-          console.log(l, m, O, N, U);
+          console.log(l, p, O, N, U);
           var L = function () {
             var s;
             U.length < 11 || U.length > 11
@@ -4226,7 +4212,7 @@
               : (e(
                   ((s = {
                     address: l,
-                    city: m,
+                    city: p,
                     state: O,
                     country: N,
                     phone: U,
@@ -4259,7 +4245,7 @@
                 t("/v1/user/order/confirm"),
                 console.log({
                   address: l,
-                  city: m,
+                  city: p,
                   state: O,
                   country: N,
                   phone: U,
@@ -4308,9 +4294,9 @@
                                   children: Object(w.jsx)("input", {
                                     type: "text",
                                     required: !0,
-                                    value: m,
+                                    value: p,
                                     onChange: function (e) {
-                                      return p(e.target.value);
+                                      return m(e.target.value);
                                     },
                                     placeholder: "City",
                                     class:
@@ -4403,7 +4389,7 @@
                               },
                               class:
                                 "flex ml-auto text-white bg-mainBaseColor  py-2 px-6 focus:outline-none rounded",
-                              disabled: !(l && m && U && O),
+                              disabled: !(l && p && U && O),
                               children: Object(w.jsx)("span", {
                                 class: "pl-2 mx-1",
                                 children: "Continue",
@@ -4445,15 +4431,15 @@
               .concat(t.city, ", ")
               .concat(t.state, ", ")
               .concat(t.country),
-            m = new Date(),
-            p =
-              m.getFullYear() +
+            p = new Date(),
+            m =
+              p.getFullYear() +
               "-" +
-              (m.getMonth() + 1) +
+              (p.getMonth() + 1) +
               "-" +
-              m.getDate() +
+              p.getDate() +
               " " +
-              (m.getHours() + ":" + m.getMinutes());
+              (p.getHours() + ":" + p.getMinutes());
           return (
             Object(r.useEffect)(function () {}),
             Object(w.jsxs)(w.Fragment, {
@@ -4477,7 +4463,7 @@
                           Object(w.jsx)("p", {
                             className:
                               "text-base font-medium leading-6 text-gray-600",
-                            children: p,
+                            children: m,
                           }),
                         ],
                       }),
@@ -4784,11 +4770,7 @@
                               withCredentials: !0,
                             }),
                             (t.next = 5),
-                            b.a.post(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/order/new",
-                              e,
-                              r
-                            )
+                            b.a.post("http://localhost:1234/v1/order/new", e, r)
                           );
                         case 5:
                           (c = t.sent),
@@ -4833,10 +4815,9 @@
                             (e.prev = 0),
                             t({ type: "ALL_ORDER_REQUEST" }),
                             (e.next = 4),
-                            b.a.get(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/orders",
-                              { withCredentials: !0 }
-                            )
+                            b.a.get("http://localhost:1234/v1/orders", {
+                              withCredentials: !0,
+                            })
                           );
                         case 4:
                           (s = e.sent),
@@ -4884,9 +4865,7 @@
                             s({ type: "ORDER_DETAIL_REQUEST" }),
                             (t.next = 5),
                             b.a.get(
-                              "https://tranquil-bayou-10024.herokuapp.com/v1/order/".concat(
-                                e
-                              ),
+                              "http://localhost:1234/v1/order/".concat(e),
                               { withCredentials: !0 }
                             )
                           );
@@ -4955,11 +4934,11 @@
             l = a[1],
             j = Object(d.h)(),
             u = JSON.parse(sessionStorage.getItem("orderInfo")),
-            m = Object(x.c)(function (e) {
+            p = Object(x.c)(function (e) {
               return e.cart;
             }),
-            p = m.shippingInfo,
-            h = m.cartItems,
+            m = p.shippingInfo,
+            h = p.cartItems,
             f = Object(x.c)(function (e) {
               return e.userInfo;
             }).user,
@@ -4971,7 +4950,7 @@
           console.log(g);
           var C = { amount: Math.round(u && 100 * u.total) },
             N = {
-              shippingInfo: p,
+              shippingInfo: m,
               orderItems: h,
               itemPrice: u && u.subTotal,
               taxPrice: u && u.tax,
@@ -5017,12 +4996,12 @@
                                   billing_details: {
                                     name: f.name,
                                     email: f.email,
-                                    phone: p.phone,
+                                    phone: m.phone,
                                     address: {
-                                      line1: p.address,
-                                      city: p.city,
-                                      country: p.country,
-                                      state: p.state,
+                                      line1: m.address,
+                                      city: m.city,
+                                      country: m.country,
+                                      state: m.state,
                                     },
                                   },
                                 },
@@ -5242,7 +5221,7 @@
                                       t({ type: "MY_ORDER_REQUEST" }),
                                       (e.next = 4),
                                       b.a.get(
-                                        "https://tranquil-bayou-10024.herokuapp.com/v1/orders/my",
+                                        "http://localhost:1234/v1/orders/my",
                                         { withCredentials: !0 }
                                       )
                                     );
@@ -5289,7 +5268,7 @@
                   className: "sm:px-6 w-full  md:mt-0 md:w-full  align-center ",
                   children: [
                     c
-                      ? Object(w.jsx)(V, {})
+                      ? Object(w.jsx)(M, {})
                       : Object(w.jsx)("div", {
                           className:
                             "mt-20  bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10",
@@ -5507,7 +5486,7 @@
               children: [
                 Object(w.jsx)(A, {}),
                 a
-                  ? Object(w.jsx)(V, {})
+                  ? Object(w.jsx)(M, {})
                   : Object(w.jsxs)("div", {
                       className: "bg-gray-100 h-screen ",
                       children: [
@@ -6269,12 +6248,12 @@
               return e.orders;
             }),
             u = d.error,
-            m = d.isDeleted,
-            p = Object(x.c)(function (e) {
+            p = d.isDeleted,
+            m = Object(x.c)(function (e) {
               return e.orders;
             }),
-            h = p.error,
-            f = p.isUpdated,
+            h = m.error,
+            f = m.isUpdated,
             O = function (t) {
               ne.a
                 .fire({
@@ -6301,7 +6280,7 @@
                                           s({ type: "DELETE_ORDER_REQUEST" }),
                                           (t.next = 4),
                                           b.a.delete(
-                                            "https://tranquil-bayou-10024.herokuapp.com/v1/order/".concat(
+                                            "http://localhost:1234/v1/order/".concat(
                                               e
                                             ),
                                             { withCredentials: !0 }
@@ -6348,13 +6327,13 @@
                 e(Ce()),
                   n && (ce.a.error(n), e(Se())),
                   u && (ce.a.error(u), e(Se())),
-                  m && e({ type: "DELETE_ORDER_RESET" }),
+                  p && e({ type: "DELETE_ORDER_RESET" }),
                   h && (ce.a.error(h), e(Se())),
                   f &&
                     (ce.a.success("order updated successfully"),
                     e({ type: "UPDATE_ORDER_RESET" }));
               },
-              [e, u, m, n]
+              [e, u, p, n]
             ),
             Object(w.jsx)("div", {
               children: Object(w.jsx)("main", {
@@ -6583,9 +6562,9 @@
             l = (c.loading, Object(r.useState)(!1)),
             j = Object(y.a)(l, 2),
             u = j[0],
-            m = j[1],
-            p = Object(r.useState)(null),
-            h = Object(y.a)(p, 2),
+            p = j[1],
+            m = Object(r.useState)(null),
+            h = Object(y.a)(m, 2),
             f = h[0],
             O = h[1],
             g = Object(r.useState)({
@@ -6612,7 +6591,7 @@
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
-                            m(!0),
+                            p(!0),
                             (s = new FormData()).set(
                               "key",
                               "c9e7c4b6f1a9856f03990d5024785ae5"
@@ -6623,7 +6602,7 @@
                               .post("https://api.imgbb.com/1/upload", s)
                               .then(function (e) {
                                 O(e.data.data.display_url),
-                                  m(!1),
+                                  p(!1),
                                   console.log(e.data.data);
                               })
                               .catch(function (e) {
@@ -6674,7 +6653,7 @@
           return (
             Object(r.useEffect)(
               function () {
-                n && (v.c.error(n), console.log(n), s(M())),
+                n && (v.c.error(n), console.log(n), s(q())),
                   a &&
                     (v.c.success("Product created successfully."),
                     s({ type: "NEW_PRODUCT_RESET" }),
@@ -7020,7 +6999,7 @@
             })
           );
         },
-        Me = function () {
+        qe = function () {
           Object(Y.a)().handleSubmit;
           var e = Object(d.h)(),
             t = Object(d.i)().id,
@@ -7036,10 +7015,10 @@
             j = l.error,
             u = l.isUpdated;
           console.log(u);
-          var m = Object(r.useState)(!1),
-            p = Object(y.a)(m, 2),
-            h = p[0],
-            f = p[1],
+          var p = Object(r.useState)(!1),
+            m = Object(y.a)(p, 2),
+            h = m[0],
+            f = m[1],
             O = Object(r.useState)(null),
             g = Object(y.a)(O, 2),
             E = g[0],
@@ -7131,8 +7110,8 @@
             Object(r.useEffect)(
               function () {
                 s(I(t)),
-                  a && (v.c.error(a), s(M())),
-                  j && (v.c.error(j), s(M())),
+                  a && (v.c.error(a), s(q())),
+                  j && (v.c.error(j), s(q())),
                   u &&
                     (v.c.success("Product updated successfully"),
                     s({ type: "UPDATE_PRODUCT_RESET" }),
@@ -7511,7 +7490,7 @@
             })
           );
         },
-        Ve = function () {
+        Me = function () {
           var e = Object(d.h)(),
             t = Object(d.i)().id,
             s = Object(x.b)(),
@@ -7523,13 +7502,13 @@
               return e.orderDetail;
             }),
             u = j.error,
-            m = (j.loading, j.order);
+            p = (j.loading, j.order);
           console.log(n);
-          var p = Object(x.c)(function (e) {
+          var m = Object(x.c)(function (e) {
               return e.orders;
             }),
-            h = p.error,
-            f = p.isUpdated,
+            h = m.error,
+            f = m.isUpdated,
             O = function (e) {
               s(
                 (function (e, t) {
@@ -7554,7 +7533,7 @@
                                     }),
                                     (s.next = 6),
                                     b.a.put(
-                                      "https://tranquil-bayou-10024.herokuapp.com/v1/orderstatus/".concat(
+                                      "http://localhost:1234/v1/orderstatus/".concat(
                                         e
                                       ),
                                       t,
@@ -7632,7 +7611,7 @@
                               " ",
                               Object(w.jsxs)("span", {
                                 className: "font-bold",
-                                children: [" #", m && m._id],
+                                children: [" #", p && p._id],
                               }),
                             ],
                           }),
@@ -7659,14 +7638,14 @@
                                     value: "",
                                     children: " ---Select--- ",
                                   }),
-                                  m &&
-                                    "Processing" === m.orderStatus &&
+                                  p &&
+                                    "Processing" === p.orderStatus &&
                                     Object(w.jsx)("option", {
                                       value: "Shipped",
                                       children: "Shipped",
                                     }),
-                                  m &&
-                                    "Shipped" === m.orderStatus &&
+                                  p &&
+                                    "Shipped" === p.orderStatus &&
                                     Object(w.jsx)("option", {
                                       value: "Delivered",
                                       children: "Delivered",
@@ -7699,7 +7678,7 @@
             })
           );
         },
-        Be = function () {
+        Ve = function () {
           var e = Object(d.i)().id,
             t = Object(x.b)(),
             s = Object(x.c)(function (e) {
@@ -7713,9 +7692,9 @@
             l = Object(r.useState)(!1),
             j = Object(y.a)(l, 2),
             u = j[0],
-            m = j[1],
-            p = Object(r.useState)(null),
-            h = Object(y.a)(p, 2),
+            p = j[1],
+            m = Object(r.useState)(null),
+            h = Object(y.a)(m, 2),
             O = h[0],
             g = h[1],
             E = Object(r.useState)({
@@ -7740,7 +7719,7 @@
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
-                            m(!0),
+                            p(!0),
                             (s = new FormData()).set(
                               "key",
                               "c9e7c4b6f1a9856f03990d5024785ae5"
@@ -7751,7 +7730,7 @@
                               .post("https://api.imgbb.com/1/upload", s)
                               .then(function (e) {
                                 g(e.data.data.display_url),
-                                  m(!1),
+                                  p(!1),
                                   console.log(e.data.data);
                               })
                               .catch(function (e) {
@@ -7815,7 +7794,7 @@
                                       s({ type: "USER_DETAIL_REQUEST" }),
                                       (t.next = 4),
                                       b.a.get(
-                                        "https://tranquil-bayou-10024.herokuapp.com/v1/user/".concat(
+                                        "http://localhost:1234/v1/user/".concat(
                                           e
                                         ),
                                         { withCredentials: !0 }
@@ -7854,7 +7833,7 @@
                     })();
                   })(e)
                 ),
-                  a && (v.c.error(a), t(M()), t({ type: "UPDATE_USER_RESET" })),
+                  a && (v.c.error(a), t(q()), t({ type: "UPDATE_USER_RESET" })),
                   n &&
                     (v.c.success("User information updated successfully"),
                     t({ type: "UPDATE_USER_RESET" }));
@@ -8176,7 +8155,7 @@
             })
           );
         },
-        Fe = function () {
+        Be = function () {
           Object(Y.a)().handleSubmit;
           var e = Object(x.b)(),
             t = Object(x.c)(function (e) {
@@ -8218,7 +8197,7 @@
                                           s({ type: "DELETE_USER_REQUEST" }),
                                           (t.next = 5),
                                           b.a.delete(
-                                            "https://tranquil-bayou-10024.herokuapp.com/v1/delete_user/".concat(
+                                            "http://localhost:1234/v1/delete_user/".concat(
                                               e
                                             ),
                                             { withCredentials: !0 }
@@ -8478,7 +8457,7 @@
             })
           );
         },
-        qe = function () {
+        Fe = function () {
           Object(Y.a)().handleSubmit;
           var e = Object(x.b)(),
             t = (Object(d.h)(), Object(r.useState)("")),
@@ -8491,11 +8470,11 @@
             l = n.loading,
             j = n.error,
             u = n.reviews,
-            m = Object(x.c)(function (e) {
+            p = Object(x.c)(function (e) {
               return e.deleteReview;
             }),
-            p = m.error,
-            h = m.isDeleted,
+            m = p.error,
+            h = p.isDeleted,
             f = function (t) {
               ne.a
                 .fire({
@@ -8522,7 +8501,7 @@
                                           r({ type: "DELETE_REVIEW_REQUEST" }),
                                           (s.next = 4),
                                           b.a.delete(
-                                            "https://tranquil-bayou-10024.herokuapp.com/v1/delete_review?id="
+                                            "http://localhost:1234/v1/delete_review?id="
                                               .concat(e, "&productId=")
                                               .concat(t),
                                             { withCredentials: !0 }
@@ -8568,12 +8547,12 @@
               function () {
                 24 === c.length && e(P(c)),
                   j && (v.b.error(j), e(g())),
-                  p && (v.b.error(p), e(g())),
+                  m && (v.b.error(m), e(g())),
                   h &&
                     (v.b.success("Review delete successfully"),
                     e({ type: "DELETE_REVIEW_RESET" }));
               },
-              [e, j, p, c, h]
+              [e, j, m, c, h]
             ),
             Object(w.jsxs)("main", {
               className:
@@ -8639,7 +8618,7 @@
                               ],
                             }),
                             l
-                              ? Object(w.jsx)(V, {})
+                              ? Object(w.jsx)(M, {})
                               : Object(w.jsx)(w.Fragment, {
                                   children:
                                     u && u.length > 0
@@ -8799,7 +8778,7 @@
             s = e.user;
           return (
             Object(r.useEffect)(function () {
-              pe.dispatch(
+              me.dispatch(
                 (function () {
                   var e = Object(o.a)(
                     i.a.mark(function e(t) {
@@ -8813,10 +8792,9 @@
                                   (e.prev = 0),
                                   t({ type: "LOAD_USER_REQUEST" }),
                                   (e.next = 4),
-                                  b.a.get(
-                                    "https://tranquil-bayou-10024.herokuapp.com/v1/me",
-                                    { withCredentials: !0 }
-                                  )
+                                  b.a.get("http://localhost:1234/v1/me", {
+                                    withCredentials: !0,
+                                  })
                                 );
                               case 4:
                                 (s = e.sent),
@@ -8853,7 +8831,7 @@
                 children: [
                   Object(w.jsx)(d.c, {
                     path: "/sad",
-                    element: Object(w.jsx)(V, {}),
+                    element: Object(w.jsx)(M, {}),
                   }),
                   Object(w.jsx)(d.c, {
                     path: "/search",
@@ -8929,7 +8907,7 @@
                       Object(w.jsx)(d.c, {
                         path: "admin/product_update/:id",
                         element:
-                          s && "admin" === s.role && Object(w.jsx)(Me, {}),
+                          s && "admin" === s.role && Object(w.jsx)(qe, {}),
                       }),
                       Object(w.jsx)(d.c, {
                         path: "admin/orders",
@@ -8938,12 +8916,12 @@
                       Object(w.jsx)(d.c, {
                         path: "admin/users",
                         element:
-                          s && "admin" === s.role && Object(w.jsx)(Fe, {}),
+                          s && "admin" === s.role && Object(w.jsx)(Be, {}),
                       }),
                       Object(w.jsx)(d.c, {
                         path: "admin/reviews",
                         element:
-                          s && "admin" === s.role && Object(w.jsx)(qe, {}),
+                          s && "admin" === s.role && Object(w.jsx)(Fe, {}),
                       }),
                       Object(w.jsx)(d.c, {
                         path: "shipping",
@@ -8957,12 +8935,12 @@
                       Object(w.jsx)(d.c, {
                         path: "orderupdate/:id",
                         element:
-                          s && "admin" === s.role && Object(w.jsx)(Ve, {}),
+                          s && "admin" === s.role && Object(w.jsx)(Me, {}),
                       }),
                       Object(w.jsx)(d.c, {
                         path: "admin/user_update/:id",
                         element:
-                          s && "admin" === s.role && Object(w.jsx)(Be, {}),
+                          s && "admin" === s.role && Object(w.jsx)(Ve, {}),
                       }),
                       Object(w.jsx)(d.c, {
                         path: "success",
@@ -8997,7 +8975,7 @@
       n.a.render(
         Object(w.jsx)(c.a.StrictMode, {
           children: Object(w.jsx)(x.a, {
-            store: pe,
+            store: me,
             children: Object(w.jsx)(j.a, { children: Object(w.jsx)(ze, {}) }),
           }),
         }),
@@ -9010,4 +8988,4 @@
   },
   [[143, 1, 2]],
 ]);
-//# sourceMappingURL=main.ea0894fd.chunk.js.map
+//# sourceMappingURL=main.a392decc.chunk.js.map

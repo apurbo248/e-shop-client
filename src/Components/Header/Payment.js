@@ -11,7 +11,12 @@ const Payment = () => {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("/v1/getStripeKey");
+    const { data } = await axios.get("http://localhost:1234/v1/getStripeKey", {
+      headers: {
+
+        authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      },
+    });
    
     setStripeApiKey(data.stripeKey);
   }

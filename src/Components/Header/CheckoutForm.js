@@ -1,9 +1,4 @@
-import {
-  CardElement,
-
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -29,6 +24,9 @@ const CheckoutForm = () => {
     amount: Math.round(orderInfo && orderInfo.total * 100),
   };
 
+  
+
+
   const order = {
     shippingInfo,
     orderItems: cartItems,
@@ -42,9 +40,17 @@ const CheckoutForm = () => {
     setLoading(true);
     try {
       const config = {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
       };
-      const { data } = await axios.post("/v1/payment", paymentData, config);
+      const { data } = await axios.post(
+        "http://localhost:1234/v1/payment",
+
+        paymentData,
+        config
+      );
 
       const client_secret = data.client_secret;
 
@@ -77,8 +83,8 @@ const CheckoutForm = () => {
           };
           setLoading(false);
           dispatch(newOrder(order));
-          localStorage.clear();
-           sessionStorage.clear();
+          localStorage.setItem("cartItems", "");
+          sessionStorage.clear();
           navigate("/success");
           toast.success("Successfully payment");
         } else {

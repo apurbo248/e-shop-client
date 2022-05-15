@@ -17,7 +17,7 @@ const Navbar = () => {
     (state) => state.userInfo
   );
 
-
+console.log(user)
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
@@ -98,7 +98,7 @@ const Navbar = () => {
                     </svg>
                   </button>
                 </Link>
-                {isAuthenticated ? (
+                {isAuthenticated && user? (
                   <Menu as="div" className="ml-3 relative">
                     <div>
                       <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">

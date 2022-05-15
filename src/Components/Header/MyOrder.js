@@ -71,8 +71,8 @@ const MyOrder = () => {
                           <span
                             className={
                               item.orderStatus === "Processing"
-                                ? "py-2 px-3 text-md focus:outline-none leading-none text-yellow-500 bg-yellow-100  rounded"
-                                : "py-2 px-3 text-md focus:outline-none leading-none text-green-500 bg-green-100  rounded"
+                                ? "py-1 px-2 text-md focus:outline-none leading-none text-yellow-500 bg-yellow-100  rounded"
+                                : "py-1 px-2 text-md focus:outline-none leading-none text-green-500 bg-green-100  rounded"
                             }
                           >
                             {item.orderStatus}

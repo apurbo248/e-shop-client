@@ -17,7 +17,7 @@ import Search from "./Components/Header/Search";
 import { useEffect, useState } from "react";
 import Store from "./Components/Redux/Store/Store";
 import { loadUser } from "./Components/Redux/Action/User";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Profile from "./Components/Header/Profile";
 import Cart from "./Components/Header/Cart";
 import ShippingInfo from "./Components/Header/ShippingInfo";
@@ -36,13 +36,16 @@ import UpdateUser from "./Components/Admin/UpdateUser";
 import AdminUserList from "./Components/Admin/AdminUserList";
 import Review from "./Components/Admin/Review";
 
-
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
- 
+  const dispatch = useDispatch();
+  console.log(user?.name);
+
+  
+  
   useEffect(() => {
-    Store.dispatch(loadUser());
-  }, []);
+    dispatch(loadUser());
+  }, [dispatch]);
   return (
     <>
       <Routes>
@@ -81,7 +84,10 @@ const App = () => {
             path="admin/product_update/:id"
             element={user && user.role === "admin" && <UpdateProduct />}
           />
-          <Route path="admin/orders" element={<OrderList />} />
+          <Route
+            path="admin/orders"
+            element={user && user.role === "admin" && <OrderList />}
+          />
           <Route
             path="admin/users"
             element={user && user.role === "admin" && <AdminUserList />}

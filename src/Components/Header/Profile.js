@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 
 const Profile = ({user}) => {
 console.log(user)
-
+console.log(localStorage.getItem("userToken"));
   return (
     <>
       <Navbar />
@@ -18,7 +18,7 @@ console.log(user)
               <img
                 alt="ecommerce"
                 class="lg:w-54 w-54 lg:h-54 h-54 object-cover object-center rounded-full"
-                src={img}
+                src={img}ZcdS
               />
 
               <div class="flex md:mt-1 ">

@@ -10,6 +10,8 @@ const useAuth = () => {
 };
 
 const ProtectedRoute = () => {
+  const userToken = localStorage.getItem("userToken");
+  
   const isAuth = useAuth();
   const location = useLocation();
   return isAuth ? (
