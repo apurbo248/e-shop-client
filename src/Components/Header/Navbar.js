@@ -21,9 +21,10 @@ console.log(user)
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
-    dispatch(logout());
+     localStorage.setItem("userToken", "");
 
     toast.success("Logout successfully");
+    window.location.reload();
   };
 
   useEffect(() => {}, [dispatch]);

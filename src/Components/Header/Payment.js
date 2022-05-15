@@ -10,14 +10,11 @@ const Payment = () => {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get(
-      "https://shrouded-falls-78834.herokuapp.com/v1/getStripeKey",
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("userToken")}`,
-        },
-      }
-    );
+    const { data } = await axios.get("/v1/getStripeKey", {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      },
+    });
 
     setStripeApiKey(data.stripeKey);
   }

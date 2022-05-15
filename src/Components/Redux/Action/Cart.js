@@ -1,9 +1,7 @@
 import axios from "axios";
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(
-    `https://shrouded-falls-78834.herokuapp.com/v1/product/${id}`
-  );
+  const { data } = await axios.get(`/v1/product/${id}`);
 
   dispatch({
     type: "ADD_TO_CART",
