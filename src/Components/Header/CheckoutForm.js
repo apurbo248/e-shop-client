@@ -24,9 +24,6 @@ const CheckoutForm = () => {
     amount: Math.round(orderInfo && orderInfo.total * 100),
   };
 
-  
-
-
   const order = {
     shippingInfo,
     orderItems: cartItems,
@@ -46,7 +43,7 @@ const CheckoutForm = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:1234/v1/payment",
+        "https://shrouded-falls-78834.herokuapp.com/v1/payment",
 
         paymentData,
         config

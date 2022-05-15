@@ -9,7 +9,7 @@ export const login = (email, password) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.post(
-      "http://localhost:1234/v1/user/login",
+      "https://shrouded-falls-78834.herokuapp.com/v1/user/login",
 
       { email, password },
       config
@@ -39,7 +39,7 @@ export const register = (name, email, password) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.post(
-      `http://localhost:1234/v1/user/register`,
+      `https://shrouded-falls-78834.herokuapp.com/v1/user/register`,
       { name, email, password },
       config
     );
@@ -58,16 +58,18 @@ export const register = (name, email, password) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: "LOAD_USER_REQUEST" });
-   
+
     console.log(localStorage.getItem("userToken"));
 
-    const { data } = await axios.get("http://localhost:1234/v1/me", {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("userToken")}`,
-      },
-   
-    });
-   
+    const { data } = await axios.get(
+      "https://shrouded-falls-78834.herokuapp.com/v1/me",
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
+    );
+
     dispatch({
       type: "LOAD_USER_SUCCESS",
       payload: data,
@@ -83,11 +85,14 @@ export const allUser = () => async (dispatch) => {
   try {
     dispatch({ type: "ALL_USER_REQUEST" });
 
-    const { data } = await axios.get("http://localhost:1234/v1/users", {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("userToken")}`,
-      },
-    });
+    const { data } = await axios.get(
+      "https://shrouded-falls-78834.herokuapp.com/v1/users",
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
+    );
 
     dispatch({
       type: "ALL_USER_SUCCESS",
@@ -104,11 +109,14 @@ export const singleUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: "USER_DETAIL_REQUEST" });
 
-    const { data } = await axios.get(`http://localhost:1234/v1/user/${id}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("userToken")}`,
-      },
-    });
+    const { data } = await axios.get(
+      `https://shrouded-falls-78834.herokuapp.com/v1/user/${id}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
+    );
 
     dispatch({
       type: "USER_DETAIL_SUCCESS",
@@ -129,7 +137,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
       withCredentials: true,
     };
     const { data } = await axios.put(
-      `http://localhost:1234/v1/update_user/${id}`,
+      `https://shrouded-falls-78834.herokuapp.com/v1/update_user/${id}`,
       userData,
       config
     );
@@ -151,7 +159,7 @@ export const deleteUser = (id) => async (dispatch) => {
     dispatch({ type: "DELETE_USER_REQUEST" });
 
     const { data } = await axios.delete(
-      `http://localhost:1234/v1/delete_user/${id}`,
+      `https://shrouded-falls-78834.herokuapp.com/v1/delete_user/${id}`,
       {
         withCredentials: true,
       }
@@ -170,7 +178,7 @@ export const deleteUser = (id) => async (dispatch) => {
 };
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get("http://localhost:1234/v1/logout", {
+    await axios.get("https://shrouded-falls-78834.herokuapp.com/v1/logout", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },

@@ -6,19 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../Redux/Action/User";
 import { clearErrors } from "../Redux/Action/Product";
 import Navbar from "./Navbar";
-import {
-  
-  getAuth,
-  
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
 
 const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { handleSubmit } = useForm();
- const auth = getAuth();
+ 
   const [newUser, setNewUser] = useState({
     name: "",
     email: "",
@@ -33,52 +26,21 @@ const Registration = () => {
 
   const registrationSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = newUser;
+    
 
-    // const { name, email, password } = newUser;
-    // dispatch(register(name, email, password));
-    console.log(email, password);
-    if (password.length < 6) {
-      return toast.error("password must be at least 6 characters");
-    }
+    const { name, email, password } = newUser;
+    dispatch(register(name, email, password));
+  }
 
-   
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-       if(result){
-
-verifyEmail();
-
-       }
-        
-       
-      })
-      .catch((error) => {
-        
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        toast.error(errorCode, errorMessage);
-        console.log(errorMessage);
-
-         if (!error) {
-           toast.success("Registration successfully");
-         }
-      });
-  };
-const verifyEmail=()=>{
-  sendEmailVerification(auth.currentUser).then((result) => {
-    console.log(result);
-toast.success("Successfully register,Please check your email");
-  });
-}
   useEffect(() => {
-    // if (isAuthenticated) {
-    //   toast.success("Registration successfully");
-    //   window.location.href = "/v1/user/login";
-    // }
+     if (error) {
+       toast.error(error);
+       dispatch(clearErrors());
+     }
+    if (isAuthenticated) {
+      toast.success("Registration successfully");
+      window.location.href = "/v1/user/login";
+    }
   }, [error, dispatch, isAuthenticated, navigate]);
 
   return (

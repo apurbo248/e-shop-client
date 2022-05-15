@@ -7,22 +7,14 @@ import { Link } from "react-router-dom";
 import { clearErrors } from "../Redux/Action/User";
 import { login } from "../Redux/Action/User";
 import Navbar from "./Navbar";
-import initializeAuthentication from "../Header/Firebase/firebase.initialize";
-import {
-  GoogleAuthProvider,
-  getAuth,
-  signInWithPopup,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
 
-initializeAuthentication();
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { handleSubmit } = useForm();
   const location = useLocation();
-  const [loggedInUserInfo, setLoggedInUserInfo] = useState({});
+ 
  const [newUser, setNewUser] = useState({
    email: "",
    password: "",
@@ -36,68 +28,8 @@ const Login = () => {
   };
 
 
-//  const userinfo=localStorage.getItem("user")
-//       ? JSON.parse(localStorage.getItem("user"))
-//       : {};
-
-//   console.log(userinfo);
-
-
-//   const logInByGoogle = async (e) => {
-    
-//     const auth = getAuth();
-//     const provider = new GoogleAuthProvider();
-//     signInWithPopup(auth, provider)
-//       .then((result) => {
-//         // This gives you a Google Access Token. You can use it to access the Google API.
-
-//         const { accessToken, displayName, email, phoneNumber, photoURL } =
-//           result.user;
-//         const loggedInUser = {
-//           name: displayName,
-//           email: email,
-//           phone: phoneNumber,
-//           pic: photoURL,
-//           token: accessToken,
-//           status: "success",
-//         };
-//         setLoggedInUserInfo(loggedInUser);
-//        localStorage.setItem("user", JSON.stringify(loggedInUser));
-       
-//        window.location.reload();
-     
-//       })
-//       .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         // The email of the user's account used.
-//         const email = error.email;
-//         toast.error(errorCode, errorMessage);
-//         console.log(errorMessage);
-//       });
-//   };
-  
-
   const { from } = location.state || { from: { pathname: "/" } };
-// const login=(e)=>{
-// e.preventDefault();
-//   const{email, password}=newUser;
-//   const auth = getAuth();
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       // Signed in
-//       if(userCredential){
-//         toast.success("Successfully login")
-//       }
-//       const user = userCredential.user;
-//       // ...
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-// toast.error(errorCode,errorMessage);
-//     });
-// }
+
 const  onSubmit=(e)=>{
 
    const {  email, password } = newUser;

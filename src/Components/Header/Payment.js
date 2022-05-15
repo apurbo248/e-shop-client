@@ -6,18 +6,19 @@ import React, { useEffect, useState } from "react";
 import CheckoutForm from "./CheckoutForm";
 import Navbar from "./Navbar";
 
-
 const Payment = () => {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("http://localhost:1234/v1/getStripeKey", {
-      headers: {
+    const { data } = await axios.get(
+      "https://shrouded-falls-78834.herokuapp.com/v1/getStripeKey",
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
+    );
 
-        authorization: `Bearer ${localStorage.getItem("userToken")}`,
-      },
-    });
-   
     setStripeApiKey(data.stripeKey);
   }
 
@@ -26,7 +27,7 @@ const Payment = () => {
   }, []);
   return (
     <>
-    <Navbar/>
+      <Navbar />
       {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
           <CheckoutForm />
