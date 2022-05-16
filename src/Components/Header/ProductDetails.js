@@ -16,7 +16,6 @@ const ProductDetails = ({ isAuthenticated }) => {
     (state) => state.ProductDetails.product
   );
 
-  console.log(product);
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");

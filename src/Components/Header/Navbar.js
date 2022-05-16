@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../Redux/Action/User";
+import { loadUser, logout } from "../Redux/Action/User";
 import { toast } from "react-hot-toast";
 import Search from "./Search";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
@@ -17,7 +17,7 @@ const Navbar = () => {
     (state) => state.userInfo
   );
 
-console.log(user)
+console.log(user?.name)
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
@@ -27,7 +27,7 @@ console.log(user)
     window.location.reload();
   };
 
-  useEffect(() => {}, [dispatch]);
+  useEffect(() => {dispatch(loadUser());}, [dispatch]);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");

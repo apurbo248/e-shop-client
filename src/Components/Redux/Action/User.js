@@ -75,9 +75,10 @@ export const loadUser = () => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
+
     dispatch({
       type: "LOAD_USER_FAIL",
-      payload: error.response.data.message,
+      payload: error.response,
     });
   }
 };
@@ -133,8 +134,10 @@ export const updateUser = (id, userData) => async (dispatch) => {
   try {
     dispatch({ type: "UPDATE_USER_REQUEST" });
     const config = {
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      },
     };
     const { data } = await axios.put(
       `https://shrouded-falls-78834.herokuapp.com/v1/update_user/${id}`,
@@ -161,7 +164,9 @@ export const deleteUser = (id) => async (dispatch) => {
     const { data } = await axios.delete(
       `https://shrouded-falls-78834.herokuapp.com/v1/delete_user/${id}`,
       {
-        withCredentials: true,
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
       }
     );
     console.log(data);
