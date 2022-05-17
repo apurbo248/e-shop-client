@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import { useForm } from "react-hook-form";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 
-import Loader from "../Header/Loader";
+
 import Sidebar from "./Sidebar";
 
 import { clearErrors } from "../Redux/Action/Order";
-import { Navigate } from "react-router";
+
 import { Link } from "react-router-dom";
 import {
   allOrder,
   deleteOrder,
-  orderDetail,
-  updateOrder,
+
 } from "../Redux/Action/Order";
 
 const ProductList = () => {
-  const { handleSubmit } = useForm();
+
   const dispatch = useDispatch();
-  const [status, setOrderStatus] = useState("");
+
   const { loading, error, orders } = useSelector((state) => state.allOrder);
  
   const { error: deleteError, isDeleted } = useSelector(
@@ -72,7 +70,7 @@ const ProductList = () => {
       dispatch({ type: "UPDATE_ORDER_RESET" });
       //Navigate("/admin_dashboard")
     }
-    // dispatch(orderDetail(orders._id));
+
   }, [dispatch, deleteError, isDeleted, error]);
 
   return (

@@ -19,7 +19,7 @@ const MyOrder = () => {
       dispatch(clearErrors());
     }
     dispatch(myOrders());
-  }, [dispatch]);
+  }, [dispatch,error]);
 
   return (
     <>

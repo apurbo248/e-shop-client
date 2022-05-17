@@ -44,7 +44,7 @@ const Registration = () => {
   }, [error, dispatch, isAuthenticated, navigate]);
 
   return (
-    <>
+    <div>
       <Navbar />
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-20 mx-auto flex flex-wrap items-center">
@@ -113,7 +113,7 @@ const Registration = () => {
         </div>
         <Toaster />
       </section>
-    </>
+    </div>
   );
 };
 

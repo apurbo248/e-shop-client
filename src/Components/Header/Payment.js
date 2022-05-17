@@ -26,14 +26,14 @@ const Payment = () => {
     getStripeApiKey();
   }, []);
   return (
-    <>
+    <div>
       <Navbar />
       {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
           <CheckoutForm />
         </Elements>
       )}
-    </>
+    </div>
   );
 };
 

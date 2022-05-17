@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { useForm } from "react-hook-form";
+import React, { useEffect } from "react";
+
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +11,6 @@ import { allUser, clearErrors, deleteUser } from "../Redux/Action/User";
 import { Link } from "react-router-dom";
 
 const AdminUserList = () => {
-  const { handleSubmit } = useForm();
   const dispatch = useDispatch();
   const { loading, error, users } = useSelector((state) => state.allUserInfo);
   console.log(users);
@@ -54,7 +52,7 @@ const AdminUserList = () => {
   }, [dispatch, deleteError, isDeleted, error]);
 
   return (
-   <main className="bg-gray-100 dark:bg-gray-800  h-screen overflow-hidden ">
+    <main className="bg-gray-100 dark:bg-gray-800  h-screen overflow-hidden ">
       <div className="md:flex users-start justify-between">
         <div className=" md:w-2/12    ">
           <Sidebar />
@@ -71,7 +69,7 @@ const AdminUserList = () => {
                     <th scope="col" className="px-6 py-3">
                       Name
                     </th>
-                     <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3">
                       Email
                     </th>
                     <th scope="col" className="px-6 py-3 text-center">

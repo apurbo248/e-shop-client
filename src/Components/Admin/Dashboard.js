@@ -11,7 +11,7 @@ import { Doughnut } from "react-chartjs-2";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  const { productCount, products } = useSelector((state) => state.ProductsData);
+  const { productCount } = useSelector((state) => state.ProductsData);
 
   const { totalAmount, totalOrder, orders } = useSelector(
     (state) => state.allOrder
@@ -190,7 +190,7 @@ const Dashboard = () => {
                     </div>
                     <div class="flex-shrink-0">
                       <a
-                        href="#"
+                       
                         class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2"
                       >
                         View all
@@ -276,7 +276,7 @@ const Dashboard = () => {
                 <ul class="flex items-center flex-wrap mb-6 md:mb-0">
                   <li>
                     <a
-                      href="#"
+                      href=""
                       class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6"
                     >
                       Terms and conditions

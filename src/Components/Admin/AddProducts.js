@@ -13,7 +13,7 @@ const AddProducts = () => {
   const { handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { success,error, loading } = useSelector((state) => state.addProduct);
+  const { success,error } = useSelector((state) => state.addProduct);
  
   const [imageLoading, setImageLoading] = useState(false);
   const [image, setImage] = useState(null);

@@ -8,6 +8,7 @@ import Loader from "./Loader";
 import { addToCart } from "../Redux/Action/Cart";
 import toast, { Toaster } from "react-hot-toast";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const ProductDetails = ({ isAuthenticated }) => {
   const { id } = useParams();
@@ -41,7 +42,7 @@ const ProductDetails = ({ isAuthenticated }) => {
     dispatch(addToCart(id, quantity));
     toast.success("Item added to cart");
   };
-
+console.log(comment);
   const sendReview = () => {
     console.log(rating, comment);
     const reviewData = {
@@ -58,13 +59,13 @@ const ProductDetails = ({ isAuthenticated }) => {
   }, [dispatch, id]);
 
   return (
-    <>
+    <div>
       <Navbar />
-      <section className="text-gray-600 body-font overflow-hidden">
+      <section className=" body-font overflow-hidden bg-white">
         {loading ? (
           <Loader />
         ) : (
-          <div className="container px-5 pt-8 mx-auto border-b border-white pb-8 mt-20 ">
+          <div className="container px-5 pt-8 mx-auto   pb-8 mt-20 ">
             <div className="lg:w-4/5 mx-auto flex flex-wrap ">
               <img
                 alt="ecommerce"
@@ -75,7 +76,7 @@ const ProductDetails = ({ isAuthenticated }) => {
                 <h2 className="text-sm title-font text-gray-500 tracking-widest">
                   {product && product.category}
                 </h2>
-                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                <h1 className="text-gray-900 text-2xl title-font font-medium mb-1">
                   {product && product.name}
                 </h1>
                 <div className="flex mb-4">
@@ -88,12 +89,12 @@ const ProductDetails = ({ isAuthenticated }) => {
                       activeColor="#ffd700"
                     />
 
-                    <span className="ms-4 border-l-2 pl-4 border-gray-900">
+                    <span className="ms-4 border-l-2 pl-4 border-gray-300">
                       {" "}
                       {product && product.numberOfReview}
                     </span>
 
-                    <span className="text-gray-600 ml-1 border-r-2 pr-4 border-gray-900">
+                    <span className="text-gray-600 ml-1 border-r-2 pr-4 border-gray-300">
                       {" "}
                       Reviews
                     </span>
@@ -102,7 +103,7 @@ const ProductDetails = ({ isAuthenticated }) => {
                         {" "}
                         <button
                           type="button"
-                          class=" text-dark ml-2 bg-gray-50  hover:bg-gray-200  p-1 rounded-md   font- cursor-pointer"
+                          class=" text-dark ml-2 bg-gray-100  hover:bg-gray-200  p-1 rounded-md   font- cursor-pointer"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
@@ -154,13 +155,10 @@ const ProductDetails = ({ isAuthenticated }) => {
                                     <textarea
                                       className="  w-full  rounded-xl border  text-base outline-none text-gray-700 py-1 px-3 leading-8"
                                       required="required"
-                                      type="text"
                                       name="comment"
-                                      placeholder="Leave a review"
-                                      onChange={(e) =>
-                                        setComment(e.target.value)
-                                      }
+                                      placeholder="write a review"
                                       value={comment}
+                                      onChange={(e) => setComment(e.target.value)}
                                     />
                                   </div>
                                 </div>
@@ -204,11 +202,11 @@ const ProductDetails = ({ isAuthenticated }) => {
                 <div className="flex mt-6 items-center   border-gray-100 mb-5">
                   <div className="flex ">
                     {product && product.stock < 1 ? (
-                      <p className="bg-red-100 p-1 px-2 text-red-900 font-medium">
+                      <p className="bg-red-100 rounded px-2 text-red-900 font-medium text-sm">
                         Stock Out
                       </p>
                     ) : (
-                      <p className="bg-green-200 p-1 px-2 text-green-900 font-medium">
+                      <p className="bg-green-100 rounded px-2 text-green-900 font-medium text-sm">
                         {product && product.stock} In Stock
                       </p>
                     )}
@@ -263,16 +261,17 @@ const ProductDetails = ({ isAuthenticated }) => {
           </div>
         )}
         <div class="py-12 px-4 md:px-6 2xl:px-0 2xl:container 2xl:mx-auto flex justify-center items-center container">
-          <div class="flex flex-col justify-start items-start w-full space-y-3">
-            <div class="flex justify-start items-start">
-              <p class=" pb-4 text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800 dark:text-white ">
+          <div class="flex flex-col justify-start items-start w-full space-y-3 ">
+            <div class="flex justify-start items-start mb-2 border-b border-gray-900">
+              <p class="  text-3xl l font-semibold leading-7 lg:leading-9 text-gray-800 dark:text-white ">
                 Reviews
               </p>
             </div>
+
             {product && product.reviews && product.reviews.length > 0 ? (
               product.reviews &&
               product.reviews.map((review) => (
-                <div class="w-full flex justify-start items-start flex-col bg-gray-50 dark:bg-gray-800 py-2 px-4">
+                <div class="w-full shadow-md flex justify-start items-start flex-col bg-gray-100 dark:bg-gray-800 py-2 px-4">
                   <div class="flex flex-col md:flex-row justify-between w-full">
                     <div class="flex flex-row justify-between items-start">
                       <div class=" flex justify-start items-center flex-row space-x-2">
@@ -306,8 +305,8 @@ const ProductDetails = ({ isAuthenticated }) => {
                       {String(review.reviewCreatedAt).substr(0, 10)}
                     </div>
                   </div>
-                  <div id="menu" class="md:block">
-                    <p class="mt-1 text-base leading-normal text-gray-600 dark:text-white w-full md:w-9/12 xl:w-5/6">
+                  <div >
+                    <p class="mt-1 text-base leading-normal text-gray-600 dark:text-white w-full ">
                       {review.comment}
                     </p>
                   </div>
@@ -333,7 +332,8 @@ const ProductDetails = ({ isAuthenticated }) => {
 
         <Toaster />
       </section>
-    </>
+      <Footer/>
+    </div>
   );
 };
 

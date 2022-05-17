@@ -43,6 +43,7 @@ const ProductList = () => {
   };
 
   useEffect(() => {
+     dispatch(getAdminProducts()); 
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
@@ -57,7 +58,7 @@ const ProductList = () => {
       window.location.reload();
     }
 
-    dispatch(getAdminProducts());
+    
   }, [dispatch, deleteError, isDeleted, error]);
 
   return (

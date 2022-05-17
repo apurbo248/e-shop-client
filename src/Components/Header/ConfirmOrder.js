@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { myOrders } from "../Redux/Action/Order";
 
 import Navbar from "./Navbar";
 
-const ConfirmOrder = () => {
-
+const ConfirmOrder = ({ user }) => {
+  const dispatch = useDispatch();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.userInfo);
-  const { orders } = useSelector((state) => state.MyOrder);
+
+  const { orders} = useSelector((state) => state.MyOrder);
   const navigate = useNavigate();
   const subTotal = cartItems.reduce(
     (acc, item) => acc + item.quantity * item.price,
@@ -40,14 +41,14 @@ const ConfirmOrder = () => {
     navigate("/v1/process/payment");
   };
   useEffect(() => {
-    //dispatch(myOrders());
+    
   });
   return (
     <>
       <Navbar />
-      <div className="">
-        <div className="mt-20 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto  bg-white">
-          <div className="flex justify-start item-start space-y-2 flex-col container">
+      <div className="bg-gray-100">
+        <div className=" pt-20 px-4 md:px-6 md:container  md:mx-auto ">
+          <div className=" flex justify-start item-start space-y-2 flex-col ">
             <h1 className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9  text-gray-800">
               Order
             </h1>
@@ -57,7 +58,7 @@ const ConfirmOrder = () => {
           </div>
           <div className="mt-1 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
             <div className="flex flex-col justify-start items-start w-full space-y-4 my-4 md:space-y- xl:space-y-">
-              <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+              <div className="flex flex-col justify-start items-start bg-white shadow-md  px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
                 {cartItems &&
                   cartItems.map((item) => (
                     <div className="mt- md:mt- flex  flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full ">
@@ -91,9 +92,9 @@ const ConfirmOrder = () => {
                   ))}
               </div>
               <div className="flex justify-center md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
-                <div className="flex flex-col px-4 py- md:p-6 xl:p-8 w-full bg-gray-50 space-y-6   ">
+                <div className="flex flex-col px-4 py- md:p-6 xl:p-8 w-full bg-white shadow-md space-y-6   ">
                   <h3 className="text-xl font-semibold leading-5 text-gray-800">
-                    Customer
+                    My Information
                   </h3>
                   <div className="flex  flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0 ">
                     <div className="flex flex-col justify-start items-start flex-shrink-0">
@@ -114,7 +115,11 @@ const ConfirmOrder = () => {
                             {shippingInfo?.phone}
                           </p>
                           <p className="text-sm leading-5 text-gray-600">
-                            {orders && orders.length} Previous Orders
+                            <span className="text-gray-900 font-semibold">
+                              {" "}
+                              {orders && orders.length}
+                            </span>{" "}
+                            Previous Orders
                           </p>
                         </div>
                       </div>
@@ -135,7 +140,7 @@ const ConfirmOrder = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 w-full xl:w-96 flex  items-center md:items-start px-4 py-4 md:p- xl:p- flex-col h-80">
+            <div className="bg-white shadow-md w-full xl:w-96 flex  items-center md:items-start px-4 py-4 md:p- xl:p- flex-col h-80">
               <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
                 Summary
               </h3>

@@ -1,21 +1,20 @@
 import "./App.css";
-import Navbar from "./Components/Header/Navbar";
+
 import Home from "./Components/Header/Home";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 import Login from "./Components/Header/Login";
 import Registration from "./Components/Header/Registration";
 import Logout from "./Components/Header/Logout";
 
-import { Toaster } from "react-hot-toast";
+
 import Loader from "./Components/Header/Loader";
 import ProductDetails from "./Components/Header/ProductDetails";
 import AllProductpage from "./Components/Header/AllProductpage";
 import ProductList from "./Components/Admin/ProductList";
 import Search from "./Components/Header/Search";
-import { useEffect, useState } from "react";
-import Store from "./Components/Redux/Store/Store";
+
 import { loadUser } from "./Components/Redux/Action/User";
 import { useDispatch, useSelector } from "react-redux";
 import Profile from "./Components/Header/Profile";
@@ -35,16 +34,15 @@ import UpdateStatus from "./Components/Admin/UpdateStatus";
 import UpdateUser from "./Components/Admin/UpdateUser";
 import AdminUserList from "./Components/Admin/AdminUserList";
 import Review from "./Components/Admin/Review";
+import { useEffect } from "react";
+
 
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
-  console.log(isAuthenticated,user?.name);
 
-  
-  
   useEffect(() => {
-   dispatch(loadUser());
+    dispatch(loadUser());
   }, [dispatch]);
   return (
     <>
@@ -60,7 +58,7 @@ const App = () => {
         <Route path="/v1/products/:keyword" element={<AllProductpage />} />
         <Route
           path="/v1/product/:id"
-          element={<ProductDetails isAuthenticated={isAuthenticated} />}
+          element={<ProductDetails />}
         />
 
         <Route path="/v1/cart" element={<Cart />} />
@@ -73,7 +71,10 @@ const App = () => {
           <Route path="my_orders" element={<MyOrder />} />
           <Route path="v1/order/:id" element={<OrderInfo />} />
 
-          <Route path="v1/user/order/confirm" element={<ConfirmOrder />} />
+          <Route
+            path="v1/user/order/confirm"
+            element={<ConfirmOrder user={user} />}
+          />
           <Route path="v1/process/payment" element={<Payment />} />
           <Route
             path="admin_dashboard"

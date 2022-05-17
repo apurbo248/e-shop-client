@@ -6,7 +6,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({ type: "USER_REQUEST" });
     const config = {
       headers: { "Content-Type": "application/json" },
-    //  withCredentials: true,
+    //withCredentials: true,
     };
     const { data } = await axios.post(
       "https://shrouded-falls-78834.herokuapp.com/v1/user/login",
@@ -36,7 +36,7 @@ export const register = (name, email, password) => async (dispatch) => {
     dispatch({ type: "USER_REGISTER_REQUEST" });
     const config = {
       headers: { "Content-Type": "application/json" },
-     // withCredentials: true,
+      // withCredentials: true,
     };
     const { data } = await axios.post(
       `https://shrouded-falls-78834.herokuapp.com/v1/user/register`,
@@ -59,8 +59,6 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: "LOAD_USER_REQUEST" });
 
-    console.log(localStorage.getItem("userToken"));
-
     const { data } = await axios.get(
       "https://shrouded-falls-78834.herokuapp.com/v1/me",
       {
@@ -75,7 +73,6 @@ export const loadUser = () => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-
     dispatch({
       type: "LOAD_USER_FAIL",
       payload: error.response,

@@ -21,8 +21,8 @@ const Success = () => {
           <p> Have a great day! </p>
           <div class="py-10 text-center">
             <button
-              onClick={(window.location.href = "/home")}
-              class="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3"
+              onChange={(window.location.href = "/")}
+              class="px-12 bg-mainBaseColor text-white font-semibold py-3"
             >
               Continue Shopping
             </button>

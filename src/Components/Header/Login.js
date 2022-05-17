@@ -19,7 +19,7 @@ const Login = () => {
    email: "",
    password: "",
  });
-  const { error, isAuthenticated, loading, user } = useSelector(
+  const { error, isAuthenticated, user } = useSelector(
     (state) => state.userInfo
   );
 

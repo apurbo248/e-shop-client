@@ -20,7 +20,7 @@ const OrderInfo = () => {
   }, [error, dispatch, id]);
 
   return (
-    <>
+    <div>
       <Navbar />
 
       {loading ? (
@@ -121,7 +121,7 @@ const OrderInfo = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

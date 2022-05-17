@@ -31,7 +31,7 @@ const ShippingInfo = () => {
     console.log({ address, city, state, country, phone });
   };
   return (
-    <>
+    <div>
       <Navbar />
       <div class="flex   mt-24">
         <div class="m-auto ">
@@ -131,7 +131,7 @@ const ShippingInfo = () => {
         </div>
       </div>
       <Footer/>
-    </>
+    </div>
   );
 };
 

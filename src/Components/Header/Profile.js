@@ -9,7 +9,7 @@ const Profile = ({user}) => {
 console.log(user)
 console.log(localStorage.getItem("userToken"));
   return (
-    <>
+    <div>
       <Navbar />
       <section class="text-gray-600 body-font md:mt-8 overflow-hidden">
         <div class="container px-5 py-12 mx-auto border shadow rounded-xl ">
@@ -63,7 +63,7 @@ console.log(localStorage.getItem("userToken"));
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
