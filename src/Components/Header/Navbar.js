@@ -27,7 +27,7 @@ console.log(user?.name)
     window.location.reload();
   };
 
-  useEffect(() => {dispatch(loadUser());}, [dispatch]);
+  useEffect(() => {}, [dispatch]);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");

@@ -39,12 +39,12 @@ import Review from "./Components/Admin/Review";
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
-  console.log(user?.name);
+  console.log(isAuthenticated,user?.name);
 
   
   
   useEffect(() => {
-   // dispatch(loadUser());
+   dispatch(loadUser());
   }, [dispatch]);
   return (
     <>
@@ -65,7 +65,10 @@ const App = () => {
 
         <Route path="/v1/cart" element={<Cart />} />
 
-        <Route path="/*" element={<ProtectedRoute />}>
+        <Route
+          path="/*"
+          element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
+        >
           <Route path="me" element={<Profile user={user} />} />
           <Route path="my_orders" element={<MyOrder />} />
           <Route path="v1/order/:id" element={<OrderInfo />} />
