@@ -31,4 +31,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  content: ["./node_modules/flowbite/**/*.js"],
 };

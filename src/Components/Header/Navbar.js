@@ -17,14 +17,14 @@ const Navbar = () => {
     (state) => state.userInfo
   );
 
-console.log(user?.name)
+  console.log(user?.name);
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
-    // localStorage.setItem("userToken", "");
+    localStorage.setItem("userToken", "");
 
-   // toast.success("Logout successfully");
-   // window.location.reload();
+    toast.success("Logout successfully");
+    window.location.reload();
   };
 
   useEffect(() => {}, [dispatch]);
@@ -82,54 +82,44 @@ console.log(user?.name)
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <Link to="/v1/cart">
-
-<div class="">
-    <div class="flex  justify-center">
-        <div class="relative ">
-            <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
-               
-                <div class="flex flex-row-reverse ml-2 w-full">
-                    <div slot="icon" class="relative">
-                        <div class="absolute text-xs rounded-full -mt-1 -mr-2 px-1 font-bold top-0 right-0 bg-red-700 text-white">{cartItems.length}</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart w-6 h-6 mt-2">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
+                  <div class="">
+                    <div class="flex  justify-center">
+                      <div class="relative ">
+                        <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
+                          <div class="flex flex-row-reverse ml-2 w-full">
+                            <div slot="icon" class="relative">
+                              <div class="absolute text-xs rounded-full -mt-1 -mr-2 px-1 font-bold top-0 right-0 bg-red-700 text-white">
+                                {cartItems.length}
+                              </div>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="100%"
+                                height="100%"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="#fff"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="feather feather-shopping-cart w-6 h-6 mt-2"
+                              >
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>
-            </div>
-         </div>
-     </div>    
-   
-</div>
-                  {/* <button
-                    type="button"
-                    className=" p-1 rounded-full text-gray-400 "
-                  >
-                    <span class="badge  bg-mainBaseColor rounded-full  text-center  text-white text-xs mr-2  -mb- mt-2 ">
-                      {cartItems.length}
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6 -ml-4 -mt-6"
-                      viewBox="0 0 20 20"
-                      fill="#fff"
-                    >
-                      <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                    </svg>
-                  </button> */}
+                  </div>
                 </Link>
                 {isAuthenticated && user ? (
                   <Menu as="div" className="ml-3 relative">
                     <div>
-                      <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                      <Menu.Button className=" flex text-lg text-white ">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
+                        <p className=" ">{user.name}</p>
                       </Menu.Button>
                     </div>
                     <Transition
