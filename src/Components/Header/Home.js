@@ -13,8 +13,11 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import "swiper/swiper.min.css";
 import { Autoplay, Navigation } from "swiper";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  //window.location.reload();
+
   const dispatch = useDispatch();
   const product = useSelector((state) => state.ProductsData);
   const { loading, error, products } = product;
@@ -155,19 +158,31 @@ const Home = () => {
         </Swiper>
       </section> */}
 
-      <section className="pt-4 pb-2 bg-gray-100">
+      <section className="pt-4 pb-4 bg-gray-100">
         {loading ? (
           <Loader />
         ) : (
-          <div className=" container">
-            <div className="max-w-1/5 mx-auto py-1 px-4 sm:py-24 sm:px-6 lg:max-w-1/5 lg:px-8">
-              <h2 className="text-2xl font-md tracking-tight text-gray-900">
-                Featured Products
-              </h2>
-
-              <div className="bg- mt-4 grid grid-cols-2 gap-y-10 gap-x- sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-2">
+          <div className=" container ">
+            <div className="bg-white max-w-1/5 mx-auto py-1 px-2 sm:py-24 sm:px-6 lg:max-w-1/5 lg:px-8">
+              <div class="mb-4 flex items-center justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    Latest Products
+                  </h3>
+                </div>
+                <div class="flex-shrink-0">
+                  <Link to="/v1/products">
+                    <p class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2">
+                      View all
+                    </p>
+                  </Link>
+                </div>
+              </div>
+              <div className=" mt-4 grid grid-cols-2 gap-y-4 gap-x-3 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-2">
                 {products &&
-                  products.map((product,key) => <Product product={product} key={key} />)}
+                  products.map((product, key) => (
+                    <Product product={product} key={key} />
+                  ))}
               </div>
             </div>
           </div>

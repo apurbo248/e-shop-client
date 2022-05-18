@@ -65,7 +65,8 @@ export const loadUser = () => async (dispatch) => {
         headers: {
           authorization: `Bearer ${localStorage.getItem("userToken")}`,
         },
-      }
+      },
+      
     );
 
     dispatch({

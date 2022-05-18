@@ -8,17 +8,16 @@ import { clearErrors } from "../Redux/Action/User";
 import { login } from "../Redux/Action/User";
 import Navbar from "./Navbar";
 
-
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { handleSubmit } = useForm();
   const location = useLocation();
- 
- const [newUser, setNewUser] = useState({
-   email: "",
-   password: "",
- });
+
+  const [newUser, setNewUser] = useState({
+    email: "",
+    password: "",
+  });
   const { error, isAuthenticated, user } = useSelector(
     (state) => state.userInfo
   );
@@ -27,14 +26,12 @@ const Login = () => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
-
   const { from } = location.state || { from: { pathname: "/" } };
 
-const  onSubmit=(e)=>{
-
-   const {  email, password } = newUser;
-   dispatch(login( email, password));
-}
+  const onSubmit = (e) => {
+    const { email, password } = newUser;
+    dispatch(login(email, password));
+  };
 
   useEffect(() => {
     if (error) {
@@ -43,6 +40,7 @@ const  onSubmit=(e)=>{
     }
     if (isAuthenticated && user) {
       toast.success("log in successfully");
+
       navigate(from);
     }
   }, [error, dispatch, isAuthenticated, navigate, from, user]);
@@ -85,8 +83,7 @@ const  onSubmit=(e)=>{
                 />
               </div>
               <button
-              type="submit"
-                
+                type="submit"
                 class="text-white bg-mainBaseColor border-0 py-2 px-8 focus:outline-none  rounded text-md"
               >
                 Login{" "}
@@ -101,13 +98,6 @@ const  onSubmit=(e)=>{
                 </Link>
               </p>
             </form>
-
-            {/* <button
-              onClick={logInByGoogle}
-              className="bg-mainBaseColor text-white  p-3 mt-4 rounded"
-            >
-              Google sign in
-            </button> */}
           </div>
         </div>
         <Toaster />

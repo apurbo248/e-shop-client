@@ -11,7 +11,7 @@ const UpdateStatus = () => {
   const dispatch = useDispatch();
   const [status, setOrderStatus] = useState("");
   const { error, loading, order } = useSelector((state) => state.orderDetail);
-console.log(status)
+  console.log(status);
   const { error: updateError, isUpdated } = useSelector(
     (state) => state.orders
   );
@@ -52,8 +52,8 @@ console.log(status)
         <div className=" md:w-2/12   ">
           <Sidebar />
         </div>
-        <div className="p-2 md:w-1/2 w-full mt-24 mx-auto bg-white mb-60 rounded">
-          <div className="relative p-4">
+        <div className=" md:w-1/2 w-full md:mt-24 mt-mmt1 bg-white md:mb-60 md:mx-auto rounded">
+          <div className="relative p-4 ">
             <h1>
               Update order status for{" "}
               <span className="font-bold"> #{order && order._id}</span>
@@ -79,7 +79,7 @@ console.log(status)
             </div>
             <div className=" flex flex-shrink-0 flex-wrap items-center justify-end pr-8 ">
               <button
-                disabled={status==="" ? true : false}
+                disabled={status === "" ? true : false}
                 onClick={() => orderStatusHandler()}
                 type="submit"
                 className="px-6

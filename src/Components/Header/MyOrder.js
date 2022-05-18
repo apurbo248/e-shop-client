@@ -18,7 +18,7 @@ const MyOrder = () => {
        toast.error(error);
       dispatch(clearErrors());
     }
-    dispatch(myOrders());
+    //dispatch(myOrders());
   }, [dispatch,error]);
 
   return (

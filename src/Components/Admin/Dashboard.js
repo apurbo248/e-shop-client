@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allOrder } from "../Redux/Action/Order";
-import { getProducts } from "../Redux/Action/Product";
+import { getAdminProducts, getProducts } from "../Redux/Action/Product";
 import { allUser } from "../Redux/Action/User";
 import Sidebar from "./Sidebar";
 import "chart.js/auto";
@@ -11,20 +11,21 @@ import { Doughnut } from "react-chartjs-2";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  const { productCount } = useSelector((state) => state.ProductsData);
+  const { productCount, products } = useSelector((state) => state.ProductsData);
 
   const { totalAmount, totalOrder, orders } = useSelector(
     (state) => state.allOrder
   );
   const { users } = useSelector((state) => state.allUserInfo);
 
- console.log(orders);
+ console.log(products);
 
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getProducts()); 
     dispatch(allOrder());
     dispatch(allUser());
   }, [dispatch]);
+
   const user = users.length;
 
   const state = {
@@ -387,11 +388,11 @@ const Dashboard = () => {
               <p class="text-center text-sm text-gray-500 my-10">
                 &copy; 2019-2021{" "}
                 <a
-                  href="https://themesberg.com"
+                 
                   class="hover:underline"
                   target="_blank"
                 >
-                  Themesberg
+                 E-shop
                 </a>
                 . All rights reserved.
               </p>

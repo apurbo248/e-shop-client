@@ -47,18 +47,18 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/sad" element={<Loader />} />
-        <Route path="/search" element={<Search />} />
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/v1/user/login" element={<Login />} />
         <Route path="/v1/user/register" exact element={<Registration />} />
+        <Route path="/sad" element={<Loader />} />
+        <Route path="/search" element={<Search />} />
 
         <Route path="/v1/products" element={<AllProductpage />} />
         <Route path="/v1/products/:keyword" element={<AllProductpage />} />
         <Route
           path="/v1/product/:id"
-          element={<ProductDetails />}
+          element={<ProductDetails isAuthenticated={isAuthenticated} />}
         />
 
         <Route path="/v1/cart" element={<Cart />} />
@@ -76,45 +76,18 @@ const App = () => {
             element={<ConfirmOrder user={user} />}
           />
           <Route path="v1/process/payment" element={<Payment />} />
-          <Route
-            path="admin_dashboard"
-            element={user && user.role === "admin" && <Dashboard />}
-          />
-          <Route
-            path="admin/products"
-            element={user && user.role === "admin" && <ProductList />}
-          />
-          <Route
-            path="admin/product_update/:id"
-            element={user && user.role === "admin" && <UpdateProduct />}
-          />
-          <Route
-            path="admin/orders"
-            element={user && user.role === "admin" && <OrderList />}
-          />
-          <Route
-            path="admin/users"
-            element={user && user.role === "admin" && <AdminUserList />}
-          />
-          <Route
-            path="admin/reviews"
-            element={user && user.role === "admin" && <Review />}
-          />
+          <Route path="admin_dashboard" element={<Dashboard />} />
+          <Route path="admin/products" element={<ProductList />} />
+          <Route path="admin/product_update/:id" element={<UpdateProduct />} />
+          <Route path="admin/orders" element={<OrderList />} />
+          <Route path="admin/users" element={<AdminUserList />} />
+          <Route path="admin/reviews" element={<Review />} />
           <Route path="shipping" element={<ShippingInfo />} />
 
-          <Route
-            path="admin/add_product"
-            element={user && user.role === "admin" && <AddProducts />}
-          />
+          <Route path="admin/add_product" element={<AddProducts />} />
 
-          <Route
-            path="orderupdate/:id"
-            element={user && user.role === "admin" && <UpdateStatus />}
-          />
-          <Route
-            path="admin/user_update/:id"
-            element={user && user.role === "admin" && <UpdateUser />}
-          />
+          <Route path="orderupdate/:id" element={<UpdateStatus />} />
+          <Route path="admin/user_update/:id" element={<UpdateUser />} />
 
           <Route path="success" element={<Success />} />
         </Route>

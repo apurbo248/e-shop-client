@@ -21,10 +21,10 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
-    localStorage.setItem("userToken", "");
-
+   
+localStorage.removeItem("userToken");
     toast.success("Logout successfully");
-    window.location.reload();
+    window.location.href="/";
   };
 
   useEffect(() => {}, [dispatch]);
@@ -50,7 +50,7 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className=" flex-1 flex pl-12 md:items-center  md:justify-center sm:items-stretch sm:justify-start">
-                <div className="text-white  flex-shrink-0 flex items-center text-3xl">
+                <div className="text-white  flex-shrink-0 flex items-center text-lg md:text-3xl">
                   <Link to="/home">
                     <h2>e-SHOP</h2>
                   </Link>

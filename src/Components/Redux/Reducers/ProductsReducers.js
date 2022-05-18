@@ -28,13 +28,17 @@ export const createOrderReducer = (state = { product: {} }, action) => {
       return state;
   }
 };
-export const getProductsReducer = (state = { products: [] }, action) => {
+export const getProductsReducer = (
+  state = { products: [], adminproducts :[]},
+  action
+) => {
   switch (action.type) {
     case "ALL_PRODUCT_REQUEST":
     case "ADMIN_ALL_PRODUCT_REQUEST":
       return {
         loading: true,
         products: [],
+        adminproducts: [],
       };
     case "ALL_PRODUCT_SUCCESS":
     case "ADMIN_ALL_PRODUCT_SUCCESS":
@@ -43,6 +47,7 @@ export const getProductsReducer = (state = { products: [] }, action) => {
         products: action.payload.products,
         productCount: action.payload.productCount,
         productPerPage: action.payload.productPerPage,
+        adminproducts: action.payload.adminproducts,
       };
 
     // case "FilterByCategory":

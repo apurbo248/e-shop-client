@@ -77,7 +77,7 @@ const AddProducts = () => {
     if (success) {
      toast.success("Product created successfully.");
       dispatch({ type: "NEW_PRODUCT_RESET" });
-     // navigate("/admin_dashboard");
+     window.location.href="/admin/products"
  
 
        setProduct({

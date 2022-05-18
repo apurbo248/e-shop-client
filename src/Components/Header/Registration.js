@@ -39,7 +39,7 @@ const Registration = () => {
      }
     if (isAuthenticated) {
       toast.success("Registration successfully");
-      window.location.href = "/v1/user/login";
+     // window.location.href = "/v1/user/login";
     }
   }, [error, dispatch, isAuthenticated, navigate]);
 
@@ -49,7 +49,7 @@ const Registration = () => {
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-20 mx-auto flex flex-wrap items-center">
           <div class=" md:w-2/6 bg-gray-100 rounded-lg p-8 flex flex-col md:m-auto w-full mt-10 md:mt-10">
-            <form>
+            <form onSubmit={handleSubmit(registrationSubmit)}>
               <h2 class="text-gray-900 text-lg font-medium title-font mb-2">
                 Sign Up
               </h2>
@@ -93,17 +93,14 @@ const Registration = () => {
                   class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
-              <button
-                onClick={registrationSubmit}
-                class="text-white bg-mainBaseColor border-0 py-2 px-8 focus:outline-none  rounded text-md"
-              >
+              <button class="text-white bg-mainBaseColor border-0 py-2 px-8 focus:outline-none  rounded text-md">
                 Sign up
               </button>
               <p class="text-xs text-gray-500 mt-3">
                 Already have an account?
                 <Link
                   to="/v1/user/login"
-                  className="underline text-md font-bold"
+                  className="underline text-md  text-sm text-mainBaseColor ml-2"
                 >
                   Log in
                 </Link>

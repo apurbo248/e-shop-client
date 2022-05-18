@@ -11,7 +11,7 @@ const ProtectedRoute = ({ isAuthenticated }) => {
   return isAuthenticated ? (
     <Outlet />
   ) : (
-    <Navigate to="/v1/user/login" state={{ from: location }} replace />
+    <Navigate to="/v1/user/login" state={{ from:  location }} reload />
   );
 };
 

@@ -42,16 +42,16 @@ const ProductDetails = ({ isAuthenticated }) => {
     dispatch(addToCart(id, quantity));
     toast.success("Item added to cart");
   };
-console.log(comment);
+
   const sendReview = () => {
-    console.log(rating, comment);
+   
     const reviewData = {
       rating: rating,
       comment: comment,
       productId: id,
     };
     dispatch(newReview(reviewData));
-    toast.success("review added");
+    toast.success("Thank you for your valuable feedback !");
 
   };
   useEffect(() => {
@@ -66,13 +66,13 @@ console.log(comment);
           <Loader />
         ) : (
           <div className="container px-5 pt-8 mx-auto   pb-8 mt-20 ">
-            <div className="lg:w-4/5 mx-auto flex flex-wrap ">
+            <div className="lg:w-4/5 mx-auto flex flex-wrap  ">
               <img
                 alt="ecommerce"
                 className="lg:w-96 w-64 lg:h-full h-64 object-cover object-center rounded"
                 src={product && product.image[0].url}
               />
-              <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 ">
                 <h2 className="text-sm title-font text-gray-500 tracking-widest">
                   {product && product.category}
                 </h2>
@@ -80,7 +80,7 @@ console.log(comment);
                   {product && product.name}
                 </h1>
                 <div className="flex mb-4">
-                  <span className="flex items-center ">
+                  <span className="flex items-center text-xs md:text-sm">
                     <ReactStars
                       value={product && product.ratings}
                       edit={false}
@@ -89,7 +89,7 @@ console.log(comment);
                       activeColor="#ffd700"
                     />
 
-                    <span className="ms-4 border-l-2 pl-4 border-gray-300">
+                    <span className="ms-2 md:ms-6 border-l-2 pl-4 border-gray-300">
                       {" "}
                       {product && product.numberOfReview}
                     </span>
@@ -158,7 +158,9 @@ console.log(comment);
                                       name="comment"
                                       placeholder="write a review"
                                       value={comment}
-                                      onChange={(e) => setComment(e.target.value)}
+                                      onChange={(e) =>
+                                        setComment(e.target.value)
+                                      }
                                     />
                                   </div>
                                 </div>
@@ -215,23 +217,23 @@ console.log(comment);
                   {product && product.stock < 1 ? (
                     ""
                   ) : (
-                    <div className="px-10 ">
+                    <div className="pl-16 md:px-10 ">
                       <div>
                         <button
                           onClick={() => decreaseQty()}
-                          className="bg-mainBaseColor px-2 font-bold text-lg text-white"
+                          className="bg-mainBaseColor px-2 mx-2 font-bold text-lg text-white"
                         >
                           -
                         </button>
                         <input
-                          className="w-10 ps-2  "
+                          className="w-10 px-2 border-none bg-gray-100 h-7"
                           value={quantity}
                           readOnly
                           type="number"
                         />
                         <button
                           onClick={() => increaseQty()}
-                          className="bg-mainBaseColor px-2 font-bold text-lg text-white"
+                          className="bg-mainBaseColor px-2 font-bold text-lg text-white ms-2"
                         >
                           +
                         </button>
@@ -241,7 +243,7 @@ console.log(comment);
                 </div>
 
                 <div className="flex ">
-                  <span className="title-font font-medium text-2xl text-gray-900">
+                  <span className="text-lg font-medium mt-2 md:mt-0 md:text-2xl text-gray-900">
                     TK.{product && product.price}
                   </span>
 
@@ -249,7 +251,7 @@ console.log(comment);
                     ""
                   ) : (
                     <button
-                      className="flex ml-auto text-white bg-mainBaseColor border-0 py-2 px-6 focus:outline-none rounded"
+                      className="flex ml-auto text-white bg-mainBaseColor border-0 py-1 md:py-2 px-8 md:px-6 focus:outline-none rounded"
                       onClick={() => addToCartHandler()}
                     >
                       Add to cart
@@ -272,7 +274,7 @@ console.log(comment);
               product.reviews &&
               product.reviews.map((review) => (
                 <div class="w-full shadow-md flex justify-start items-start flex-col bg-gray-100 dark:bg-gray-800 py-2 px-4">
-                  <div class="flex flex-col md:flex-row justify-between w-full">
+                  <div class="flex flex-row  justify-between w-full">
                     <div class="flex flex-row justify-between items-start">
                       <div class=" flex justify-start items-center flex-row space-x-2">
                         <div>
@@ -305,7 +307,7 @@ console.log(comment);
                       {String(review.reviewCreatedAt).substr(0, 10)}
                     </div>
                   </div>
-                  <div >
+                  <div>
                     <p class="mt-1 text-base leading-normal text-gray-600 dark:text-white w-full ">
                       {review.comment}
                     </p>
@@ -332,7 +334,7 @@ console.log(comment);
 
         <Toaster />
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

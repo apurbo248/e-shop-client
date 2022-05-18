@@ -56,6 +56,25 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     });
   }
 };
+export const getAdminProducts = () => async (dispatch) => {
+  try {
+    dispatch({ type: "ADMIN_ALL_PRODUCT_REQUEST" });
+
+    const { data } = await axios.get(
+      "https://shrouded-falls-78834.herokuapp.com/v1/admin/all_products"
+    );
+    console.log(data);
+    dispatch({
+      type: "ADMIN_ALL_PRODUCT_SUCCESS",
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: "ADMIN_ALL_PRODUCT_FAIL",
+      payload: error.response,
+    });
+  }
+};
 export const getProducts =
   (keyword = "", currentPage = 1, price = [0, 5000]) =>
   async (dispatch) => {
@@ -77,28 +96,7 @@ export const getProducts =
       });
     }
   };
-export const getAdminProducts = () => async (dispatch) => {
-  try {
-    dispatch({ type: "ADMIN_ALL_PRODUCT_REQUEST" });
 
-    const { data } = await axios.get(
-      "https://shrouded-falls-78834.herokuapp.com/v1/admin/all_products",
-      {
-        authorization: `Bearer ${localStorage.getItem("userToken")}`,
-      }
-    );
-
-    dispatch({
-      type: "ADMIN_ALL_PRODUCT_SUCCESS",
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: "ADMIN_ALL_PRODUCT_FAIL",
-      payload: error.response,
-    });
-  }
-};
 export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: "PRODUCT_DETAILS_REQUEST" });

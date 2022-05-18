@@ -19,10 +19,14 @@ import { Link } from "react-router-dom";
 const ProductList = () => {
   const { handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const { loading, error, products } = useSelector(
-    (state) => state.ProductsData
-  );
-  console.log(products);
+ const {
+   error,
+   loading,
+   adminproducts } = useSelector((state) => state.ProductsData);
+
+  console.log(adminproducts);
+
+
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.products
   );
@@ -69,10 +73,10 @@ const ProductList = () => {
         </div>
         <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
           <Link to="/admin/add_product">
-            <button>add</button>
+            <button className="bg-mainBaseColor mt-16  ml-4 px-4 md:mt-0 md:p-2  rounded text-white">add</button>
           </Link>
 
-          <div className="overflow-auto h-screen  mt-20 py-10 md:mt-0 md:pt-0 md:pb-4 px-1 mb-40">
+          <div className="overflow-auto h-screen  mt-3  pb-28 px-2 mb-30 md:my-0 md:pt-0 md:pb-10  ">
             <div className=" overflow-x-auto  shadow-md sm:rounded-lg">
               <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  md:mb-28">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
@@ -105,8 +109,8 @@ const ProductList = () => {
                     </div>
                   ) : (
                     <>
-                      {products &&
-                        products.map((product, key) => (
+                      {adminproducts &&
+                        adminproducts.map((product, key) => (
                           <tr
                             key={key}
                             className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"

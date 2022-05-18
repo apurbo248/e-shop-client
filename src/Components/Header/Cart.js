@@ -1,16 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 
-
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeToCart } from "../Redux/Action/Cart";
 import toast from "react-hot-toast";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
-console.log(cartItems)
+  console.log(cartItems);
   const increaseQty = (id, quantity, stock) => {
     const newQty = quantity + 1;
 
@@ -43,8 +43,8 @@ console.log(cartItems)
       <Navbar />
 
       {cartItems?.length === 0 ? (
-        <div class="h-96   flex justify-center content-center flex-wrap mt-24">
-          <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-900 w-1/3 m-auto relative">
+        <div class="h-screen   flex justify-center content-center flex-wrap md:mt-24 bg-gray-100">
+          <div class="shadow-lg rounded-2xl p-2 mx-2 bg-white dark:bg-gray-900 md:w-1/3 m-auto relative">
             <div class="w-full h-full text-center">
               <div class="flex h-full flex-col justify-between">
                 <svg
@@ -65,7 +65,7 @@ console.log(cartItems)
                   THERE IS NOTHING IN YOUR BAG.LET'S ADD SOME ITEMS
                 </p>
                 <Link to="/v1/products">
-                  <button class="dark:text-gray-50 text-gray-800 text-lg font-bold py-2 px-6 bg-green-200">
+                  <button class="dark:text-gray-50 text-white text-lg font-bold py-2 px-6 bg-mainBaseColor rounded">
                     Add Item
                   </button>
                 </Link>
@@ -75,100 +75,63 @@ console.log(cartItems)
         </div>
       ) : (
         <>
-          <div class="h-screen ">
-            <div class="py-4">
-              <div class="max-w-full mt-14 bg-white mx-auto   rounded-lg md:max-w-5xl">
-                <div class="md: ">
-                  <div class="w-full p-4 px-5 ">
-                    <div class="md:grid md:grid-cols-3 gap-2  pb-4 ">
-                      <div class="col-span-3 p-2">
-                        <h1 class=" pb-4 text-xl font-medium ">Shopping Cart</h1>
-                        {cartItems &&
-                          cartItems.map((item) => (
-                            <div class="flex justify-between items-center py-2">
-                              <div class="flex items-center">
-                                <img
-                                  src={item.image}
-                                  width="60"
-                                  class="rounded"
-                                />
-                                <div class="flex flex-col ml-3">
-                                  {" "}
-                                  <span class="md:text-md font-medium">
-                                    {item?.name}
-                                  </span>{" "}
-                                </div>
-                              </div>
-                              <div class="flex justify-center items-center">
-                                <div class="pr-8 flex ">
-                                  {" "}
-                                  <button
-                                    class="font-medium text-lg"
-                                    onClick={() =>
-                                      decreaseQty(item.product, item.quantity)
-                                    }
-                                  >
-                                    -
-                                  </button>
-                                  <input
-                                    type="text"
-                                    class="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2"
-                                    value={item.quantity}
-                                    readOnly
-                                  />
-                                  <button
-                                    class="font-medium text-lg"
-                                    onClick={() =>
-                                      increaseQty(
-                                        item.product,
-                                        item.quantity,
-                                        item.stock
-                                      )
-                                    }
-                                  >
-                                    +
-                                  </button>
-                                </div>
-                                <div class="pr-8 ">
-                                  <span class=" font-medium">
-                                    ${item.price}
-                                  </span>
-                                </div>
-                                <div class="pr-8 ">
-                                  <button
-                                    class="text-xs font-medium"
-                                    onClick={() => deleteItem(item.product)}
-                                  >
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      className="h-6 w-6 text-red-600"
-                                      fill="none"
-                                      viewBox="0 0 24 24"
-                                      stroke="currentColor"
-                                      stroke-width="2"
-                                    >
-                                      <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M6 18L18 6M6 6l12 12"
-                                      />
-                                    </svg>
-                                  </button>
-                                </div>
-                                <div>
-                                  {" "}
-                                  <i class="fa fa-close text-xs font-medium"></i>{" "}
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-
-                        <div class="flex justify-between items-center mt-6 pt-6 border-t">
-                          <div class="flex items-center">
-                            {" "}
+          <div class="h-screen bg-gray-100">
+            <div class=" container w-full pt-20  mx-auto    md:max-w-5xl">
+              <div class="col-span-3 md:p-4 p-2 bg-white rounded-lg">
+                <h1 class=" pb-4 text-2xl font-medium ">Shopping Cart</h1>
+                {cartItems &&
+                  cartItems.map((item) => (
+                    <div class="flex justify-between items-center py-2">
+                      <div class="flex items-center">
+                        <img src={item.image} width="60" class="rounded" />
+                        <div class="flex flex-col ml-3">
+                          {" "}
+                          <span class="md:text-md font-medium">
+                            {item?.name}
+                          </span>{" "}
+                        </div>
+                      </div>
+                      <div class="flex justify-center items-center">
+                        <div class="pr-4 flex ">
+                          {" "}
+                          <button
+                            class="font-medium text-lg"
+                            onClick={() =>
+                              decreaseQty(item.product, item.quantity)
+                            }
+                          >
+                            -
+                          </button>
+                          <input
+                            type="text"
+                            class="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2"
+                            value={item.quantity}
+                            readOnly
+                          />
+                          <button
+                            class="font-medium text-lg"
+                            onClick={() =>
+                              increaseQty(
+                                item.product,
+                                item.quantity,
+                                item.stock
+                              )
+                            }
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div class=" pr-4 md:pr-8 ">
+                          <span class=" font-medium">${item.price}</span>
+                        </div>
+                        <div class="md:pr-8 ">
+                          <button
+                            class="text-xs font-medium"
+                            onClick={() => deleteItem(item.product)}
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              class="h-6 w-6"
+                              className="h-6 w-6 text-red-600"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -177,44 +140,70 @@ console.log(cartItems)
                               <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                                d="M6 18L18 6M6 6l12 12"
                               />
                             </svg>
-                            <Link to="/v1/products">
-                              <span class="pl-2 text-md font-medium text-gray-900">
-                                Shop more
-                              </span>{" "}
-                            </Link>
-                          </div>
-                          <div class="flex justify-center items-center mr-8 ">
-                            {" "}
-                            <span class="text-sm font-medium text-gray-600 mr-1">
-                              Subtotal:
-                            </span>{" "}
-                            <span class="text-lg font-bold text-mainBaseColor ">
-                              {" "}
-                              {`TK. ${cartItems.reduce(
-                                (acc, item) => acc + item.quantity * item.price,
-                                0
-                              )}`}
-                            </span>{" "}
-                          </div>
+                          </button>
+                        </div>
+                        <div>
+                          {" "}
+                          <i class="fa fa-close text-xs font-medium"></i>{" "}
                         </div>
                       </div>
-                    </div>{" "}
-                    <button
-                      onClick={() => checkoutHandler()}
-                      class="mr-10 flex ml-auto text-white bg-mainBaseColor border-0 py-2 px-6 focus:outline-none rounded"
+                    </div>
+                  ))}
+
+                <div class="flex justify-between items-center mt-6 pt-6 border-t">
+                  <div class="flex items-center">
+                    {" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
                     >
-                      Check Out
-                    </button>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                      />
+                    </svg>
+                    <Link to="/v1/products">
+                      <span class="pl-2 text-md font-medium text-gray-900">
+                        Shop more
+                      </span>{" "}
+                    </Link>
+                  </div>
+                  <div class="flex justify-center items-center mr-8 ">
+                    {" "}
+                    <span class="text-sm font-medium text-gray-600 mr-1">
+                      Subtotal:
+                    </span>{" "}
+                    <span class="text-lg font-bold text-mainBaseColor ">
+                      {" "}
+                      {`TK. ${cartItems.reduce(
+                        (acc, item) => acc + item.quantity * item.price,
+                        0
+                      )}`}
+                    </span>{" "}
                   </div>
                 </div>
               </div>
+
+              <button
+                onClick={() => checkoutHandler()}
+                class="mr-10 flex ml-auto text-white bg-mainBaseColor border-0 py-2 px-7 focus:outline-none rounded"
+              >
+                Check Out
+              </button>
             </div>
           </div>
         </>
       )}
+
+      <Footer />
     </>
   );
 };

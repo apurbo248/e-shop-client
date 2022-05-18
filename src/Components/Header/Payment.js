@@ -29,7 +29,7 @@ const Payment = () => {
     <div>
       <Navbar />
       {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
+        <Elements stripe={loadStripe(stripeApiKey)} className="bg-gray-100">
           <CheckoutForm />
         </Elements>
       )}

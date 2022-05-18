@@ -44,7 +44,7 @@ const navigate=useNavigate();
     const newProduct = { ...productInfo };
     newProduct[e.target.name] = e.target.value;
     setProduct(newProduct);
-    console.log(newProduct);
+  
   };
 
   const uploadImage = async (e) => {
@@ -95,7 +95,7 @@ const navigate=useNavigate();
     if (isUpdated) {
       toast.success("Product updated successfully");
       dispatch({ type: "UPDATE_PRODUCT_RESET" });
-      navigate("/admin/products")
+      window.location.reload("/admin/products")
     }
   }, [dispatch, id, error, isUpdated, updateError]);
 

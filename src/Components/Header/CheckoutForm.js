@@ -81,7 +81,7 @@ const CheckoutForm = () => {
           setLoading(false);
           dispatch(newOrder(order));
           localStorage.setItem("cartItems", "");
-          sessionStorage.clear();
+          sessionStorage.removeItem("shippingInfo");
           navigate("/success");
           toast.success("Successfully payment");
         } else {
@@ -103,9 +103,9 @@ const CheckoutForm = () => {
   return (
     <>
       <Navbar />
-      <div className="flex align-center justify-center">
-        <div className="mt-40 mx-24  bg-white rounded w-1/3">
-          <form onSubmit={submitHandler} className="p-8">
+      <div className="h-screen flex align-center justify-center bg-gray-100">
+        <div className="mt-40 md:mx-24   rounded w-full mx-2 md:w-1/3">
+          <form onSubmit={submitHandler} className="md:p-8 p-4 bg-white rounded shadow-sm">
             <span className="text-gray-400">* 4242 4242 4242 4242</span>
             <CardElement />
             <button
