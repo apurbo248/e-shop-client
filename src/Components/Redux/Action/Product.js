@@ -63,7 +63,7 @@ export const getAdminProducts = () => async (dispatch) => {
     const { data } = await axios.get(
       "https://shrouded-falls-78834.herokuapp.com/v1/admin/all_products"
     );
-    console.log(data);
+
     dispatch({
       type: "ADMIN_ALL_PRODUCT_SUCCESS",
       payload: data,
@@ -144,12 +144,18 @@ export const newReview = (reviewData) => async (dispatch) => {
 };
 
 export const deleteProduct = (id) => async (dispatch) => {
+  console.log(id);
+
   try {
     dispatch({ type: "DELETE_PRODUCT_REQUEST" });
 
     const { data } = await axios.delete(
-      `https://shrouded-falls-78834.herokuapp.com/v1/product/${id}`,
-      { authorization: `Bearer ${localStorage.getItem("userToken")}` }
+      `https://shrouded-falls-78834.herokuapp.com/v1/delete_product/${id}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
     );
 
     dispatch({

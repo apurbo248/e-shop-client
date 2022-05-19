@@ -15,17 +15,16 @@ import {
 
 import { Navigate } from "react-router";
 import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const ProductList = () => {
   const { handleSubmit } = useForm();
   const dispatch = useDispatch();
- const {
-   error,
-   loading,
-   adminproducts } = useSelector((state) => state.ProductsData);
+  const { error, loading, products } = useSelector(
+    (state) => state.ProductsData
+  );
 
-  console.log(adminproducts);
-
+  console.log(error, products);
 
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.products
@@ -47,7 +46,7 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-     dispatch(getAdminProducts()); 
+    dispatch(getAdminProducts());
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
@@ -57,12 +56,10 @@ const ProductList = () => {
       dispatch(clearErrors());
     }
     if (isDeleted) {
-      toast.success("Product delete successfully");
+       toast.success("Product delete successfully");
       dispatch({ type: "DELETE_PRODUCT_RESET" });
-      window.location.reload();
+      //window.location.reload();
     }
-
-    
   }, [dispatch, deleteError, isDeleted, error]);
 
   return (
@@ -73,7 +70,9 @@ const ProductList = () => {
         </div>
         <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
           <Link to="/admin/add_product">
-            <button className="bg-mainBaseColor mt-16  ml-4 px-4 md:mt-0 md:p-2  rounded text-white">add</button>
+            <button className="bg-mainBaseColor mt-16  ml-4 px-4 md:mt-0 md:p-2  rounded text-white">
+              add
+            </button>
           </Link>
 
           <div className="overflow-auto h-screen  mt-3  pb-28 px-2 mb-30 md:my-0 md:pt-0 md:pb-10  ">
@@ -109,8 +108,8 @@ const ProductList = () => {
                     </div>
                   ) : (
                     <>
-                      {adminproducts &&
-                        adminproducts.map((product, key) => (
+                      {products &&
+                        products.map((product, key) => (
                           <tr
                             key={key}
                             className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
@@ -188,6 +187,7 @@ const ProductList = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </main>
   );
 };

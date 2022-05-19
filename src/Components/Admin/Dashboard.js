@@ -11,14 +11,14 @@ import { Doughnut } from "react-chartjs-2";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  const { productCount, products } = useSelector((state) => state.ProductsData);
+  const { productCount } = useSelector((state) => state.ProductsData);
 
   const { totalAmount, totalOrder, orders } = useSelector(
     (state) => state.allOrder
   );
   const { users } = useSelector((state) => state.allUserInfo);
 
- console.log(products);
+
 
   useEffect(() => {
     dispatch(getProducts()); 
@@ -46,13 +46,13 @@ const Dashboard = () => {
           <Sidebar />
         </div>
 
-        <div class="  w-full md:w-10/12 ml-0 mt-mmt1 md:mt-20 md:ml-8 md:space-y-4  ">
+        <div class="  w-full md:w-10/12 ml-0 mt-mmt2 md:mt-20 md:ml-8 md:space-y-4  ">
           <div class="overflow-auto h-screen ">
             <div
               id="main-content"
               class="h-full w-full bg-gray-50  overflow-y-auto "
             >
-              <div class="mt-4 mb-4 w-full grid grid-cols-1 md:grid-cols-4 xl:grid-cols-4 gap-2">
+              <div class="mt-14 md:mt-4 mb-4 w-full grid grid-cols-1 md:grid-cols-4 xl:grid-cols-4 gap-2">
                 <div class="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
                   <div class="p-3 rounded-full bg-mainBaseColor bg-opacity-75">
                     <svg
@@ -273,7 +273,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <footer class="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4">
+              <footer class="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-">
                 <ul class="flex items-center flex-wrap mb-6 md:mb-0">
                   <li>
                     <a

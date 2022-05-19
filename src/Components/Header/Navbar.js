@@ -17,8 +17,8 @@ const Navbar = () => {
     (state) => state.userInfo
   );
 
-  console.log(user?.name);
-  const navigate = useNavigate();
+  
+ 
 
   const logoutHandler = async () => {
    
@@ -51,7 +51,7 @@ localStorage.removeItem("userToken");
               </div>
               <div className=" flex-1 flex pl-12 md:items-center  md:justify-center sm:items-stretch sm:justify-start">
                 <div className="text-white  flex-shrink-0 flex items-center text-lg md:text-3xl">
-                  <Link to="/home">
+                  <Link to="/">
                     <h2>e-SHOP</h2>
                   </Link>
                 </div>

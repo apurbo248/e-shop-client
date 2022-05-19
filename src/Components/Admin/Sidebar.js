@@ -10,18 +10,18 @@ const Sidebar = () => {
 
   const { user } = useSelector((state) => state.userInfo);
 
-  const logoutHandler = async () => {
-    dispatch(logout());
-
-    toast.success("Logout successfully");
-  };
+ const logoutHandler = async () => {
+   localStorage.removeItem("userToken");
+   toast.success("Logout successfully");
+   window.location.href = "/";
+ };
   return (
     <div>
       <nav class="bg-white border-b border-gray-200 fixed z-30 w-full ">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
           <div class="flex items-center justify-between">
             <div class="flex items-center justify-start">
-              <Link to="/home">
+              <Link to="/">
                 <a class="text-xl font-bold flex items-center lg:ml-2.5">
                   <img
                     src="https://demo.themesberg.com/windster/images/logo.svg"

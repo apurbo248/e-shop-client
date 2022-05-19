@@ -9,17 +9,16 @@ import Navbar from "./Navbar";
 import toast, { Toaster } from "react-hot-toast";
 
 const MyOrder = () => {
- 
-  const { orders, error, loading } = useSelector((state) => state.MyOrder);
+  const { myOrder, error, loading } = useSelector((state) => state.MyOrder);
   const dispatch = useDispatch();
-  console.log(error);
+  console.log(myOrder.length);
   useEffect(() => {
     if (error) {
-       toast.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     //dispatch(myOrders());
-  }, [dispatch,error]);
+  }, [dispatch, error]);
 
   return (
     <>
@@ -50,11 +49,9 @@ const MyOrder = () => {
                   </tr>
                 </thead>
                 <tbody>
-
-            {
-                  orders&&orders.length > 0 ? 
-                    (orders &&
-                    orders.map((item) => (
+                  {myOrder && myOrder.length > 0 ? (
+                    myOrder &&
+                    myOrder.map((item) => (
                       <tr className="h-16 border-b border-gray-100 rounded">
                         <td className>
                           <div className="flex items-center pl-5">
@@ -110,20 +107,16 @@ const MyOrder = () => {
                         </td>
                       </tr>
                     ))
-                  )
-:(
-<div class="ml-24">
-                  <div class="m-4 h-10 p-4    bg-white flex justify-center content-center flex-wrap">
-                    <p class="font-sans text-gray-900 text-2xl ">
-                       Order Not Found
-                    </p>
-                  </div>
-                </div>
- )
- }
+                  ) : (
+                    <div class="ml-24">
+                      <div class="m-4 h-10 p-4    bg-white flex justify-center content-center flex-wrap">
+                        <p class="font-sans text-gray-900 text-2xl ">
+                          Order Not Found
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </tbody>
-
-                
               </table>
             </div>
           </div>

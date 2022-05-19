@@ -25,7 +25,7 @@ const Registration = () => {
   };
 
   const registrationSubmit = async (e) => {
-    e.preventDefault();
+   
     
 
     const { name, email, password } = newUser;

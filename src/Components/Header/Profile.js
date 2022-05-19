@@ -10,7 +10,7 @@ import { myOrders } from "../Redux/Action/Order";
 
 const Profile = ({ user }) => {
   const dispatch = useDispatch();
-  const { orders, error, loading } = useSelector((state) => state.MyOrder);
+  const { myOrder, error, loading } = useSelector((state) => state.MyOrder);
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -49,6 +49,8 @@ const Profile = ({ user }) => {
       },
     ],
   });
+
+  console.log()
   useEffect(() => {
     dispatch(myOrders());
   }, [dispatch, error]);
@@ -109,9 +111,9 @@ const Profile = ({ user }) => {
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  {orders && orders.length > 0 ? (
-                                    orders &&
-                                    orders.map((item) => (
+                                  {myOrder && myOrder.length > 0 ? (
+                                    myOrder &&
+                                    myOrder.map((item) => (
                                       <tr className="h-16 border-b border-gray-100 rounded">
                                         <td className>
                                           <div className="flex items-center pl-5">

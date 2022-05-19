@@ -94,7 +94,7 @@ export const deleteAndupdateOrderReducer = (state = {}, action) => {
       return state;
   }
 };
-export const MyOrderReducer = (state = { orders: [] }, action) => {
+export const MyOrderReducer = (state = { myOrder: [] }, action) => {
   switch (action.type) {
     case "MY_ORDER_REQUEST":
       return {
@@ -103,8 +103,7 @@ export const MyOrderReducer = (state = { orders: [] }, action) => {
     case "MY_ORDER_SUCCESS":
       return {
         loading: false,
-        orders: action.payload,
-       
+        myOrder: action.payload,
       };
     case "MY_ORDER_FAIL":
       return {

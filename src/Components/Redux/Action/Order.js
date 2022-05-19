@@ -29,7 +29,6 @@ export const newOrder = (order) => async (dispatch) => {
   }
 };
 export const updateOrder = (id, status) => async (dispatch) => {
-  console.log(id, status);
   try {
     dispatch({ type: "UPDATE_ORDER_REQUEST" });
 
@@ -57,6 +56,7 @@ export const updateOrder = (id, status) => async (dispatch) => {
     });
   }
 };
+
 export const allOrder = () => async (dispatch) => {
   try {
     dispatch({ type: "ALL_ORDER_REQUEST" });
@@ -115,14 +115,15 @@ export const myOrders = () => async (dispatch) => {
       "https://shrouded-falls-78834.herokuapp.com/v1/orders/my",
       {
         headers: {
-          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          
+          authorization:`Bearer ${localStorage.getItem("userToken")}`,
         },
       }
     );
 
     dispatch({
       type: "MY_ORDER_SUCCESS",
-      payload: data.orders,
+      payload: data.myOrder,
     });
   } catch (error) {
     console.log(error);

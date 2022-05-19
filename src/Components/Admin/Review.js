@@ -69,14 +69,14 @@ const Review = () => {
   }, [dispatch, error, deleteError, productId, isDeleted]);
 
   return (
-    <main className="bg-gray-100 dark:bg-gray-800  h-screen overflow-hidden ">
+    <main className="bg-   h-screen overflow-hidden ">
       <div className="md:flex users-start justify-between">
         <div className=" md:w-2/12 md:pr-12   ">
           <Sidebar />
         </div>
-        <div className="  w-full ml-0 md:ml-6 mt-mmt1  md:mt-20 md:px-6 h-28 md:space-y-4 ">
-          <div className="overflow-auto h-screen ">
-            <div className=" overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="  w-full ml-0 md:ml-6 mt-mmt2  md:mt-20 md:px-6 h-28 md:space-y-4 ">
+          <div className="  mt-14 md:mt-0 mx-2">
+            <div className="   sm:rounded-lg">
               <form
                 onSubmit={productReviewSubmit}
                 class="lg:mr-auto flex justify-end pb-2"
@@ -113,10 +113,10 @@ const Review = () => {
               {loading ? (
                 <Loader />
               ) : (
-                <>
+                <div className="h-screen overflow-auto rounded shadow-sm border">
                   {reviews && reviews.length > 0 ? (
-                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                      <thead className="text-xs text-gray-700 uppercase bg-white dark:bg-gray-700 dark:text-gray-400">
+                    <table className="w-full text-sm overflow-x-auto text-left text-gray-500  dark:text-gray-400 mb-36">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                           <th scope="col" className="px-6 py-3">
                             Review id
@@ -159,14 +159,14 @@ const Review = () => {
                               </td>
                               <td
                                 className={
-                                  item && item.rating <=2
+                                  item && item.rating <= 2
                                     ? "px-6 py-4 text-red-500"
                                     : "px-6 py-4 text-green-500"
                                 }
                               >
                                 {item && item.rating}
                               </td>
-                             
+
                               <td className="px-6 py-4 text-left">
                                 <button
                                   onClick={() =>
@@ -203,7 +203,7 @@ const Review = () => {
                       </div>
                     </div>
                   )}
-                </>
+                </div>
               )}
             </div>
           </div>
