@@ -75,7 +75,7 @@ export const allOrder = () => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
+   
     dispatch({
       type: "ALL_ORDER_FAIL",
       payload: error.response.data.msgs,
@@ -112,21 +112,20 @@ export const myOrders = () => async (dispatch) => {
     dispatch({ type: "MY_ORDER_REQUEST" });
 
     const { data } = await axios.get(
-      "https://shrouded-falls-78834.herokuapp.com/v1/orders/my",
+      "https://shrouded-falls-78834.herokuapp.com/v1/my/orders",
       {
         headers: {
-          
-          authorization:`Bearer ${localStorage.getItem("userToken")}`,
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
         },
       }
     );
-
+    
     dispatch({
       type: "MY_ORDER_SUCCESS",
-      payload: data.myOrder,
+      payload: data,
     });
   } catch (error) {
-    console.log(error);
+   
     dispatch({
       type: "MY_ORDER_FAIL",
       payload: error,
@@ -135,7 +134,7 @@ export const myOrders = () => async (dispatch) => {
 };
 
 export const orderDetail = (id) => async (dispatch) => {
-  console.log(id);
+ 
   try {
     dispatch({ type: "ORDER_DETAIL_REQUEST" });
 
@@ -147,13 +146,13 @@ export const orderDetail = (id) => async (dispatch) => {
         },
       }
     );
-    console.log(data);
+    
     dispatch({
       type: "ORDER_DETAIL_SUCCESS",
       payload: data.order,
     });
   } catch (error) {
-    console.log(error);
+    
     dispatch({
       type: "ORDER_DETAIL_FAIL",
       payload: error.response.data.message,

@@ -29,7 +29,7 @@ export const createProduct = (productData) => async (dispatch) => {
   }
 };
 export const updateProduct = (id, productData) => async (dispatch) => {
-  console.log(productData);
+ 
   try {
     dispatch({ type: "UPDATE_PRODUCT_REQUEST" });
 
@@ -44,7 +44,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
       productData,
       config
     );
-    console.log(data);
+   
     dispatch({
       type: "UPDATE_PRODUCT_SUCCESS",
       payload: data.success,
@@ -144,7 +144,7 @@ export const newReview = (reviewData) => async (dispatch) => {
 };
 
 export const deleteProduct = (id) => async (dispatch) => {
-  console.log(id);
+ 
 
   try {
     dispatch({ type: "DELETE_PRODUCT_REQUEST" });

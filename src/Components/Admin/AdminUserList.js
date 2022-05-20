@@ -10,7 +10,7 @@ import { allUser, clearErrors, deleteUser } from "../Redux/Action/User";
 
 import { Link } from "react-router-dom";
 
-const AdminUserList = ({userEmail}) => {
+const AdminUserList = ({ userEmail }) => {
   const dispatch = useDispatch();
   const { loading, error, users } = useSelector((state) => state.allUserInfo);
   console.log(users);
@@ -29,12 +29,12 @@ const AdminUserList = ({userEmail}) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         dispatch(deleteUser(id));
-      
       }
     });
   };
 
   useEffect(() => {
+    dispatch(allUser());
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
@@ -46,10 +46,7 @@ const AdminUserList = ({userEmail}) => {
     if (isDeleted) {
       toast.success("User delete successfully");
       dispatch({ type: "DELETE_USER_RESET" });
-      setTimeout(window.location.reload());
     }
-
-    dispatch(allUser());
   }, [dispatch, deleteError, isDeleted, error]);
 
   return (

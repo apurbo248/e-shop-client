@@ -1,19 +1,47 @@
-export const userReducer = (state = { user: {} }, action) => {
+export const registrationUserReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case "USER_REGISTER_REQUEST":
+      return {
+        loading: true,
+        success: false,
+      };
+    case "USER_REGISTER_SUCCESS":
+      return {
+        loading: false,
+        success: true,
+        user: action.payload.user,
+      };
+
+    case "USER_REGISTER_FAIL":
+      return {
+        loading: false,
+        success: false,
+        user: null,
+        error: action.payload,
+      };
+
+    case "CLEAR_ERROR":
+      return { ...state, error: null };
+
+    default:
+      return state;
+  }
+};
+export const userReducer = (state = { user: {} }, action) => {
+  switch (action.type) {
     case "USER_REQUEST":
     case "LOAD_USER_REQUEST":
       return {
         loading: true,
         isAuthenticated: false,
       };
-    case "USER_REGISTER_SUCCESS":
+
     case "USER_SUCCESS":
     case "LOAD_USER_SUCCESS":
       return {
         loading: false,
         isAuthenticated: true,
-        user: action.payload,
+        user: action.payload.user,
       };
 
     case "LOGOUT_SUCCESS":
@@ -23,7 +51,6 @@ export const userReducer = (state = { user: {} }, action) => {
         isAuthenticated: false,
       };
 
-    case "USER_REGISTER_FAIL":
     case "USER_FAIL":
       return {
         loading: false,
@@ -112,7 +139,7 @@ export const usersDetailsReducer = (state = { user: {} }, action) => {
       return state;
   }
 };
-export const profileReducer = (state = {  }, action) => {
+export const profileReducer = (state = {}, action) => {
   switch (action.type) {
     case "UPDATE_USER_REQUEST":
     case "DELETE_USER_REQUEST":

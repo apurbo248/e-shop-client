@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
-  //console.log(email, password);
+ 
   try {
     dispatch({ type: "USER_REQUEST" });
     const config = {
       headers: { "Content-Type": "application/json" },
-    //withCredentials: true,
+  
     };
     const { data } = await axios.post(
       "https://shrouded-falls-78834.herokuapp.com/v1/user/login",
@@ -36,7 +36,7 @@ export const register = (name, email, password) => async (dispatch) => {
     dispatch({ type: "USER_REGISTER_REQUEST" });
     const config = {
       headers: { "Content-Type": "application/json" },
-      // withCredentials: true,
+    
     };
     const { data } = await axios.post(
       `https://shrouded-falls-78834.herokuapp.com/v1/user/register`,
@@ -47,6 +47,7 @@ export const register = (name, email, password) => async (dispatch) => {
       type: "USER_REGISTER_SUCCESS",
       payload: data,
     });
+    
   } catch (error) {
     dispatch({
       type: "USER_REGISTER_FAIL",

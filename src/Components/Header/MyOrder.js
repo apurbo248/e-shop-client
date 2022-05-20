@@ -9,20 +9,20 @@ import Navbar from "./Navbar";
 import toast, { Toaster } from "react-hot-toast";
 
 const MyOrder = () => {
-  const { myOrder, error, loading } = useSelector((state) => state.MyOrder);
-  const dispatch = useDispatch();
-  console.log(myOrder.length);
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-      dispatch(clearErrors());
-    }
-    //dispatch(myOrders());
-  }, [dispatch, error]);
+  // const { myOrder, error, loading } = useSelector((state) => state.MyOrder);
+  // const dispatch = useDispatch();
+  // console.log(myOrder.length);
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error(error);
+  //     dispatch(clearErrors());
+  //   }
+  //   //dispatch(myOrders());
+  // }, [dispatch, error]);
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
 
       <div className="sm:px-6 w-full  md:mt-0 md:w-full  align-center ">
         {loading ? (
@@ -122,7 +122,7 @@ const MyOrder = () => {
           </div>
         )}
         <Toaster />
-      </div>
+      </div> */}
     </>
   );
 };

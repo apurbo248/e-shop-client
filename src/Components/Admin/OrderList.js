@@ -56,9 +56,9 @@ const ProductList = () => {
       dispatch(clearErrors());
     }
     if (isDeleted) {
-      //toast.success("Product delete successfully");
+      toast.success("Order delete successfully");
       dispatch({ type: "DELETE_ORDER_RESET" });
-      //Navigate("/admin_dashboard")
+      
     }
     if (updateError) {
       toast.error(updateError);

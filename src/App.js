@@ -35,17 +35,21 @@ import UpdateUser from "./Components/Admin/UpdateUser";
 import AdminUserList from "./Components/Admin/AdminUserList";
 import Review from "./Components/Admin/Review";
 import { useEffect } from "react";
+import Store from "./Components/Redux/Store/Store";
+import Navbar from "./Components/Header/Navbar";
 
 
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
 
+ console.log(user)
   useEffect(() => {
-    dispatch(loadUser());
+    Store.dispatch(loadUser());
   }, [dispatch]);
   return (
     <>
+   
       <Routes>
         <Route path="/" element={<Home />} />
         
@@ -67,8 +71,8 @@ const App = () => {
           path="/*"
           element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
         >
-          <Route path="me" element={<Profile user={user} />} />
-          <Route path="my_orders" element={<MyOrder />} />
+          <Route path="me" element={<Profile userInfo={user} />} />
+          {/* <Route path="my_orders" element={<MyOrder />} /> */}
           <Route path="v1/order/:id" element={<OrderInfo />} />
 
           <Route

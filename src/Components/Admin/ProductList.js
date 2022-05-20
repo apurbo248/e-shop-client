@@ -58,7 +58,7 @@ const ProductList = () => {
     if (isDeleted) {
        toast.success("Product delete successfully");
       dispatch({ type: "DELETE_PRODUCT_RESET" });
-      //window.location.reload();
+     
     }
   }, [dispatch, deleteError, isDeleted, error]);
 

@@ -11,6 +11,7 @@ import {
 import {
   allUserReducer,
   profileReducer,
+  registrationUserReducer,
   userReducer,
   usersDetailsReducer,
 } from "../Reducers/UserReducer";
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   ProductsData: getProductsReducer,
   ProductDetails: getProductDetailsReducer,
   userInfo: userReducer,
+  registerUserInfo: registrationUserReducer,
   cart: cartReducer,
   order: newOrderReducer,
   MyOrder: MyOrderReducer,

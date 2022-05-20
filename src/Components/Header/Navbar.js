@@ -13,18 +13,14 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 const Navbar = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
-  const { error, isAuthenticated, user } = useSelector(
-    (state) => state.userInfo
-  );
+  const { isAuthenticated, user } = useSelector((state) => state.userInfo);
 
-  
- 
+  console.log(user);
 
   const logoutHandler = async () => {
-   
-localStorage.removeItem("userToken");
+    localStorage.removeItem("userToken");
     toast.success("Logout successfully");
-    window.location.href="/";
+    window.location.href = "/";
   };
 
   useEffect(() => {}, [dispatch]);
@@ -57,7 +53,7 @@ localStorage.removeItem("userToken");
                 </div>
                 <div className="hidden sm:block sm:ml-6 mx-auto">
                   <div className="flex space-x-4">
-                    {isAuthenticated && user.role === "admin" ? (
+                    {isAuthenticated && user&&user.role === "admin" ? (
                       <div>
                         <Link to="/admin_dashboard">
                           <a className=" text-white px-3 py-2 rounded-md text-sm font-medium">

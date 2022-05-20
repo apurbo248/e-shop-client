@@ -10,7 +10,7 @@ const OrderInfo = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { error, loading, order } = useSelector((state) => state.orderDetail);
-  console.log(order);
+
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -81,7 +81,11 @@ const OrderInfo = () => {
                   </p>
                 ) : (
                   <p className="text-gray-900 text-xl font-">
-                    Order is <span className="underline">{order && order.orderStatus}</span> for delivery
+                    Order is{" "}
+                    <span className="underline">
+                      {order && order.orderStatus}
+                    </span>{" "}
+                    for delivery
                   </p>
                 )}
               </p>
@@ -94,11 +98,7 @@ const OrderInfo = () => {
                   order.orderItems.map((item) => (
                     <div class="flex justify-between items-center mt-2 pt-6 ">
                       <div class="flex items-center">
-                        <img
-                          src={item.image}
-                          width="60"
-                          class="rounded mr-4"
-                        />
+                        <img src={item.image} width="60" class="rounded mr-4" />
                         <div class="flex flex-col mr-10">
                           {" "}
                           <span class="md:text-md font-medium">

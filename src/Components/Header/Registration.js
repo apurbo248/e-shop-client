@@ -11,37 +11,36 @@ const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { handleSubmit } = useForm();
- 
+ const { error, success } = useSelector((state) => state.registerUserInfo);
+ console.log(success)
   const [newUser, setNewUser] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  const { error, isAuthenticated } = useSelector((state) => state.userInfo);
+ 
 
   const handleValue = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
   const registrationSubmit = async (e) => {
-   
-    
-
     const { name, email, password } = newUser;
     dispatch(register(name, email, password));
-  }
+  };
 
   useEffect(() => {
-     if (error) {
-       toast.error(error);
-       dispatch(clearErrors());
-     }
-    if (isAuthenticated) {
-      toast.success("Registration successfully");
-     // window.location.href = "/v1/user/login";
+    if (error) {
+      toast.error(error);
+      dispatch(clearErrors());
     }
-  }, [error, dispatch, isAuthenticated, navigate]);
+    if (success) {
+     
+      navigate("/v1/user/login");
+       toast.success("Registration successfully");
+    }
+  }, [error, dispatch, success, navigate]);
 
   return (
     <div>

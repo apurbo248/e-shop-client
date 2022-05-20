@@ -32,6 +32,7 @@
     "react-rating-stars-component": "^2.2.0",
     "react-redux": "^7.2.6",
     "react-responsive-carousel": "^3.2.23",
+    "react-responsive-modal": "^6.2.0",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-simply-tabs": "^1.0.4",
