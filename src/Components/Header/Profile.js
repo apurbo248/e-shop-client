@@ -113,9 +113,9 @@ const Profile = ({ userInfo }) => {
                           </button>
 
                           <Modal open={open} onClose={() => setOpen(false)}>
-                            <div class="flex flex-col flex-wrap sm:flex-row p-4">
+                            <div class="flex flex-col flex-wrap sm:flex-row md:p-4 ">
                               <div class=" relative  pointer-events-none ">
-                                <div class=" md:pt-8 modal-content border-none  relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                                <div class=" md:pt-8 modal-content border-none  relative flex flex-col w-full overflow-x-auto height pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
                                   <div class=" flex flex-shrink-0 items-center justify-between  border-b border-gray-200 rounded-t-md">
                                     <h5
                                       class="font-semibold text-lg  "
@@ -127,8 +127,8 @@ const Profile = ({ userInfo }) => {
 
                                   <div>
                                     <div className="md:space-y-2  ">
-                                      <div className="flex items-center py-6">
-                                        <label className="cursor-pointer ">
+                                      <div className="flex flex-col md:flex-row items-center py-6">
+                                        <label className="cursor-pointer pb-4 md:pb-0">
                                           <input
                                             type="file"
                                             name="image"
@@ -174,10 +174,10 @@ const Profile = ({ userInfo }) => {
                                                 </button>
                                               </div>
                                             ) : (
-                                              <div class="rounded-xl overflow-hidden flex shadow hover:shadow-md max-w-full bg-white cursor-pointer h-28">
-                                                <div class="w-2/2  text-text1  justify-center"></div>
+                                              <div class="rounded-xl overflow-hidden    shadow hover:shadow-md max-w-full bg-white cursor-pointer h-28">
+                 
 
-                                                <div class="lg:  w-full p-1">
+                                                <div class="  w-full p-1">
                                                   <img
                                                     alt="You will see your choosed pictures here"
                                                     src={image && image}
@@ -240,12 +240,12 @@ const Profile = ({ userInfo }) => {
                                     </div>
                                   </div>
 
-                                  <div className="md:flex flex-row md:space-x-4 mt-4 pl-96 w-full text-xs uppercase">
+                                  <div className="md:flex flex-row md:space-x-4 mt-4 md:pl-96 w-full text-xs uppercase">
                                     <button
                                       onClick={() => onSubmit()}
                                       //  disabled={loading ? true : false}
                                       type="submit"
-                                      class="px-20
+                                      class="px-28
       py-2.5
       bg-mainBaseColor
       text-white
