@@ -1,10 +1,10 @@
 
 
-## [Server Code](https://github.com/apurbo248/e-shop-server)
 
 
 
- # MERN-eShop
+ # MERN-eShop   [Server Code](https://github.com/apurbo248/e-shop-server)
+
 
  ## Description
 
