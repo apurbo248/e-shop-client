@@ -22,11 +22,11 @@ const Search = () => {
     <div>
       <form onSubmit={searchHandler}>
         <div class="relative text-lg bg-transparent text-gray-800 md:pl-96">
-          <div class="flex items-center  border-b-2 border-teal-500 py-2">
+          <div class="flex items-center   py-2">
             <input
-              class="bg-transparent text-sm border-none mr-3 px-2 leading-tight focus:outline-none"
+              class=" text-sm  mr- px-2 leading-tight border rounded-full"
               type="text"
-              placeholder="Search by name or category"
+              placeholder="Search ..."
               onChange={(e) => setKeyword(e.target.value)}
             />
             <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">

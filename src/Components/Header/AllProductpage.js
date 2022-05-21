@@ -16,7 +16,7 @@ const AllProductpage = () => {
   const { productPerPage, productCount, loading, products } = useSelector(
     (state) => state.ProductsData
   );
-
+console.log(products);
   const setCurrentPageHandler = (e) => {
     setCurrentPage(e);
   };

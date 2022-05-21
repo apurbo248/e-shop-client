@@ -13,8 +13,8 @@ const AddProducts = () => {
   const { handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { success,error } = useSelector((state) => state.addProduct);
- 
+  const { success, error } = useSelector((state) => state.addProduct);
+
   const [imageLoading, setImageLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [product, setProduct] = useState({
@@ -59,13 +59,10 @@ const AddProducts = () => {
       stock: product.stock,
       offer: product.offer,
       image: {
-        
         url: image,
       },
     };
     dispatch(createProduct(productData));
-   
-  
   };
 
   useEffect(() => {
@@ -75,20 +72,19 @@ const AddProducts = () => {
       dispatch(clearErrors());
     }
     if (success) {
-     toast.success("Product created successfully.");
+      toast.success("Product created successfully.");
       dispatch({ type: "NEW_PRODUCT_RESET" });
-     window.location.href="/admin/products"
- 
+      /// window.location.href="/admin/products"
 
-       setProduct({
-         name: "",
-         description: "",
-         category: "",
-         offer: 0,
-         price: "",
-         stock: 0,
-       });
-       setImage(null)
+      setProduct({
+        name: "",
+        description: "",
+        category: "",
+        offer: 0,
+        price: "",
+        stock: 0,
+      });
+      setImage(null);
     }
   }, [dispatch, error, success, navigate]);
 
@@ -208,7 +204,7 @@ const AddProducts = () => {
 
                             <option value="cosmetics">Cosmetics</option>
                             <option value="footware">Footware</option>
-                            <option value="grocery_food">Grocery & Food</option>
+                            <option value="groceryandfood">Grocery & Food</option>
                             <option value="smartphone">SmartPhone</option>
                           </select>
                         </div>

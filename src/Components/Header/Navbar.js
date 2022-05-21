@@ -51,9 +51,13 @@ const Navbar = () => {
                     <h2>e-SHOP</h2>
                   </Link>
                 </div>
+                <div>
+                  <Search />
+                </div>
+
                 <div className="hidden sm:block sm:ml-6 mx-auto">
                   <div className="flex space-x-4">
-                    {isAuthenticated && user&&user.role === "admin" ? (
+                    {isAuthenticated && user && user.role === "admin" ? (
                       <div>
                         <Link to="/admin_dashboard">
                           <a className=" text-white px-3 py-2 rounded-md text-sm font-medium">

@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 const Product = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-
+ 
   const addToCartHandler = (id) => {
     dispatch(addToCart(id, quantity));
     toast.success("Item added to cart");
