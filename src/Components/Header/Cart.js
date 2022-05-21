@@ -122,7 +122,7 @@ const Cart = () => {
                           </button>
                         </div>
                         <div class=" pr-4 md:pr-8 ">
-                          <span class=" font-medium">${item.price}</span>
+                          <span class=" font-medium">TK. {item.price}</span>
                         </div>
                         <div class="md:pr-8 ">
                           <button
