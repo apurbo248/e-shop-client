@@ -46,7 +46,7 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className=" flex-1 flex pl-12 md:items-center  md:justify-center sm:items-stretch sm:justify-start">
-                <div className="text-white  flex-shrink-0 flex items-center text-lg md:text-3xl">
+                <div className="text-white  flex-shrink-0 flex items-center text-lg md:text-3xl mr-2">
                   <Link to="/">
                     <h2>e-SHOP</h2>
                   </Link>
@@ -80,13 +80,13 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex items-center ml- -mr-3 sm:static sm:inset-auto  sm:pr-0">
                 <Link to="/v1/cart">
                   <div class="">
                     <div class="flex  justify-center">
                       <div class="relative ">
                         <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
-                          <div class="flex flex-row-reverse ml-2 w-full">
+                          <div class="flex flex-row-reverse ml- w-full">
                             <div slot="icon" class="relative">
                               <div class="absolute text-xs rounded-full -mt-1 -mr-2 px-1 font-bold top-0 right-0 bg-red-700 text-white">
                                 {cartItems.length}
@@ -115,7 +115,7 @@ const Navbar = () => {
                   </div>
                 </Link>
                 {isAuthenticated && user ? (
-                  <Menu as="div" className="ml-3 relative">
+                  <Menu as="div" className="ml-2 relative">
                     <div>
                       <Menu.Button className=" flex text-lg text-white ">
                         <span className="sr-only">Open user menu</span>
@@ -164,14 +164,15 @@ const Navbar = () => {
                     </Transition>
                   </Menu>
                 ) : (
-                  <div>
+                  <div className="mr-2">
                     <Link to="/v1/user/login">
-                      <a className="bg-mainBaseColor mx-2 text-white px-3 py-2 rounded-md text-sm font-medium">
+                      <a className="md:bg-mainBaseColor md:mx-2 text-white md:px-3 md:py-2 rounded-md text-sm font-medium">
                         Sign in
                       </a>
                     </Link>
+                    <span className="text-white inline-block md:hidden">/</span>
                     <Link to="/v1/user/register">
-                      <a className="bg-mainBaseColor text-white px-3 py-2 rounded-md text-sm font-medium">
+                      <a className="md:bg-mainBaseColor text-white md:px-3 md:py-2 rounded-md text-sm font-medium">
                         Sign up
                       </a>
                     </Link>

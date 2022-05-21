@@ -19,14 +19,7 @@ const Success = () => {
             Thank you for completing your secure online payment.
           </p>
           <p> Have a great day! </p>
-          <div class="py-10 text-center">
-            <button
-              onChange={(window.location.href = "/")}
-              class="px-12 bg-mainBaseColor text-white font-semibold py-3"
-            >
-              Continue Shopping
-            </button>
-          </div>
+          
         </div>
       </div>
     </div>

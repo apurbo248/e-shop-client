@@ -7,7 +7,7 @@ const Search = () => {
 
   const searchHandler = (e) => {
      
-    console.log(keyword);
+   
     if (keyword.trim()) {
       navigate(`/v1/products/${keyword}`);
     } 
@@ -24,7 +24,7 @@ const Search = () => {
         <div class="relative text-lg bg-transparent text-gray-800 md:pl-96">
           <div class="flex items-center   py-2">
             <input
-              class=" text-sm  mr- px-2 leading-tight border rounded-full"
+              class=" text-sm  w-24 md:w-full px-2 leading-tight border rounded-full"
               type="text"
               placeholder="Search ..."
               onChange={(e) => setKeyword(e.target.value)}

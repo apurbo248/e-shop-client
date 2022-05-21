@@ -9,13 +9,13 @@ const ConfirmOrder = ({ user }) => {
   const dispatch = useDispatch();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
 
-  const { orders } = useSelector((state) => state.MyOrder);
+  const { myOrderList, loading } = useSelector((state) => state.MyOrder);
   const navigate = useNavigate();
   const subTotal = cartItems.reduce(
     (acc, item) => acc + item.quantity * item.price,
     0
   );
-  console.log(orders);
+
   const shippingPrice = subTotal > 1000 ? 0 : 5;
 
   const tax = Math.round(subTotal * 0.05);
@@ -40,12 +40,14 @@ const ConfirmOrder = ({ user }) => {
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
     navigate("/v1/process/payment");
   };
-  useEffect(() => {});
+  useEffect(() => {
+    dispatch(myOrders());
+  }, [dispatch]);
   return (
     <>
       <Navbar />
       <div className="bg-gray-100 h-screen">
-        <div className=" mt-20 px-4 md:px-6 md:container  md:mx-auto ">
+        <div className=" pt-16 px-4 md:px-6 md:container  md:mx-auto bg-gray-100 ">
           <div className=" flex justify-start item-start space-y-2 flex-col ">
             <h1 className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9  text-gray-800">
               Order
@@ -99,7 +101,7 @@ const ConfirmOrder = ({ user }) => {
                       <div className="flex justify-center  w-full  md:justify-start items-center space-x-4 py-1 border-b-2 border-gray-200">
                         <img
                           className="h-20"
-                          src="https://i.ibb.co/5TSg7f6/Rectangle-18.png"
+                          src={user && user.avatar.url}
                           alt="avatar"
                         />
                         <div className=" flex justify-start items-start flex-col space-y-2">
@@ -115,7 +117,7 @@ const ConfirmOrder = ({ user }) => {
                           <p className="text-sm leading-5 text-gray-600">
                             <span className="text-gray-900 font-semibold">
                               {" "}
-                              {orders && orders.length}
+                              {myOrderList && myOrderList.length}
                             </span>{" "}
                             Previous Orders
                           </p>
@@ -138,7 +140,7 @@ const ConfirmOrder = ({ user }) => {
                 </div>
               </div>
             </div>
-            <div className="bg-white shadow-md w-full xl:w-96 flex  items-center md:items-start px-4 py-4 md:p- xl:p- flex-col h-80">
+            <div className="bg-white shadow-md w-full xl:w-96 flex  items-center md:items-start px-4 pt-4 mb-4 md:mb-0 xl:p- flex-col h-80">
               <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
                 Summary
               </h3>

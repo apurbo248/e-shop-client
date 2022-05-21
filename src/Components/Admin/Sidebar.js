@@ -10,11 +10,11 @@ const Sidebar = () => {
 
   const { user } = useSelector((state) => state.userInfo);
 
- const logoutHandler = async () => {
-   localStorage.removeItem("userToken");
-   toast.success("Logout successfully");
-   window.location.href = "/";
- };
+  const logoutHandler = async () => {
+    localStorage.removeItem("userToken");
+    toast.success("Logout successfully");
+    window.location.href = "/";
+  };
   return (
     <div>
       <nav class="bg-white border-b border-gray-200 fixed z-30 w-full ">
@@ -289,7 +289,7 @@ const Sidebar = () => {
                             <a href="#" class="block ">
                               <img
                                 alt="profil"
-                                src={img}
+                                src={user && user.avatat.url}
                                 class="mx-auto object-cover rounded h-14 w-14 "
                               />
                             </a>
