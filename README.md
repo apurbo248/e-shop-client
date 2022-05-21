@@ -6,22 +6,27 @@
 
  # MERN-eShop
 
+ ## Description
+***
+ This web app has some different feature for `admin` and `user`.
+ #### **Admin** 
+ 
+* Can **create** ,   **delete**  Products,Users,Orders and reviews (`Find by id and delete `) .
+* Also Can **update** of Products,Users,Orders(`only status`) 
+#### **User** 
+* Can create order. 
+* Only can see  own profile with own order list and transaction information.
+* Also Can **update** own profile.
+
+***
  This is a eShop mern stack project using the following technologies:
 
-### _**#FRONTEND**_
-
-* ReactJS & React Router Dom-6
-* React-hook-form
-* React-redux & Redux & Redux-thunk
-* Tailwind CSS 
-
-
-### _**#BACKEND**_
-
-* Express
-* MongoDB & Mongoose
-* NodeJS
-* Stripe ( Payment gateway )
+|_**#FRONTEND**_|_**#BACKEND**_|     
+|-----|-------|    
+| ReactJS & React Router Dom-6 |Express
+|React-hook-form|MongoDB & Mongoose
+  |React-redux & Redux & Redux-thunk|NodeJS
+  |Tailwind CSS |Stripe ( Payment gateway )|
 
 
 ## [Live_site](https://bdeshop.netlify.app/)
