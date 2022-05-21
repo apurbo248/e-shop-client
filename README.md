@@ -3,12 +3,13 @@
 
 
 
- # MERN-eShop   [Server Code](https://github.com/apurbo248/e-shop-server)
+ ## MERN-eShop  
+ ### [Server Code](https://github.com/apurbo248/e-shop-server)
 
 
  ## Description
 
- This web app has some different feature for `admin` and `user`.
+ **This web app has some different feature for `admin` and `user`**
  #### **Admin** 
  
 * Can **create** ,   **delete**  Products,Users,Orders and reviews (`Find by id and delete `) .
