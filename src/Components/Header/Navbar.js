@@ -80,12 +80,12 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center ml- -mr- sm:static sm:inset-auto  sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex items-center  -mr- sm:static sm:inset-auto  sm:pr-0">
                 <Link to="/v1/cart">
                   <div class="">
                     <div class="flex  justify-center">
                       <div class="relative ">
-                        <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
+                        <div class="flex flex-row cursor-pointer truncate p-2 px-2  rounded">
                           <div class="flex flex-row-reverse ml- w-full">
                             <div slot="icon" class="relative">
                               <div class="absolute text-xs rounded-full -mt-1 -mr-2 px-1 font-bold top-0 right-0 bg-red-700 text-white">

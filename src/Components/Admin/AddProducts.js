@@ -269,7 +269,6 @@ const AddProducts = () => {
             </div>
           </div>
           <button
-          
             type="submit"
             class="px-28
       py-2.5
@@ -289,9 +288,8 @@ const AddProducts = () => {
           >
             add
           </button>
+          <Toaster />
         </div>
-
-        <Toaster />
       </div>
     </form>
   );

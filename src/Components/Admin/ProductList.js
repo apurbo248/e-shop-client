@@ -26,7 +26,7 @@ const ProductList = () => {
     (state) => state.ProductsData
   );
   const [open, setOpen] = useState(false);
-  console.log(error, products);
+ 
 
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.products

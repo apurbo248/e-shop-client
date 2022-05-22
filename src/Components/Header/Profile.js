@@ -11,7 +11,6 @@ import { myOrders } from "../Redux/Action/Order";
 import axios from "axios";
 import { updateUser } from "../Redux/Action/User";
 import toast, { Toaster } from "react-hot-toast";
-import OrderInfo from "./OrderInfo";
 
 const Profile = ({ userInfo }) => {
   const dispatch = useDispatch();
@@ -55,8 +54,8 @@ const Profile = ({ userInfo }) => {
 
   const onSubmit = async (e) => {
     const userData = {
-      name: userInfoUpdate.name || userInfo.name,
-      phone: userInfoUpdate.phone || userInfo.phone,
+      name: userInfoUpdate.name||userInfo.name,
+      phone:userInfoUpdate.phone|| userInfo.phone ,
       avatar: {
         url: image || userInfo.avatar.url,
       },
@@ -374,51 +373,7 @@ const Profile = ({ userInfo }) => {
                                           </div>
                                         </td>
                                         <td className="">
-                                          <div>
-                                            <button
-                                              className="button   ml-4 px-4 md:mt-0 md:p-2 font-semibold rounded text-mainBaseColor "
-                                              onClick={() => setOpen(true)}
-                                            >
-                                              <div className="flex text-mainBaseColor ">
-                                                <svg
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  className="icon cursor-pointer icon-tabler icon-tabler-edit"
-                                                  width={20}
-                                                  height={20}
-                                                  viewBox="0 0 24 24"
-                                                  strokeWidth="1.5"
-                                                  stroke="currentColor"
-                                                  fill="none"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                >
-                                                  <path
-                                                    stroke="none"
-                                                    d="M0 0h24v24H0z"
-                                                  />
-                                                  <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                                  <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                                  <line
-                                                    x1={16}
-                                                    y1={5}
-                                                    x2={19}
-                                                    y2={8}
-                                                  />
-                                                </svg>
-                                              </div>
-                                            </button>
-
-                                            <Modal
-                                              open={open}
-                                              onClose={() => setOpen(false)}
-                                            >
-                                              <OrderInfo
-                                                id={item && item._id}
-                                              />
-                                            </Modal>
-                                          </div>
-
-                                          {/* <Link to={`/v1/order/${item._id}`}>
+                                          <Link to={`/v1/order/${item._id}`}>
                                             <button className="text-sm leading-none text-gray-600 py-2 px-3  rounded hover:bg-gray-200 focus:outline-none">
                                               <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -446,7 +401,7 @@ const Profile = ({ userInfo }) => {
                                                 />
                                               </svg>
                                             </button>
-                                          </Link> */}
+                                          </Link>
                                         </td>
                                       </tr>
                                     ))
@@ -467,9 +422,7 @@ const Profile = ({ userInfo }) => {
                       </div>
                     </div>
 
-                    <div className="bg-white text-center py-20 rounded shadow text-2xl">
-                      Coming soon...
-                    </div>
+                    <div>coming soon</div>
                   </Tabs>
                 </div>
               </div>
