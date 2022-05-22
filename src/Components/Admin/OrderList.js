@@ -1,27 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
-
-
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import Sidebar from "./Sidebar";
 
 import { clearErrors } from "../Redux/Action/Order";
 
 import { Link } from "react-router-dom";
-import {
-  allOrder,
-  deleteOrder,
-
-} from "../Redux/Action/Order";
+import { allOrder, deleteOrder } from "../Redux/Action/Order";
+import UpdateStatus from "./UpdateStatus";
 
 const ProductList = () => {
-
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
   const { loading, error, orders } = useSelector((state) => state.allOrder);
- 
+
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.orders
   );
@@ -58,7 +55,6 @@ const ProductList = () => {
     if (isDeleted) {
       toast.success("Order delete successfully");
       dispatch({ type: "DELETE_ORDER_RESET" });
-      
     }
     if (updateError) {
       toast.error(updateError);
@@ -70,7 +66,6 @@ const ProductList = () => {
       dispatch({ type: "UPDATE_ORDER_RESET" });
       //Navigate("/admin_dashboard")
     }
-
   }, [dispatch, deleteError, isDeleted, error]);
 
   return (
@@ -82,7 +77,7 @@ const ProductList = () => {
           </div>
 
           <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
-            <div className="overflow-auto h-screen  mt-20 pt-16  pb-4 md:mt-0 md:pt-0 md:pb-4 px-1">
+            <div className="overflow-auto h-screen  mt-16 pt- pb-4 md:mt-0 md:pt-0 md:pb-4 px-1">
               <div className=" overflow-x-auto  shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  ">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
@@ -99,7 +94,7 @@ const ProductList = () => {
                       <th scope="col" className="px-6 py-3 text-center">
                         Amount
                       </th>
-                      <th scope="col" className=" py-3">
+                      <th scope="col" className=" px-6 py-3 ">
                         <span className=""></span>
                       </th>
                     </tr>
@@ -129,7 +124,31 @@ const ProductList = () => {
                               </th>
                               <td className="px-6 py-4">
                                 {" "}
-                                {item && item.orderStatus}
+                                {item && item.orderStatus === "Delivered" ? (
+                                  <button className="p-2 bg-green-100 text-green-900 rounded">
+                                    {item && item.orderStatus}
+                                  </button>
+                                ) : (
+                                  <div>
+                                    <button
+                                      className="button mt-   md:mt-0 p-2 font-semibold rounded text-mainBaseColor border-1 border-mainBaseColor"
+                                      onClick={() => setOpen(true)}
+                                    >
+                                      <div className="flex text-mainBaseColor ">
+                                        <p className="font-semibold">
+                                          {item && item.orderStatus}
+                                        </p>
+                                      </div>
+                                    </button>
+
+                                    <Modal
+                                      open={open}
+                                      onClose={() => setOpen(false)}
+                                    >
+                                      <UpdateStatus id={item && item._id} />
+                                    </Modal>
+                                  </div>
+                                )}
                               </td>
                               <td className="px-6 py-4">
                                 {" "}
@@ -139,30 +158,6 @@ const ProductList = () => {
                                 {item && item.totalPrice}
                               </td>
                               <td className="px- py-4 text-left">
-                                {item && item.orderStatus === "Delivered" ? (
-                                  " "
-                                ) : (
-                                  <Link to={`/orderupdate/${item && item._id}`}>
-                                    <button className=" pr-4 font-sm text-gray-600  hover:underline">
-                                      <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        color="mainBaseColor"
-                                      >
-                                        <path
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                                        />
-                                      </svg>
-                                    </button>
-                                  </Link>
-                                )}
-
                                 <button
                                   onClick={() =>
                                     deleteOrderHandler(item && item._id)

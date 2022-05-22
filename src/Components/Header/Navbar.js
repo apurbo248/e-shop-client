@@ -51,7 +51,7 @@ const Navbar = () => {
                     <h2>e-SHOP</h2>
                   </Link>
                 </div>
-                <div>
+                <div className=" ">
                   <Search />
                 </div>
 
@@ -80,7 +80,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center ml- -mr-3 sm:static sm:inset-auto  sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex items-center ml- -mr- sm:static sm:inset-auto  sm:pr-0">
                 <Link to="/v1/cart">
                   <div class="">
                     <div class="flex  justify-center">
@@ -115,7 +115,7 @@ const Navbar = () => {
                   </div>
                 </Link>
                 {isAuthenticated && user ? (
-                  <Menu as="div" className="ml-2 relative">
+                  <Menu as="div" className="ml- relative">
                     <div>
                       <Menu.Button className=" flex text-lg text-white ">
                         <span className="sr-only">Open user menu</span>
@@ -195,6 +195,9 @@ const Navbar = () => {
                     Products
                   </a>
                 </Link>
+                {/* <div className="w-full px-4">
+                  <Search />
+                </div> */}
               </Disclosure.Button>
             </div>
           </Disclosure.Panel>

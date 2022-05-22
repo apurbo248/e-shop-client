@@ -16,7 +16,7 @@ const AllProductpage = () => {
   const { productPerPage, productCount, loading, products } = useSelector(
     (state) => state.ProductsData
   );
-console.log(products);
+console.log(productCount,productPerPage)
   const setCurrentPageHandler = (e) => {
     setCurrentPage(e);
   };
@@ -72,7 +72,7 @@ console.log(products);
             </div>
 
             <div>
-              {productPerPage < productCount && (
+              {productPerPage <= productCount && (
                 <div className="flex mt-4 justify-center">
                   <Pagination
                     activePage={currentPage}
@@ -80,7 +80,7 @@ console.log(products);
                     linkClass="page-link"
                     itemsCountPerPage={productPerPage}
                     totalItemsCount={productCount}
-                    pageRangeDisplayed={2}
+                    pageRangeDisplayed={1}
                     onChange={setCurrentPageHandler}
                   />
                 </div>

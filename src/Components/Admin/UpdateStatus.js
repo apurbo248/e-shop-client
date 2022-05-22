@@ -5,13 +5,14 @@ import { useNavigate, useParams } from "react-router";
 import { clearErrors, orderDetail, updateOrder } from "../Redux/Action/Order";
 import Sidebar from "./Sidebar";
 
-const UpdateStatus = () => {
+const UpdateStatus = ({id}) => {
   const navigate = useNavigate();
-  const { id } = useParams();
+ 
+  //const { id } = useParams();
   const dispatch = useDispatch();
   const [status, setOrderStatus] = useState("");
   const { error, loading, order } = useSelector((state) => state.orderDetail);
-  console.log(status);
+  console.log(id);
   const { error: updateError, isUpdated } = useSelector(
     (state) => state.orders
   );
@@ -26,7 +27,7 @@ const UpdateStatus = () => {
     const st = status;
 
     dispatch(updateOrder(id, st));
-    console.log(status);
+    console.log(id);
   };
 
   useEffect(() => {
@@ -47,12 +48,9 @@ const UpdateStatus = () => {
     dispatch(orderDetail(id));
   }, [error, dispatch, id, updateError, isUpdated]);
   return (
-    <main className="bg-gray-100 dark:bg-gray-800  h-screen overflow-hidden ">
-      <div className="md:flex users-start justify-between">
-        <div className=" md:w-2/12   ">
-          <Sidebar />
-        </div>
-        <div className=" md:w-1/2 w-full md:mt-24 mt-mmt1 bg-white md:mb-60 md:mx-auto rounded">
+  
+    
+        <div className=" w-full  bg-white   rounded">
           <div className="relative p-4 ">
             <h1>
               Update order status for{" "}
@@ -92,7 +90,7 @@ const UpdateStatus = () => {
                                               uppercase
                                               rounded
                                               shadow-md
-                                             
+
                                               active:bg-blue-800 active:shadow-lg
                                               transition
                                               duration-150
@@ -104,9 +102,7 @@ const UpdateStatus = () => {
             </div>
           </div>
         </div>
-      </div>
-      <Toaster />
-    </main>
+     
   );
 };
 

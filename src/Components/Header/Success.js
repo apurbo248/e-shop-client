@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const Success = () => {
@@ -13,13 +14,12 @@ const Success = () => {
         </svg>
         <div class="text-center">
           <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">
-            Payment Done!
+            <Link to={window.location.href="/"}> Payment Done!</Link>
           </h3>
           <p class="text-gray-600 my-2">
             Thank you for completing your secure online payment.
           </p>
           <p> Have a great day! </p>
-          
         </div>
       </div>
     </div>

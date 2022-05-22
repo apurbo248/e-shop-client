@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import Loader from "../Header/Loader";
 import Sidebar from "./Sidebar";
 import {
@@ -16,6 +17,7 @@ import {
 import { Navigate } from "react-router";
 import { Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import AddProducts from "./AddProducts";
 
 const ProductList = () => {
   const { handleSubmit } = useForm();
@@ -23,7 +25,7 @@ const ProductList = () => {
   const { error, loading, products } = useSelector(
     (state) => state.ProductsData
   );
-
+  const [open, setOpen] = useState(false);
   console.log(error, products);
 
   const { error: deleteError, isDeleted } = useSelector(
@@ -56,9 +58,8 @@ const ProductList = () => {
       dispatch(clearErrors());
     }
     if (isDeleted) {
-       toast.success("Product delete successfully");
+      toast.success("Product delete successfully");
       dispatch({ type: "DELETE_PRODUCT_RESET" });
-     
     }
   }, [dispatch, deleteError, isDeleted, error]);
 
@@ -69,11 +70,38 @@ const ProductList = () => {
           <Sidebar />
         </div>
         <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
-          <Link to="/admin/add_product">
-            <button className="bg-mainBaseColor mt-16  ml-4 px-4 md:mt-0 md:p-2  rounded text-white">
-              add
+          {/* <Link to="/admin/add_product"> */}
+          <div>
+            <button
+              className="button mt-16  ml-4 px-4 md:mt-0 md:p-2 font-semibold rounded text-mainBaseColor border-1 border-mainBaseColor"
+              onClick={() => setOpen(true)}
+            >
+              <div className="flex text-mainBaseColor ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+                <p className="font-semibold">Add</p>
+              </div>
             </button>
-          </Link>
+
+            <Modal open={open} onClose={() => setOpen(false)}>
+              <AddProducts />
+            </Modal>
+
+
+          </div>
+         
 
           <div className="overflow-auto h-screen  mt-3  pb-28 px-2 mb-30 md:my-0 md:pt-0 md:pb-10  ">
             <div className=" overflow-x-auto  shadow-md sm:rounded-lg">

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import img from "../img.jpg";
-import { logout } from "../Redux/Action/User";
+
 const Sidebar = () => {
-  const dispatch = useDispatch();
+
   const [show, setShow] = useState(true);
 
   const { user } = useSelector((state) => state.userInfo);
@@ -289,7 +288,7 @@ const Sidebar = () => {
                             <a href="#" class="block ">
                               <img
                                 alt="profil"
-                                src={user && user.avatat.url}
+                                src={ user.avatar.url}
                                 class="mx-auto object-cover rounded h-14 w-14 "
                               />
                             </a>

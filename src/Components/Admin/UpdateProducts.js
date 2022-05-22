@@ -17,7 +17,7 @@ import Loader from "../Header/Loader";
 
 const UpdateProduct = () => {
   const { handleSubmit } = useForm();
-const navigate=useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { error, product } = useSelector(
@@ -44,7 +44,6 @@ const navigate=useNavigate();
     const newProduct = { ...productInfo };
     newProduct[e.target.name] = e.target.value;
     setProduct(newProduct);
-  
   };
 
   const uploadImage = async (e) => {
@@ -95,23 +94,22 @@ const navigate=useNavigate();
     if (isUpdated) {
       toast.success("Product updated successfully");
       dispatch({ type: "UPDATE_PRODUCT_RESET" });
-      window.location.reload("/admin/products")
     }
   }, [dispatch, id, error, isUpdated, updateError]);
 
   return (
     <>
-      <main class="bg-gray-50 dark:bg-gray-800  h-screen overflow relative">
-        <div class="md:flex items-start justify-between">
-          <div class=" md:w-2/12 md:pr-12   ">
+      <main class="bg-gray-50 dark:bg-gray-800  h-screen overflow relativez-10">
+        <div class="md:flex items-start justify-between z-10">
+          <div class=" md:w-2/12 md:pr-12   z-40">
             <Sidebar />
           </div>
 
-          <div class="md:10/12 flex flex-col w-full ml-0 md:ml-4 mt-mmt1 md:mt-0 md:p-4 md:space-y-4 ">
-            <div class=" h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
-              <div class="flex flex-col flex-wrap sm:flex-row ">
-                <div class=" relative w-auto pointer-events-none ">
-                  <div class="md:px-12 md:pt-8 modal-content border-none  relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+          <div class="md:10/12 flex flex-col w-full ml-0 md:ml-4 mt-mmt2 md:mt-0 md:p-4 md:space-y-4 bg-gray-100 z-10">
+            <div class=" h-screen md:pb-24 mt-24 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0 z-10">
+              <div class="flex flex-col flex-wrap sm:flex-row z-10">
+                <div class=" relative w-auto pointer-events-none z-10">
+                  <div class="md:px-12 md:pt-8 modal-content border-none  relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current z-10">
                     <div class=" flex flex-shrink-0 items-center justify-between  border-b border-gray-200 rounded-t-md">
                       <h5
                         class="font-semibold text-lg  "
