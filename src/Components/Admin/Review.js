@@ -43,8 +43,6 @@ const Review = () => {
   };
   const productReviewSubmit = (e) => {
     e.preventDefault();
-  
-
     dispatch(allReview(productId));
   };
   useEffect(() => {

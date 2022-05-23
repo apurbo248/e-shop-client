@@ -8,7 +8,7 @@ import { addToCart } from "../Redux/Action/Cart";
 import toast, { Toaster } from "react-hot-toast";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
+import reviewimg from "../Images/rimg.jpg";
 const ProductDetails = ({ isAuthenticated }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -87,12 +87,11 @@ const ProductDetails = ({ isAuthenticated }) => {
                       collor="#ffd700"
                       activeColor="#ffd700"
                     /> */}
-                    {Math.round(product && product.ratings *100)/100} / 5
+                    {Math.round(product && product.ratings * 100) / 100} / 5
                     <span className="ms-2 md:ms-6 border-l-2 pl-4 border-gray-300">
                       {" "}
                       {product && product.numberOfReview}
                     </span>
-
                     <span className="text-gray-600 ml-1 border-r-2 pr-4 border-gray-300">
                       {" "}
                       Reviews
@@ -278,7 +277,7 @@ const ProductDetails = ({ isAuthenticated }) => {
                       <div class=" flex justify-start items-center flex-row space-x-2">
                         <div>
                           <img
-                            src="https://i.ibb.co/QcqyrVG/Mask-Group.png"
+                            src={reviewimg}
                             alt="girl-avatar"
                             className="h-8"
                           />

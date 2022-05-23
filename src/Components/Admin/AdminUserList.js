@@ -17,7 +17,7 @@ const AdminUserList = ({ userEmail }) => {
   const { loading, error, users } = useSelector((state) => state.allUserInfo);
 
   const { error: deleteError, isDeleted } = useSelector(
-    (state) => state.products
+    (state) => state.updateUser
   );
 
   const deleteUserHandler = (id) => {

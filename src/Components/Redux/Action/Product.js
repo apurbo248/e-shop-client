@@ -191,12 +191,17 @@ export const allReview = (id) => async (dispatch) => {
   }
 };
 export const deleteReview = (id, productId) => async (dispatch) => {
+  console.log(id)
   try {
     dispatch({ type: "DELETE_REVIEW_REQUEST" });
 
     const { data } = await axios.delete(
       `https://shrouded-falls-78834.herokuapp.com/v1/delete_review?id=${id}&productId=${productId}`,
-      { authorization: `Bearer ${localStorage.getItem("userToken")}` }
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
     );
 
     dispatch({
