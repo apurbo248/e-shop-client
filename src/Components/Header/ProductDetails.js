@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
@@ -16,7 +15,7 @@ const ProductDetails = ({ isAuthenticated }) => {
   const { loading, product } = useSelector(
     (state) => state.ProductDetails.product
   );
-
+  console.log(product);
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -44,7 +43,6 @@ const ProductDetails = ({ isAuthenticated }) => {
   };
 
   const sendReview = () => {
-   
     const reviewData = {
       rating: rating,
       comment: comment,
@@ -52,11 +50,11 @@ const ProductDetails = ({ isAuthenticated }) => {
     };
     dispatch(newReview(reviewData));
     toast.success("Thank you for your valuable feedback !");
-
   };
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, [dispatch, id]);
+ 
 
   return (
     <div>
@@ -80,15 +78,16 @@ const ProductDetails = ({ isAuthenticated }) => {
                   {product && product.name}
                 </h1>
                 <div className="flex mb-4">
-                  <span className="flex items-center text-xs md:text-sm">
-                    <ReactStars
-                      value={product && product.ratings}
+                  <span className="flex items-center text-xs md:text-sm ">
+                    {/* <ReactStars
+                      value={product&& product.ratings}
                       edit={false}
-                      size={24}
+                       isHalf={true}
+                      size={14}
                       collor="#ffd700"
                       activeColor="#ffd700"
-                    />
-
+                    /> */}
+                    {Math.round(product && product.ratings *100)/100} / 5
                     <span className="ms-2 md:ms-6 border-l-2 pl-4 border-gray-300">
                       {" "}
                       {product && product.numberOfReview}

@@ -16,7 +16,7 @@ const Product = ({ product }) => {
   };
   return (
     <div key={product._id} className=" relative hover:shadow-lg bg-white">
-      <Link to={`/v1/product/${product._id}`}>
+      <Link to={`/v1/product/${product&&product._id}`}>
         <div className="w-full h-40 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
           <img
             src={product && product.image[0].url}
@@ -27,7 +27,7 @@ const Product = ({ product }) => {
       </Link>
       <div class="mt-4 pl-2 mb-2 flex justify-between ">
         <div>
-          <Link to={`/v1/product/${product._id}`}>
+          <Link to={`/v1/product/${product&&product._id}`}>
             <p class="text-md font-sm text-mainBaseColor mb-0">
               {product.name}
             </p>
