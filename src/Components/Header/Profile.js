@@ -45,7 +45,7 @@ const Profile = ({ userInfo }) => {
       .then(function (response) {
         setImage(response.data.data.display_url);
         setImageLoading(false);
-        console.log(response.data.data);
+      
       })
       .catch(function (error) {
         console.log(error);
@@ -60,7 +60,7 @@ const Profile = ({ userInfo }) => {
         url: image || userInfo.avatar.url,
       },
     };
-    console.log(userData);
+
     dispatch(updateUser(userInfo._id, userData));
   };
 

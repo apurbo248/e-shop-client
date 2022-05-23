@@ -9,7 +9,7 @@ import Sidebar from "./Sidebar";
 
 import { clearErrors } from "../Redux/Action/Order";
 
-import { Link } from "react-router-dom";
+
 import { allOrder, deleteOrder } from "../Redux/Action/Order";
 import UpdateStatus from "./UpdateStatus";
 
@@ -62,11 +62,11 @@ const ProductList = () => {
     }
 
     if (isUpdated) {
-      toast.success("order updated successfully");
+      toast.success("Order updated successfully");
       dispatch({ type: "UPDATE_ORDER_RESET" });
-      //Navigate("/admin_dashboard")
+      window.location.reload();
     }
-  }, [dispatch, deleteError, isDeleted, error]);
+  }, [dispatch, deleteError, isDeleted, error, updateError, isUpdated]);
 
   return (
     <div>

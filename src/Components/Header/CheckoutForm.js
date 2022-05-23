@@ -18,7 +18,7 @@ const CheckoutForm = () => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.userInfo);
   const { error, clearErrors } = useSelector((state) => state.order);
-  console.log(error);
+
 
   const paymentData = {
     amount: Math.round(orderInfo && orderInfo.total * 100),

@@ -11,14 +11,14 @@ const ShippingInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { shippingInfo } = useSelector((state) => state.cart);
-  console.log(shippingInfo);
+  
   const [address, setAddress] = useState(shippingInfo.address);
   const [city, setCity] = useState(shippingInfo.address);
   const [state, setState] = useState(shippingInfo.state);
   const [country, setCountry] = useState(shippingInfo.country);
   const [phone, setPhone] = useState(shippingInfo.phone);
 
-  console.log(address, city, state, country, phone);
+  
 
   const shoppingInfoHandler = () => {
     if (phone.length < 11 || phone.length > 11) {
@@ -28,7 +28,7 @@ const ShippingInfo = () => {
 
     dispatch(saveShippingInfo({ address, city, state, country, phone }));
     navigate("/v1/user/order/confirm");
-    console.log({ address, city, state, country, phone });
+   
   };
   return (
     <div>

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadUser, logout } from "../Redux/Action/User";
+
 import { toast } from "react-hot-toast";
 import Search from "./Search";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
@@ -15,7 +15,7 @@ const Navbar = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
 
-  console.log(user);
+
 
   const logoutHandler = async () => {
     localStorage.removeItem("userToken");
@@ -80,9 +80,9 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center  -mr- sm:static sm:inset-auto  sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex items-center   sm:static sm:inset-auto  sm:pr-0">
                 <Link to="/v1/cart">
-                  <div class="">
+                  <div class="pr-2 md:pr-6">
                     <div class="flex  justify-center">
                       <div class="relative ">
                         <div class="flex flex-row cursor-pointer truncate p-2 px-2  rounded">

@@ -22,7 +22,7 @@ export const createProduct = (productData) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error.response.data)
+   
     dispatch({
       type: "NEW_PRODUCT_FAIL",
       payload: error.response.data,
@@ -183,7 +183,7 @@ export const allReview = (id) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
+   
     dispatch({
       type: "ALL_REVIEW_FAIL",
       payload: error.response,

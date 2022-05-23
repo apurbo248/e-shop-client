@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-import Loader from "../Header/Loader";
+
 import Sidebar from "./Sidebar";
 import {
   deleteProduct,
@@ -14,13 +14,13 @@ import {
   clearErrors,
 } from "../Redux/Action/Product";
 
-import { Navigate } from "react-router";
+
 import { Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import AddProducts from "./AddProducts";
 
 const ProductList = () => {
-  const { handleSubmit } = useForm();
+
   const dispatch = useDispatch();
   const { error, loading, products } = useSelector(
     (state) => state.ProductsData

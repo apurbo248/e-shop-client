@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allOrder } from "../Redux/Action/Order";
-import { getAdminProducts, getProducts } from "../Redux/Action/Product";
+import {  getProducts } from "../Redux/Action/Product";
 import { allUser } from "../Redux/Action/User";
 import Sidebar from "./Sidebar";
 import "chart.js/auto";

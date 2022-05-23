@@ -8,7 +8,6 @@ import Login from "./Components/Header/Login";
 import Registration from "./Components/Header/Registration";
 import Logout from "./Components/Header/Logout";
 
-
 import Loader from "./Components/Header/Loader";
 import ProductDetails from "./Components/Header/ProductDetails";
 import AllProductpage from "./Components/Header/AllProductpage";
@@ -24,7 +23,7 @@ import ConfirmOrder from "./Components/Header/ConfirmOrder";
 import Payment from "./Components/Header/Payment";
 import ProtectedRoute from "./Components/Header/ProtectedRoute";
 import Success from "./Components/Header/Success";
-import MyOrder from "./Components/Header/MyOrder";
+
 import OrderInfo from "./Components/Header/OrderInfo";
 import Dashboard from "./Components/Admin/Dashboard";
 import OrderList from "./Components/Admin/OrderList";
@@ -36,23 +35,20 @@ import AdminUserList from "./Components/Admin/AdminUserList";
 import Review from "./Components/Admin/Review";
 import { useEffect } from "react";
 import Store from "./Components/Redux/Store/Store";
-import Navbar from "./Components/Header/Navbar";
 
 
 const App = () => {
   const { isAuthenticated, user } = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
 
- console.log(user)
   useEffect(() => {
     Store.dispatch(loadUser());
   }, [dispatch]);
   return (
     <>
-   
       <Routes>
         <Route path="/" element={<Home />} />
-        
+
         <Route path="/v1/user/login" element={<Login />} />
         <Route path="/v1/user/register" exact element={<Registration />} />
         <Route path="/sad" element={<Loader />} />
@@ -84,7 +80,10 @@ const App = () => {
           <Route path="admin/products" element={<ProductList />} />
           <Route path="admin/product_update/:id" element={<UpdateProduct />} />
           <Route path="admin/orders" element={<OrderList />} />
-          <Route path="admin/users" element={<AdminUserList userEmail={user&&user.email}/>} />
+          <Route
+            path="admin/users"
+            element={<AdminUserList userEmail={user && user.email} />}
+          />
           <Route path="admin/reviews" element={<Review />} />
           <Route path="shipping" element={<ShippingInfo />} />
 

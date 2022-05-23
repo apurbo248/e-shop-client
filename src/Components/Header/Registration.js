@@ -12,7 +12,7 @@ const Registration = () => {
   const navigate = useNavigate();
   const { handleSubmit } = useForm();
  const { error, success } = useSelector((state) => state.registerUserInfo);
- console.log(success)
+
   const [newUser, setNewUser] = useState({
     name: "",
     email: "",

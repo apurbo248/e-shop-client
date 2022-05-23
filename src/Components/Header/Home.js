@@ -9,155 +9,50 @@ import b1 from "../Images/b1.jpg";
 import b2 from "../Images/b2.jpg";
 import b3 from "../Images/b3.jpg";
 import b4 from "../Images/b4.jpg";
-import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
-import "swiper/swiper.min.css";
-import { Autoplay, Navigation } from "swiper";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
-
+import Slider from "react-slick";
 const Home = () => {
-  //window.location.reload();
-
   const dispatch = useDispatch();
   const product = useSelector((state) => state.ProductsData);
   const { loading, error, products } = product;
 
-   console.log(products);
+  console.log(products);
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch, error]);
 
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + (index + 1) + "</span>";
-    },
+  var settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
-
   return (
     <>
       <Navbar />
       <section class="text-gray-600 body-font">
-        <div class="container px-5 pt-24 mx-auto">
-          <Swiper
-            navigation={true}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-            modules={[Navigation]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-              <>
-                <div class="flex  -m-4">
-                  <div class="w-full py-4">
-                    <div class="bg-gray-100  rounded-lg">
-                      <img
-                        class="h-100 rounded w-full object-cover object-center mb-6"
-                        src={b1}
-                        alt="content"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
-            </SwiperSlide>
-            {/* <SwiperSlide>
-              <>
-                <div class="flex flex-wrap -m-4">
-                  <div class="w-full py-4">
-                    <div class="bg-gray-100  rounded-lg">
-                      <img
-                        class="h-full rounded w-full object-cover object-center mb-6"
-                        src={b2}
-                        alt="content"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
-            </SwiperSlide>
-            <SwiperSlide>
-              <>
-                <div class="flex flex-wrap -m-4">
-                  <div class="w-full py-4">
-                    <div class="bg-gray-100  rounded-lg">
-                      <img
-                        class="h-full rounded w-full object-cover object-center mb-6"
-                        src={b3}
-                        alt="content"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
-            </SwiperSlide>
-            <SwiperSlide>
-              <>
-                <div class="flex flex-wrap -m-4">
-                  <div class="w-full py-4">
-                    <div class="bg-gray-100  rounded-lg">
-                      <img
-                        class="h-full rounded w-full object-cover object-center mb-6"
-                        src={b4}
-                        alt="content"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
-            </SwiperSlide> */}
-          </Swiper>
-
-          {/* <div class="flex flex-wrap -m-4">
-      <div class="w-full py-4">
-        <div class="bg-gray-100  rounded-lg">
-          <img class="h-80 rounded w-full object-cover object-center mb-6" src={img} alt="content"/>
-         
-        </div>
-      </div>
-      
-      
-    </div> */}
+        <div class="container md:px-5 pt-24 mx-auto">
+          <Slider {...settings}>
+            <div className="h-64">
+              <img className="bg-cover w-full h-full  " src={b1} alt="" />
+            </div>
+            <div className="h-64">
+              <img className="bg-cover w-full h-full  " src={b2} alt="" />
+            </div>
+            <div className="h-64">
+              <img className="bg-cover w-full h-full  " src={b3} alt="" />
+            </div>
+            <div className="h-64">
+              <img className="bg-cover w-full h-full  " src={b4} alt="" />
+            </div>
+          </Slider>
         </div>
       </section>
-      {/* <section className="container mt-20 z-30">
-        <Swiper
-          navigation={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-          modules={[Navigation]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <>
-              {" "}
-              <img src={img} className="lg:w-96 w-64 lg:h-full h-64  object-center rounded" />
-            </>
-          </SwiperSlide>
-          <SwiperSlide>
-            <>
-              {" "}
-              <img src={img} className="lg:w-96 w-64 lg:max-h-64 h-64  object-center rounded" />
-            </>
-          </SwiperSlide>
-          <SwiperSlide>
-            <>
-              {" "}
-              <img src={img} className="lg:w-96 w-64 lg:h-full h-64  object-center rounded" />
-            </>
-          </SwiperSlide>
-          <SwiperSlide>
-            <>
-              {" "}
-              <img src={img} className="lg:w-96 w-64 lg:h-full h-64  object-center rounded" />
-            </>
-          </SwiperSlide>
-        </Swiper>
-      </section> */}
 
       <section className="pt-4 pb-4 bg-gray-100">
         {loading ? (

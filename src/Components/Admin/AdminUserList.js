@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
-import { Modal } from "react-responsive-modal";
+
 import "react-responsive-modal/styles.css";
 import Sidebar from "./Sidebar";
-import UpdateUser from "./UpdateUser";
+
 import { allUser, clearErrors, deleteUser } from "../Redux/Action/User";
 
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ const AdminUserList = ({ userEmail }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const { loading, error, users } = useSelector((state) => state.allUserInfo);
-  console.log(users);
+
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.products
   );
@@ -117,29 +117,27 @@ const AdminUserList = ({ userEmail }) => {
                               </p>
                             </td>
                             <td className=" flex text-center pt-4">
-                              <button
-                                className="button md:mt-0 px-3 font-semibold rounded text-mainBaseColor  "
-                                onClick={() => setOpen(true)}
-                              >
-                                <div className="  text-mainBaseColor ">
+                              <Link to={`/admin/user_update/${user._id}`}>
+                                <button className="text-sm leading-none text-gray-600 py-2 px-3  rounded hover:bg-gray-200 focus:outline-none">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="text-gray-700"
-                                    fill="currentColor"
+                                    className="icon cursor-pointer icon-tabler icon-tabler-edit"
+                                    width={20}
+                                    height={20}
                                     viewBox="0 0 24 24"
-                                    width="24"
-                                    height="24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    fill="none"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                   >
-                                    <path fill="none" d="M0 0h24v24H0z" />
-                                    <path d="M9.243 19H21v2H3v-4.243l9.9-9.9 4.242 4.244L9.242 19zm5.07-13.556l2.122-2.122a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414l-2.122 2.121-4.242-4.242z" />
+                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                    <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                                    <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                                    <line x1={16} y1={5} x2={19} y2={8} />
                                   </svg>
-                                </div>
-                              </button>
-
-                              <Modal open={open} onClose={() => setOpen(false)}>
-                                <UpdateUser id={user && user._id} />
-                              </Modal>
-
+                                </button>
+                              </Link>
                               {userEmail === user.email ? (
                                 ""
                               ) : (

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-import Sidebar from "./Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 
 import { clearErrors, createProduct } from "../Redux/Action/Product";
@@ -30,7 +29,7 @@ const AddProducts = () => {
     const newProduct = { ...product };
     newProduct[e.target.name] = e.target.value;
     setProduct(newProduct);
-    console.log(product)
+ 
   };
 
   const uploadImage = async (e) => {
@@ -84,6 +83,7 @@ const AddProducts = () => {
         stock: 0,
       });
       setImage(null);
+      window.location.reload();
     }
   }, [dispatch, error, success, navigate]);
 

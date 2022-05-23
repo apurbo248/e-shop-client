@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+
 import axios from "axios";
 
 import Sidebar from "./Sidebar";
@@ -7,17 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   clearErrors,
-  createProduct,
   getProductDetails,
   updateProduct,
 } from "../Redux/Action/Product";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { toast, Toaster } from "react-hot-toast";
-import Loader from "../Header/Loader";
 
 const UpdateProduct = () => {
-  const { handleSubmit } = useForm();
-  const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { error, product } = useSelector(
@@ -27,7 +23,6 @@ const UpdateProduct = () => {
   const { error: updateError, isUpdated } = useSelector(
     (state) => state.products
   );
-  console.log(isUpdated);
 
   const [imageLoading, setImageLoading] = useState(false);
   const [image, setImage] = useState(null);
@@ -56,7 +51,6 @@ const UpdateProduct = () => {
       .then(function (response) {
         setImage(response.data.data.display_url);
         setImageLoading(false);
-        console.log(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -75,7 +69,7 @@ const UpdateProduct = () => {
         url: image || product.image[0].url,
       },
     };
-    console.log(productData);
+
     dispatch(updateProduct(id, productData));
   };
 

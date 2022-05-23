@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -9,18 +9,18 @@ import Loader from "../Header/Loader";
 import Sidebar from "./Sidebar";
 import {
   allReview,
-  deleteProduct,
+ 
   deleteReview,
-  getProducts,
+  
 } from "../Redux/Action/Product";
-import { allUser, clearErrors } from "../Redux/Action/User";
-import { Navigate, useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import {  clearErrors } from "../Redux/Action/User";
+import {  useNavigate } from "react-router";
+
 
 const Review = () => {
-  const { handleSubmit } = useForm();
+ 
   const dispatch = useDispatch();
-   const navigate = useNavigate();
+ 
   const [productId, setProductId] = useState("");
   const { loading, error, reviews } = useSelector((state) => state.allReview);
 
@@ -43,7 +43,7 @@ const Review = () => {
   };
   const productReviewSubmit = (e) => {
     e.preventDefault();
-    console.log(productId);
+  
 
     dispatch(allReview(productId));
   };

@@ -156,7 +156,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
   }
 };
 export const deleteUser = (id) => async (dispatch) => {
-  console.log(id);
+
   try {
     dispatch({ type: "DELETE_USER_REQUEST" });
 
@@ -168,7 +168,7 @@ export const deleteUser = (id) => async (dispatch) => {
         },
       }
     );
-    console.log(data);
+  
     dispatch({
       type: "DELETE_USER_SUCCESS",
       payload: data.success,
