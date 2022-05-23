@@ -9,7 +9,6 @@ import Sidebar from "./Sidebar";
 
 import { clearErrors } from "../Redux/Action/Order";
 
-
 import { allOrder, deleteOrder } from "../Redux/Action/Order";
 import UpdateStatus from "./UpdateStatus";
 
@@ -76,10 +75,10 @@ const ProductList = () => {
             <Sidebar />
           </div>
 
-          <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
-            <div className="overflow-auto h-screen  mt-16 pt- pb-4 md:mt-0 md:pt-0 md:pb-4 px-1">
+          <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb- md:mt-24 md:space-y-4  ">
+            <div className="overflow-auto h-screen  mt-16 pt- pb-4 md:mt-0 md:pt-0  px-1">
               <div className=" overflow-x-auto  shadow-md sm:rounded-lg">
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  ">
+                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  md:mb-20">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                       <th scope="col" className="px-6 py-3">
@@ -118,20 +117,20 @@ const ProductList = () => {
                             >
                               <th
                                 scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                                className="px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap"
                               >
                                 {item && item._id}
                               </th>
-                              <td className="px-6 py-4">
+                              <td className="px-6 py-2">
                                 {" "}
                                 {item && item.orderStatus === "Delivered" ? (
-                                  <button className="p-2 bg-green-100 text-green-900 rounded">
+                                  <button className="p-1 bg-green-100 text-green-900 rounded">
                                     {item && item.orderStatus}
                                   </button>
                                 ) : (
                                   <div>
                                     <button
-                                      className="button mt-   md:mt-0 p-2 font-semibold rounded text-mainBaseColor border-1 border-mainBaseColor"
+                                      className="button    md:mt-0 p-1 font-semibold rounded text-mainBaseColor border-1 border-mainBaseColor"
                                       onClick={() => setOpen(true)}
                                     >
                                       <div className="flex text-mainBaseColor ">
@@ -150,14 +149,14 @@ const ProductList = () => {
                                   </div>
                                 )}
                               </td>
-                              <td className="px-6 py-4">
+                              <td className="px-6 py-2">
                                 {" "}
                                 {item && item.orderItems.length}
                               </td>
-                              <td className="px-6 py-4">
+                              <td className="px-6 py-2">
                                 {item && item.totalPrice}
                               </td>
-                              <td className="px- py-4 text-left">
+                              <td className="px- py-2 text-left">
                                 <button
                                   onClick={() =>
                                     deleteOrderHandler(item && item._id)

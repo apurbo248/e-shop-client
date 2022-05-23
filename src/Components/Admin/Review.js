@@ -143,29 +143,29 @@ const Review = () => {
                             >
                               <th
                                 scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-start"
+                                className="px-6 py-3 font-medium text-gray-900 dark:text-white whitespace-nowrap text-start"
                               >
                                 {item && item._id}
                               </th>
-                              <td className="px-6 py-4">
+                              <td className="px-6 py-3">
                                 {" "}
                                 {item && item.name}
                               </td>
-                              <td className="px-6 py-4">
+                              <td className="px-6 py-3">
                                 {" "}
                                 {item && item.comment}
                               </td>
                               <td
                                 className={
                                   item && item.rating <= 2
-                                    ? "px-6 py-4 text-red-500"
-                                    : "px-6 py-4 text-green-500"
+                                    ? "px-6 py-3 text-red-500 font-bold"
+                                    : "px-6 py-3 text-green-800 font-bold"
                                 }
                               >
                                 {item && item.rating}
                               </td>
 
-                              <td className="px-6 py-4 text-left">
+                              <td className="px-6 py-3 text-left">
                                 <button
                                   onClick={() =>
                                     deleteUserHandler(item && item._id)

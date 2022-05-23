@@ -70,7 +70,7 @@ const ProductList = () => {
           <Sidebar />
         </div>
         <div className="  w-full  md:px-6 md:ml-4 mt-mmt2 md:mb-20 md:mt-24 md:space-y-4  ">
-          {/* <Link to="/admin/add_product"> */}
+        
           <div>
             <button
               className="button mt-16  ml-4 px-4 md:mt-0 md:p-2 font-semibold rounded text-mainBaseColor border-1 border-mainBaseColor"
@@ -144,10 +144,10 @@ const ProductList = () => {
                           >
                             <th
                               scope="row"
-                              className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                              className="px-6 py-43font-medium  dark:text-white whitespace-nowrap"
                             >
                               <div>
-                                <div>{product && product._id}</div>
+                                <div className="text-gray-800">{product && product._id}</div>
                                 <div>{product && product.name}</div>
                               </div>
                             </th>
@@ -164,7 +164,7 @@ const ProductList = () => {
                               {product && product.numberOfReview}
                             </td>
 
-                            <td className="px- py-4 text-left">
+                            <td className="px- py-43text-left">
                               <Link to={`/admin/product_update/${product._id}`}>
                                 <button className=" pr-4 font-sm text-gray-600  hover:underline">
                                   <svg

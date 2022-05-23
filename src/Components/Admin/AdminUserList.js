@@ -99,13 +99,13 @@ const AdminUserList = ({ userEmail }) => {
                           >
                             <th
                               scope="row"
-                              className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                              className="px-6 py-3 font-medium text-gray-900 dark:text-white whitespace-nowrap"
                             >
                               {user && user._id}
                             </th>
-                            <td className="px-6 py-4"> {user && user.name}</td>
-                            <td className="px-6 py-4"> {user && user.email}</td>
-                            <td className="px- py-4 text-center text-uppercase">
+                            <td className="px-6 py-3"> {user && user.name}</td>
+                            <td className="px-6 py-3"> {user && user.email}</td>
+                            <td className="px- py-3 text-center text-uppercase">
                               <p
                                 className={
                                   user && user.role === "admin"
