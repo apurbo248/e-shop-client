@@ -9,7 +9,7 @@ const ConfirmOrder = ({ user }) => {
   const dispatch = useDispatch();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
 
-  const { myOrderList, loading } = useSelector((state) => state.MyOrder);
+  const { myOrderList } = useSelector((state) => state.MyOrder);
   const navigate = useNavigate();
   const subTotal = cartItems.reduce(
     (acc, item) => acc + item.quantity * item.price,
