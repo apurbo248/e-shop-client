@@ -12,6 +12,9 @@
  **This web app has some different feature for `admin` and `user`**
  #### **Admin** 
  
+ email:admin@gmail.com
+ pass:admin
+ 
 * Can **create** ,   **delete**  Products,Users,Orders and reviews (`Find by id and delete `) .
 * Also Can **update** of Products,Users,Orders(`only status`) 
 #### **User** 
